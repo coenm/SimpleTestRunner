@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFrameworks>net6.0</TargetFrameworks>
+		<Nullable>enable</Nullable>
+		<IsPackable>false</IsPackable>
+		<langversion>latest</langversion>
+		<!-- <AssemblyName>$(MSBuildProjectName.Replace("Testlogger","testlogger"))</AssemblyName> -->
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.TestPlatform.ObjectModel" Version="17.1.0" />
+		<PackageReference Include="NetMQ" Version="4.0.1.8" />
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\Interface\Interface.csproj" />
+	</ItemGroup>
+
+</Project>

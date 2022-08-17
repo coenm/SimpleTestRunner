@@ -1,0 +1,11 @@
+{
+  "profiles": {
+    "TestRunViewer": {
+      "commandName": "Project",
+      "commandLineArgs": "dotnet test C:\\Projects\\coenm\\EasyTestFile\\EasyTestFile.sln -c release",
+      "environmentVariables": {
+        "PORT": "12345"
+      }
+    }
+  }
+}

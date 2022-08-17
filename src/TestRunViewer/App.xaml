@@ -1,0 +1,74 @@
+﻿<Application x:Class="TestRunViewer.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             >
+    <!-- Remove the StartupUri property, start the application from a static Main -->
+    <!-- StartupUri="View/MainWindow.xaml" -->
+    <Application.Resources>
+        <ResourceDictionary>
+
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Fonts.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Themes/Dark.Blue.xaml" />
+
+       
+            </ResourceDictionary.MergedDictionaries>
+
+
+            <!-- -->
+            <!-- -->
+            <!-- <SolidColorBrush x:Key="WindowTitleColorBrush" -->
+            <!--                  Color="#FF303030" /> -->
+            <!-- <SolidColorBrush x:Key="IdealForegroundColorBrush" -->
+            <!--                  Color="#DDFFFFFF" /> -->
+            <!-- -->
+            <!-- <SolidColorBrush x:Key="HighlightBrush" -->
+            <!--                  Color="{DynamicResource Primary700}" /> -->
+            <!-- <SolidColorBrush x:Key="AccentColorBrush" -->
+            <!--                  Color="{DynamicResource Primary500}" /> -->
+            <!-- ~1~ main accent @1@ -->
+            <!-- <SolidColorBrush x:Key="AccentColorBrush2" -->
+            <!--                  Color="{DynamicResource Primary400}" /> -->
+            <!-- <SolidColorBrush x:Key="AccentColorBrush3" -->
+            <!--                  Color="{DynamicResource Primary300}" /> -->
+            <!-- <SolidColorBrush x:Key="AccentColorBrush4" -->
+            <!--                  Color="{DynamicResource Primary200}" /> -->
+            <!-- <SolidColorBrush x:Key="AccentSelectedColorBrush" -->
+            <!--                  Color="{DynamicResource Primary500Foreground}" /> -->
+            <!-- <LinearGradientBrush x:Key="ProgressBrush" -->
+            <!--                      EndPoint="0.001,0.5" -->
+            <!--                      StartPoint="1.002,0.5"> -->
+            <!--     <GradientStop Color="{DynamicResource Primary700}" -->
+            <!--                   Offset="0" /> -->
+            <!--     <GradientStop Color="{DynamicResource Primary300}" -->
+            <!--                   Offset="1" /> -->
+            <!-- </LinearGradientBrush> -->
+            <!-- <SolidColorBrush x:Key="CheckmarkFill" -->
+            <!--                  Color="{DynamicResource Primary500}" /> -->
+            <!-- <SolidColorBrush x:Key="RightArrowFill" -->
+            <!--                  Color="{DynamicResource Primary500}" /> -->
+            <!-- <SolidColorBrush x:Key="IdealForegroundDisabledBrush" -->
+            <!--                  Color="{DynamicResource Primary500}" -->
+            <!--                  Opacity="0.4" /> -->
+
+
+
+
+            <!-- <Style TargetType="{x:Type controls:ZTextBox}" BasedOn="{StaticResource {x:Type TextBox}}" /> -->
+            <!-- -->
+            <!-- <Style TargetType="{x:Type controls:AcrylicContextMenu}" BasedOn="{StaticResource {x:Type ContextMenu}}" > -->
+            <!--     <Setter Property="Background" Value="#50000000" /> -->
+            <!--     <Setter Property="FontSize" Value="13.5" /> -->
+            <!-- -->
+            <!-- </Style> -->
+            <!-- -->
+            <!-- -->
+            <!-- <Style TargetType="{x:Type controls:AcrylicMenuItem}" BasedOn="{StaticResource {x:Type MenuItem}}" > -->
+            <!--     <Setter Property="Background" Value="Transparent"/> -->
+            <!-- </Style> -->
+
+        </ResourceDictionary>
+                
+    </Application.Resources>
+</Application>

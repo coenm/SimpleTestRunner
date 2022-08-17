@@ -1,0 +1,60 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+      <TargetFramework>net6.0-windows</TargetFramework>
+      <RootNamespace>TestRunViewer</RootNamespace>
+      <OutputType>WinExe</OutputType>
+      <AssemblyName>TestRunViewer</AssemblyName>
+      <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+      <UseWPF>true</UseWPF>
+      <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
+      <EnableDefaultApplicationDefinition>false</EnableDefaultApplicationDefinition>
+		<nullable>disable</nullable>
+
+	    <UseWindowsForms>True</UseWindowsForms>
+	    <UseWPF>true</UseWPF>
+	    <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
+	    <EnableDefaultApplicationDefinition>false</EnableDefaultApplicationDefinition>
+      
+    </PropertyGroup>
+    <PropertyGroup>
+      <StartupObject></StartupObject>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Microsoft.TestPlatform.ObjectModel" Version="17.1.0" />
+      <PackageReference Include="NetMQ" Version="4.0.1.8" />
+      <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+      <PackageReference Include="System.Reactive" Version="5.0.0" />
+      <PackageReference Include="System.Reactive.Linq" Version="5.0.0" />
+      <!-- <PackageReference Include="Microsoft.CSharp" Version="4.7.0" /> -->
+      <!-- <PackageReference Include="SimpleInjector" Version="5.3.3" /> -->
+      <!-- <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" /> -->
+      <!-- <PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" /> -->
+      <!-- <PackageReference Include="System.ServiceModel.Federation" Version="4.8.1" /> -->
+      <!-- <PackageReference Include="Microsoft.DotNet.UpgradeAssistant.Extensions.Default.Analyzers" Version="0.3.310801"> -->
+      <!--   <PrivateAssets>all</PrivateAssets> -->
+      <!-- </PackageReference> -->
+      <!-- <PackageReference Include="Hardcodet.NotifyIcon.Wpf" Version="1.1.0" /> -->
+      <!-- <PackageReference Include="Microsoft.Windows.Compatibility" Version="6.0.0" /> -->
+
+
+      <!-- <PackageReference Include="Microsoft.Windows.Compatibility" Version="6.0.0" /> -->
+      <PackageReference Include="FluentWPF" Version="0.8.0" />
+      <PackageReference Include="MahApps.Metro" Version="2.4.9" />
+      <PackageReference Include="MaterialDesignThemes.MahApps" Version="0.2.2" />
+	</ItemGroup>
+    <PropertyGroup />
+    <PropertyGroup>
+      <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    </PropertyGroup>
+    <ItemGroup>
+      <FrameworkReference Include="Microsoft.AspNetCore.App" />
+    </ItemGroup>
+    <ItemGroup>
+      <ProjectReference Include="..\Interface\Interface.csproj" />
+      <ProjectReference Include="..\ZmqCollector.Collector\ZmqCollector.Collector.csproj" />
+      <ProjectReference Include="..\ZmqPublisher.testlogger\ZmqPublisher.TestLogger.csproj" />
+    </ItemGroup>
+
+
+</Project>
