@@ -3,20 +3,17 @@
       <TargetFramework>net6.0-windows</TargetFramework>
       <RootNamespace>TestRunViewer</RootNamespace>
       <OutputType>WinExe</OutputType>
+      <EnableWindowsTargeting>true</EnableWindowsTargeting>
       <AssemblyName>TestRunViewer</AssemblyName>
       <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
       <UseWPF>true</UseWPF>
       <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
       <EnableDefaultApplicationDefinition>false</EnableDefaultApplicationDefinition>
-		<nullable>disable</nullable>
-
+      <nullable>disable</nullable>
 	    <UseWindowsForms>True</UseWindowsForms>
 	    <UseWPF>true</UseWPF>
 	    <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
 	    <EnableDefaultApplicationDefinition>false</EnableDefaultApplicationDefinition>
-      
-    </PropertyGroup>
-    <PropertyGroup>
       <StartupObject></StartupObject>
     </PropertyGroup>
 
@@ -32,7 +29,7 @@
       <!-- <PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" /> -->
       <!-- <PackageReference Include="System.ServiceModel.Federation" Version="4.8.1" /> -->
       <!-- <PackageReference Include="Microsoft.DotNet.UpgradeAssistant.Extensions.Default.Analyzers" Version="0.3.310801"> -->
-      <!--   <PrivateAssets>all</PrivateAssets> -->
+      <!-- <PrivateAssets>all</PrivateAssets> -->
       <!-- </PackageReference> -->
       <!-- <PackageReference Include="Hardcodet.NotifyIcon.Wpf" Version="1.1.0" /> -->
       <!-- <PackageReference Include="Microsoft.Windows.Compatibility" Version="6.0.0" /> -->
@@ -43,7 +40,6 @@
       <PackageReference Include="MahApps.Metro" Version="2.4.9" />
       <PackageReference Include="MaterialDesignThemes.MahApps" Version="0.2.2" />
 	</ItemGroup>
-    <PropertyGroup />
     <PropertyGroup>
       <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
     </PropertyGroup>
@@ -55,6 +51,4 @@
       <ProjectReference Include="..\ZmqCollector.Collector\ZmqCollector.Collector.csproj" />
       <ProjectReference Include="..\ZmqPublisher.testlogger\ZmqPublisher.TestLogger.csproj" />
     </ItemGroup>
-
-
 </Project>
