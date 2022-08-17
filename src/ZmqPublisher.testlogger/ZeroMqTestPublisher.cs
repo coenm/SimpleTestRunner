@@ -12,7 +12,6 @@ using Interface;
 using Interface.Data.Logger;
 using Microsoft.VisualStudio.TestPlatform.ObjectModel;
 using Microsoft.VisualStudio.TestPlatform.ObjectModel.Client;
-using Microsoft.VisualStudio.TestPlatform.ObjectModel.DataCollection;
 using Microsoft.VisualStudio.TestPlatform.ObjectModel.Logging;
 using NetMQ;
 using NetMQ.Sockets;
@@ -31,7 +30,6 @@ public class ZeroMqTestPublisher : ITestLoggerWithParameters
     {
         _pubSocket = new PublisherSocket();
         _pubSocket.Options.SendHighWatermark = 10000;
-            
 
         var config = new MapperConfiguration(cfg => cfg.AddMaps(typeof(InterfaceProject).Assembly));
         _mapper = config.CreateMapper();

@@ -2,10 +2,6 @@
 
   <PropertyGroup>
     <TargetFrameworks>net6.0</TargetFrameworks>
-    <!-- <ImplicitUsings>enable</ImplicitUsings> -->
-    <Nullable>enable</Nullable>
-    <langversion>latest</langversion>
-	  <IsPackable>false</IsPackable>
   </PropertyGroup>
 
   <ItemGroup>

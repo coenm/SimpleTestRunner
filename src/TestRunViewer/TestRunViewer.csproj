@@ -10,10 +10,10 @@
       <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
       <EnableDefaultApplicationDefinition>false</EnableDefaultApplicationDefinition>
       <nullable>disable</nullable>
-	    <UseWindowsForms>True</UseWindowsForms>
-	    <UseWPF>true</UseWPF>
-	    <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
-	    <EnableDefaultApplicationDefinition>false</EnableDefaultApplicationDefinition>
+      <UseWindowsForms>True</UseWindowsForms>
+      <UseWPF>true</UseWPF>
+      <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
+      <EnableDefaultApplicationDefinition>false</EnableDefaultApplicationDefinition>
       <StartupObject></StartupObject>
     </PropertyGroup>
 
@@ -39,10 +39,7 @@
       <PackageReference Include="FluentWPF" Version="0.8.0" />
       <PackageReference Include="MahApps.Metro" Version="2.4.9" />
       <PackageReference Include="MaterialDesignThemes.MahApps" Version="0.2.2" />
-	</ItemGroup>
-    <PropertyGroup>
-      <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
-    </PropertyGroup>
+    </ItemGroup>
     <ItemGroup>
       <FrameworkReference Include="Microsoft.AspNetCore.App" />
     </ItemGroup>

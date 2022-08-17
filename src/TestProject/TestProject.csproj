@@ -2,10 +2,6 @@
 
   <PropertyGroup>
     <TargetFrameworks>net6.0</TargetFrameworks>
-    <Nullable>enable</Nullable>
-	  <langversion>latest</langversion>
-
-    <IsPackable>false</IsPackable>
   </PropertyGroup>
 
   <ItemGroup>
@@ -25,6 +21,4 @@
     <ProjectReference Include="..\ZmqCollector.Collector\ZmqCollector.Collector.csproj" />
     <ProjectReference Include="..\ZmqPublisher.testlogger\ZmqPublisher.TestLogger.csproj" />
   </ItemGroup>
-
-
 </Project>

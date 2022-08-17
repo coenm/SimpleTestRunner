@@ -3,7 +3,9 @@
 <Project>
   <PropertyGroup>
     <Nullable>enable</Nullable>
-    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <langversion>latest</langversion>
+    <!-- <TreatWarningsAsErrors>true</TreatWarningsAsErrors> -->
+    <IsPackable>false</IsPackable>
 
     <Authors>Coen van den Munckhof</Authors>
     <Owners>$(Authors)</Owners>
