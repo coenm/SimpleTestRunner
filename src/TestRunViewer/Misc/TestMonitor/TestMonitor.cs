@@ -34,13 +34,11 @@ public class TestMonitor : ITestMonitor, IDisposable
         _subSocket = new SubscriberSocket();
         _subSocket.Options.ReceiveHighWatermark = 1000;
         _subSocket.Bind($"tcp://*:{port}");
-        //subSocket.Connect("tcp://localhost:12345");
         _subSocket.Subscribe(string.Empty); // all.
         Console.WriteLine("Subscriber socket connecting...");
 
         return Task.Run(() =>
             {
-                
                 try
                 {
                     while (true)
