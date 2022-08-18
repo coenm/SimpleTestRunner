@@ -23,8 +23,7 @@ public class MainViewModel : ViewModelBase, IInitializable, IDisposable
     private CancellationTokenSource _runningCancellationTokenSource;
     private readonly TestMonitor _testMonitor;
     private Task _monitoringTask;
-    // private readonly TestCaseFactory _testFactory;
-    private object _lock =new object();
+    private object _lock = new();
 
     private void TestsAdd(Guid id, string sessionId, string name, EventArgsBaseDto evt)
     {
@@ -123,7 +122,7 @@ public class MainViewModel : ViewModelBase, IInitializable, IDisposable
 
     private void ResetClients()
     {
-        foreach (var client in Tests)
+        foreach (SingleTestViewModel client in Tests)
         {
             try
             {
@@ -157,23 +156,5 @@ public class MainViewModel : ViewModelBase, IInitializable, IDisposable
         StartListening.UpdateCanExecute();
 
         ResetClientsCommand.UpdateCanExecute();
-    }
-}
-
-public class TestCaseFactory
-{
-    private readonly ITestMonitor _testMonitor;
-    private readonly IDisposable _disposable;
-    private int _counter = 0;
-
-    public TestCaseFactory(ITestMonitor testMonitor)
-    {
-        _testMonitor = testMonitor;
-        _disposable = _testMonitor.Events
-                                  .Subscribe(
-                                      data =>
-                                          {
-                                              _counter++;
-                                          });
     }
 }

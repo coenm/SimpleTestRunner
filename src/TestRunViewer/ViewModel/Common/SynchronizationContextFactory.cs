@@ -15,7 +15,7 @@ public class SynchronizationContextFactory
         {
             lock (_singletonLock)
             {
-                return _instance ?? (_instance = new SynchronizationContextFactory());
+                return _instance ??= new SynchronizationContextFactory();
             }
         }
 
@@ -30,7 +30,9 @@ public class SynchronizationContextFactory
 
     public SynchronizationContext Create()
     {
-        var dispatcher = Application.Current != null ? Application.Current.Dispatcher : Dispatcher.CurrentDispatcher;
+        Dispatcher dispatcher = Application.Current != null
+            ? Application.Current.Dispatcher
+            : Dispatcher.CurrentDispatcher;
         return new DispatcherSynchronizationContext(dispatcher);
     }
 }
