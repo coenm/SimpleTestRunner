@@ -36,7 +36,7 @@ public class SampleDataCollector : DataCollector, ITestExecutionEnvironmentSpeci
     }
 
     public override void Initialize(
-        System.Xml.XmlElement configurationElement,
+        XmlElement configurationElement,
         DataCollectionEvents events,
         DataCollectionSink dataSink,
         DataCollectionLogger logger,
@@ -49,7 +49,6 @@ public class SampleDataCollector : DataCollector, ITestExecutionEnvironmentSpeci
         events.TestCaseEnd += Events_TestCaseEnd;
 
         // todo ubsubscribe
-
         int port = GetPort(configurationElement);
         _pubSocket.Connect($"tcp://localhost:{port}");
     }

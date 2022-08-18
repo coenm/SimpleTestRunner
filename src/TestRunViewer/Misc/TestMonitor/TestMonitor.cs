@@ -22,7 +22,7 @@ public class TestMonitor : ITestMonitor, IDisposable
     public TestMonitor()
     {
         // _subject = new Subject<EventArgsBaseDto>();
-        var window = TimeSpan.FromMilliseconds(500);
+        var window = TimeSpan.FromSeconds(2);
         _subject = new ReplaySubject<EventArgsBaseDto>(window);
     }
 
@@ -88,7 +88,6 @@ public class TestMonitor : ITestMonitor, IDisposable
     {
         _subSocket?.Dispose();
     }
-
 
     public void Dispose()
     {

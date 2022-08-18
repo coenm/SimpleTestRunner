@@ -98,8 +98,7 @@ public class LoggerProfile : Profile
         CreateMap<DiscoveryStartEventArgs, DiscoveryStartEventArgsDto>()
             .ForMember(dest => dest.DiscoveryCriteria, opts => opts.MapFrom(src => src.DiscoveryCriteria))
             ;
-
-
+        
         CreateMap<TestRunCompleteEventArgs, TestRunCompleteEventArgsDto>()
             .ForMember(dest => dest.TestRunStatistics, opts => opts.MapFrom(src => src.TestRunStatistics))
             .ForMember(dest => dest.IsCanceled, opts => opts.MapFrom(src => src.IsCanceled))
@@ -108,10 +107,5 @@ public class LoggerProfile : Profile
             .ForMember(dest => dest.ElapsedTimeInRunningTests, opts => opts.MapFrom(src => src.ElapsedTimeInRunningTests))
             .ForMember(dest => dest.Metrics, opts => opts.MapFrom(src => src.Metrics)) //check dictionary, objects
             ;
-
-
-
-
-
     }
 }
