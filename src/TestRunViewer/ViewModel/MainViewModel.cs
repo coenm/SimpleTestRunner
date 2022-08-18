@@ -40,7 +40,7 @@ public class MainViewModel : ViewModelBase, IInitializable, IDisposable
                 return;
             }
 
-            Tests.Add(new TestViewModel(new IdleClient(sessionId, id, name, _testMonitor, evt)));
+            Tests.Add(new SingleTestViewModel(new SingleTestModel(sessionId, id, name, _testMonitor, evt)));
         }
     }
 
@@ -48,7 +48,7 @@ public class MainViewModel : ViewModelBase, IInitializable, IDisposable
     {
         Port = FreePortLocator.GetAvailablePort();
 
-        Tests = new ObservableCollection<TestViewModel>();
+        Tests = new ObservableCollection<SingleTestViewModel>();
         _testMonitor = new TestMonitor();
 
         // _testFactory = new TestCaseFactory(_testMonitor);
@@ -106,7 +106,7 @@ public class MainViewModel : ViewModelBase, IInitializable, IDisposable
 
     public int Port { get; set; }
 
-    public ObservableCollection<TestViewModel> Tests { get; }
+    public ObservableCollection<SingleTestViewModel> Tests { get; }
 
     public IAsyncCommand StartListening { get; }
 

@@ -48,8 +48,10 @@ public class SampleDataCollector : DataCollector, ITestExecutionEnvironmentSpeci
         events.TestCaseStart += Events_TestCaseStart;
         events.TestCaseEnd += Events_TestCaseEnd;
 
-        // todo ubsubscribe
-        int port = GetPort(configurationElement);
+        // contains interesting properties?!
+        //environmentContext.SessionDataCollectionContext.xxx
+
+        var port = GetPort(configurationElement);
         _pubSocket.Connect($"tcp://localhost:{port}");
     }
 
@@ -143,11 +145,12 @@ public class SampleDataCollector : DataCollector, ITestExecutionEnvironmentSpeci
 
     public IEnumerable<KeyValuePair<string, string>> GetTestExecutionEnvironmentVariables()
     {
-        return new List<KeyValuePair<string, string>> { new KeyValuePair<string, string>("key", "value") };
+        return new List<KeyValuePair<string, string>> { new KeyValuePair<string, string>("key", "value"), };
     }
 
     protected override void Dispose(bool disposing)
     {
-        _pubSocket?.Dispose();
+        // too soon??
+        _pubSocket.Dispose();
     }
 }

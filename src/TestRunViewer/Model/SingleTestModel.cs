@@ -8,25 +8,13 @@ using Interface.Data.Logger;
 using Interface.Data.Logger.Inner;
 using TestRunViewer.Misc.TestMonitor;
 
-public enum TestState
-{
-    Empty,
-
-    Started, // running
-
-    Succeeded,
-
-    Failed,
-
-    Skipped,
-}
-
-public class IdleClient
+public class SingleTestModel
 {
     private bool _isDisposed;
-    private int _itemCount;
+    private object _stateLock = new();
+    private TestState _state;
 
-    public IdleClient(string sessionId, Guid id, string name, ITestMonitor testMonitor, EventArgsBaseDto evt)
+    public SingleTestModel(string sessionId, Guid id, string name, ITestMonitor testMonitor, EventArgsBaseDto evt)
     {
         SessionId = sessionId;
         Id = id;
@@ -36,38 +24,36 @@ public class IdleClient
             ? TestState.Started
             : TestState.Empty;
 
-        ITestMonitor testMonitor1 = testMonitor;
+        testMonitor.Events
+                   .Where(x => x.SessionId == SessionId)
+                   .Where(x => x is TestResultEventArgsDto result && result.Result.TestCase.Id == Id)
+                   .Subscribe(x =>
+                       {
+                           if (x is TestResultEventArgsDto result && result.Result.TestCase.Id == Id)
+                           {
+                               // State = result.Result.Outcome;
+                               State = Map(result.Result.Outcome);
+                           }
+                       });
 
-        testMonitor1.Events
-                    .Where(x => x.SessionId == SessionId)
-                    .Where(x => x is TestResultEventArgsDto result && result.Result.TestCase.Id == Id)
-                    .Subscribe(x =>
-                        {
-                            if (x is TestResultEventArgsDto result && result.Result.TestCase.Id == Id)
-                            {
-                                // State = result.Result.Outcome;
-                                State = Map(result.Result.Outcome);
-                            }
-                        });
+        testMonitor.Events
+                   .Where(x => x.SessionId == SessionId)
+                   .Where(x => x is TestCaseStartEventArgsDto result && result.TestCaseId == Id)
+                   .Subscribe(x =>
+                       {
+                           State = TestState.Started;
+                       });
 
-        testMonitor1.Events
-                    .Where(x => x.SessionId == SessionId)
-                    .Where(x => x is TestCaseStartEventArgsDto result && result.TestCaseId == Id)
-                    .Subscribe(x =>
-                        {
-                            State = TestState.Started;
-                        });
-
-        testMonitor1.Events
-                    .Where(x => x.SessionId == SessionId)
-                    .Where(x => x is TestCaseEndEventArgsDto result && result.TestCaseId == Id)
-                    .Subscribe(x =>
-                        {
-                            if (x is TestCaseEndEventArgsDto y)
-                            {
-                                State = Map(y.TestOutcome);
-                            }
-                        });
+        testMonitor.Events
+                   .Where(x => x.SessionId == SessionId)
+                   .Where(x => x is TestCaseEndEventArgsDto result && result.TestCaseId == Id)
+                   .Subscribe(x =>
+                       {
+                           if (x is TestCaseEndEventArgsDto y)
+                           {
+                               State = Map(y.TestOutcome);
+                           }
+                       });
     }
 
     private static TestState Map(TestOutcome resultOutcome)
@@ -90,10 +76,6 @@ public class IdleClient
     public string SessionId { get; }
 
     public Guid Id { get; }
-
-    private object _stateLock = new object();
-
-    private TestState _state;
 
     public TestState State
     {
@@ -139,9 +121,6 @@ public class IdleClient
         }
     }
 
-
-    public int ItemCount => _itemCount;
-
     public string Name { get; set; }
 
     public void Start()
@@ -160,6 +139,5 @@ public class IdleClient
         }
 
         _isDisposed = true;
-        // _actionQueue.Dispose();
     }
 }

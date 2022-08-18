@@ -30,7 +30,7 @@
     <!-- <SolidColorBrush x:Key="ExecutingAddItemStateBrush" Color="DeepSkyBlue" /> -->
     <!-- <SolidColorBrush x:Key="ExecutingAddItemDuplexStateBrush" Color="Violet" /> -->
 
-    <DataTemplate DataType="{x:Type viewModel:TestViewModel}">
+    <DataTemplate DataType="{x:Type viewModel:SingleTestViewModel}">
       <Border x:Name="ClientBox" Height="20" Width="20" BorderBrush="Black" BorderThickness="1" Background="DimGray" ToolTip="{Binding Path=Name}">
         <!-- <Border.InputBindings> -->
         <!--   <MouseBinding Gesture="Control+LeftClick" Command="{Binding Path=GetItemsCommand}" /> -->
