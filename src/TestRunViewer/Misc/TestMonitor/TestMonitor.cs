@@ -21,8 +21,7 @@ public class TestMonitor : ITestMonitor, IDisposable
 
     public TestMonitor()
     {
-        // _subject = new Subject<EventArgsBaseDto>();
-        var window = TimeSpan.FromSeconds(2);
+        var window = TimeSpan.FromSeconds(5);
         _subject = new ReplaySubject<EventArgsBaseDto>(window);
     }
 
@@ -37,6 +36,7 @@ public class TestMonitor : ITestMonitor, IDisposable
         _subSocket.Subscribe(string.Empty); // all.
         Console.WriteLine("Subscriber socket connecting...");
 
+        // long running, fix
         return Task.Run(() =>
             {
                 try
@@ -65,11 +65,12 @@ public class TestMonitor : ITestMonitor, IDisposable
 
                         if (o != null)
                         {
-                            Task.Run(() => _subject.OnNext(o));
+                            _subject.OnNext(o);
+                            // Task.Run(() => _subject.OnNext(o));
                         }
                         else
                         {
-                            _subject.OnError(new Exception($"Cannot parse incoming json to type, sdfsd"));
+                            _subject.OnError(new Exception($"Cannot parse incoming json to type."));
                         }
 
                     }

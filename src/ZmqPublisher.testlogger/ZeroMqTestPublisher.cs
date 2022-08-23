@@ -7,32 +7,25 @@ namespace ZmqPublisher.TestLogger;
 
 using System;
 using System.Collections.Generic;
-using AutoMapper;
-using Interface;
-using Interface.Data.Logger;
 using Microsoft.VisualStudio.TestPlatform.ObjectModel;
 using Microsoft.VisualStudio.TestPlatform.ObjectModel.Client;
 using Microsoft.VisualStudio.TestPlatform.ObjectModel.Logging;
-using NetMQ;
-using NetMQ.Sockets;
-using Newtonsoft.Json;
+using Publisher;
 using TestResultEventArgs = Microsoft.VisualStudio.TestPlatform.ObjectModel.Logging.TestResultEventArgs;
 
-[FriendlyName("zmq-test-publisher")]
-[ExtensionUri("my://github.com/coenm/test-run-visualizer/zmq-test-publisher")]
-public class ZeroMqTestPublisher : ITestLoggerWithParameters
+[FriendlyName(FRIENDLY_NAME)]
+[ExtensionUri(EXTENSION_URI)]
+public class ZeroMqTestPublisher : ITestLoggerWithParameters, IDisposable
 {
-    private readonly PublisherSocket _pubSocket;
-    private readonly IMapper _mapper;
-    private readonly string _session = Guid.NewGuid().ToString();
+    public const string FRIENDLY_NAME = "zmq-test-publisher";
+    public const string EXTENSION_URI = "my://github.com/coenm/test-run-visualizer/zmq-test-publisher";
+
+    private readonly Publisher _publisher;
+    private TestLoggerEvents _events;
 
     public ZeroMqTestPublisher()
     {
-        _pubSocket = new PublisherSocket();
-        _pubSocket.Options.SendHighWatermark = 10000;
-
-        var config = new MapperConfiguration(cfg => cfg.AddMaps(typeof(InterfaceProject).Assembly));
-        _mapper = config.CreateMapper();
+        _publisher = new Publisher();
     }
 
     public void Initialize(TestLoggerEvents events, string testRunDirectory)
@@ -42,18 +35,19 @@ public class ZeroMqTestPublisher : ITestLoggerWithParameters
 
     public void Initialize(TestLoggerEvents events, Dictionary<string, string> parameters)
     {
-        int port = GetPort(parameters);
-        _pubSocket.Connect($"tcp://localhost:{port}");
+        var port = GetPort(parameters);
+        _publisher.Start(port);
 
-        events.DiscoveryStart += Events_DiscoveryStart;
-        events.DiscoveredTests += EventsOnDiscoveredTests;
-        events.DiscoveryComplete += EventsOnDiscoveryComplete;
-        events.DiscoveryMessage += EventsOnDiscoveryMessage;
+        _events = events;
+        _events.DiscoveryStart += Events_DiscoveryStart;
+        _events.DiscoveredTests += EventsOnDiscoveredTests;
+        _events.DiscoveryComplete += EventsOnDiscoveryComplete;
+        _events.DiscoveryMessage += EventsOnDiscoveryMessage;
 
-        events.TestRunStart += EventsOnTestRunStart;
-        events.TestRunComplete += EventsOnTestRunComplete;
-        events.TestResult += EventsOnTestResult;
-        events.TestRunMessage += EventsOnTestRunMessage;
+        _events.TestRunStart += EventsOnTestRunStart;
+        _events.TestRunComplete += EventsOnTestRunComplete;
+        _events.TestResult += EventsOnTestResult;
+        _events.TestRunMessage += EventsOnTestRunMessage;
     }
 
     private static int GetPort(IReadOnlyDictionary<string, string> configurationElement)
@@ -99,62 +93,61 @@ public class ZeroMqTestPublisher : ITestLoggerWithParameters
             // do nothing
         }
 
-        return 12345;
+        throw new Exception("Could not find port to connect to.");
     }
 
     private void EventsOnTestRunMessage(object? sender, TestRunMessageEventArgs e)
     {
-        Send(e, "TestRunMessage");
+        _publisher.Send(e, "TestRunMessage");
     }
 
     private void EventsOnTestResult(object? sender, TestResultEventArgs e)
     {
-        Send(e, "TestResult");
+        _publisher.Send(e, "TestResult");
     }
 
     private void EventsOnTestRunComplete(object? sender, TestRunCompleteEventArgs e)
     {
-        Send(e, "TestRunComplete");
+        _publisher.Send(e, "TestRunComplete");
     }
 
     private void EventsOnTestRunStart(object? sender, TestRunStartEventArgs e)
     {
-        Send(e, "TestRunStart");
+        _publisher.Send(e, "TestRunStart");
     }
 
     private void EventsOnDiscoveryMessage(object? sender, TestRunMessageEventArgs e)
     {
-        Send(e, "DiscoveryMessage");
+        _publisher.Send(e, "DiscoveryMessage");
     }
 
     private void EventsOnDiscoveryComplete(object? sender, DiscoveryCompleteEventArgs e)
     {
-        Send(e, "DiscoveryComplete");
+        _publisher.Send(e, "DiscoveryComplete");
     }
 
     private void EventsOnDiscoveredTests(object? sender, DiscoveredTestsEventArgs e)
     {
-        Send(e, "DiscoveredTests");
+        _publisher.Send(e, "DiscoveredTests");
     }
 
     private void Events_DiscoveryStart(object? sender, DiscoveryStartEventArgs e)
     {
-        Send(e, "DiscoveryStart");
+        _publisher.Send(e, "DiscoveryStart");
     }
 
-    private void Send(EventArgs evt, string caller)
+    public void Dispose()
     {
-        var dto = _mapper.Map(evt, evt.GetType(), typeof(EventArgsBaseDto)) as EventArgsBaseDto;
-        dto!.SessionId = _session;
-        var json = JsonConvert.SerializeObject(dto, Newtonsoft.Json.Formatting.Indented);
-        var @type = dto.GetType().Name;
-        // Console.WriteLine($"Send {@type}");
-        // Console.WriteLine(json);
+        _events.DiscoveryStart -= Events_DiscoveryStart;
+        _events.DiscoveredTests -= EventsOnDiscoveredTests;
+        _events.DiscoveryComplete -= EventsOnDiscoveryComplete;
+        _events.DiscoveryMessage -= EventsOnDiscoveryMessage;
 
-        _pubSocket
-            .SendMoreFrame("Logger")
-            .SendMoreFrame(caller)
-            .SendMoreFrame(@type)
-            .SendFrame(json);
+        _events.TestRunStart -= EventsOnTestRunStart;
+        _events.TestRunComplete -= EventsOnTestRunComplete;
+        _events.TestResult -= EventsOnTestResult;
+        _events.TestRunMessage -= EventsOnTestRunMessage;
+
+        _publisher.Dispose();
     }
 }

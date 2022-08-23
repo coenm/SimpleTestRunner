@@ -5,34 +5,33 @@
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
+namespace ZmqCollector.Collector;
+
 using System;
 using System.Collections.Generic;
 using System.Xml;
-using AutoMapper;
-using Interface;
-using Interface.Data.Logger;
 using Microsoft.VisualStudio.TestPlatform.ObjectModel.DataCollection;
-using NetMQ;
-using NetMQ.Sockets;
-using Newtonsoft.Json;
+using Publisher;
 
-namespace ZmqCollector.Collector;
-
-[DataCollectorFriendlyName("zmq-publisher-collector")]
-[DataCollectorTypeUri("my://sample/datacollector")]
+[DataCollectorFriendlyName(SampleDataCollector.DATA_COLLECTOR_FRIENDLY_NAME)]
+[DataCollectorTypeUri(SampleDataCollector.DATA_COLLECTOR_TYPE_URI)]
 public class SampleDataCollector : DataCollector, ITestExecutionEnvironmentSpecifier
 {
-    private readonly PublisherSocket _pubSocket;
-    private readonly IMapper _mapper;
-    private readonly string _session = Guid.NewGuid().ToString();
+    public const string DATA_COLLECTOR_FRIENDLY_NAME = "zmq-publisher-collector";
+    public const string DATA_COLLECTOR_TYPE_URI = "my://sample/datacollector";
+    
+    // private readonly PublisherSocket _pubSocket;
+    // private readonly IMapper _mapper;
+    // private readonly string _session = Guid.NewGuid().ToString();
+    private readonly Publisher _publisher;
+    private DataCollectionEvents _events;
 
     public SampleDataCollector()
     {
-        var config = new MapperConfiguration(cfg => cfg.AddMaps(typeof(InterfaceProject).Assembly));
-        _mapper = config.CreateMapper();
+        // var config = new MapperConfiguration(cfg => cfg.AddMaps(typeof(InterfaceProject).Assembly));
+        // _mapper = config.CreateMapper();
 
-        _pubSocket = new PublisherSocket();
-        _pubSocket.Options.SendHighWatermark = 1000;
+        _publisher = new Publisher();
     }
 
     public override void Initialize(
@@ -42,24 +41,25 @@ public class SampleDataCollector : DataCollector, ITestExecutionEnvironmentSpeci
         DataCollectionLogger logger,
         DataCollectionEnvironmentContext environmentContext)
     {
-        events.TestHostLaunched += TestHostLaunched_Handler;
-        events.SessionStart += SessionStarted_Handler;
-        events.SessionEnd += SessionEnded_Handler;
-        events.TestCaseStart += Events_TestCaseStart;
-        events.TestCaseEnd += Events_TestCaseEnd;
+        var port = GetPort(configurationElement);
+        _publisher.Start(port);
+
+        _events = events;
+        _events.TestHostLaunched += TestHostLaunched_Handler;
+        _events.SessionStart += SessionStarted_Handler;
+        _events.SessionEnd += SessionEnded_Handler;
+        _events.TestCaseStart += Events_TestCaseStart;
+        _events.TestCaseEnd += Events_TestCaseEnd;
 
         // contains interesting properties?!
         //environmentContext.SessionDataCollectionContext.xxx
-
-        var port = GetPort(configurationElement);
-        _pubSocket.Connect($"tcp://localhost:{port}");
     }
 
     private static int GetPort(XmlElement configurationElement)
     {
         try
         {
-            var port = configurationElement["ZmqPort"];
+            XmlElement? port = configurationElement["ZmqPort"];
             if (port != null)
             {
                 var portValue = port.InnerText;
@@ -99,48 +99,32 @@ public class SampleDataCollector : DataCollector, ITestExecutionEnvironmentSpeci
             // do nothing
         }
 
-        return 12345;
+        throw new Exception("Could not find port to connect to.");
     }
-
-    private void Send(EventArgs evt, string caller)
-    {
-        var dto = _mapper.Map(evt, evt.GetType(), typeof(EventArgsBaseDto)) as EventArgsBaseDto;
-        dto!.SessionId = _session;
-        var json = JsonConvert.SerializeObject(dto, Newtonsoft.Json.Formatting.Indented);
-        var @type = dto.GetType().Name;
-        Console.WriteLine($"Send {@type}");
-        Console.WriteLine(json);
-          
-        _pubSocket
-            .SendMoreFrame("DataCollector")
-            .SendMoreFrame(caller)
-            .SendMoreFrame(@type)
-            .SendFrame(json);
-    }
-
+    
     private void Events_TestCaseEnd(object? sender, TestCaseEndEventArgs e)
     {
-        Send(e, "TestCaseEnd");
+        _publisher.Send(e, "TestCaseEnd");
     }
 
     private void Events_TestCaseStart(object? sender, TestCaseStartEventArgs e)
     {
-        Send(e, "TestCaseStart");
+        _publisher.Send(e, "TestCaseStart");
     }
 
     private void SessionStarted_Handler(object? sender, SessionStartEventArgs e)
     {
-        Send(e, "SessionStart");
+        _publisher.Send(e, "SessionStart");
     }
 
     private void SessionEnded_Handler(object? sender, SessionEndEventArgs e)
     {
-        Send(e, "SessionEnded");
+        _publisher.Send(e, "SessionEnded");
     }
 
     private void TestHostLaunched_Handler(object? sender, TestHostLaunchedEventArgs e)
     {
-        Send(e, "TestHostLaunched");
+        _publisher.Send(e, "TestHostLaunched");
     }
 
     public IEnumerable<KeyValuePair<string, string>> GetTestExecutionEnvironmentVariables()
@@ -150,7 +134,12 @@ public class SampleDataCollector : DataCollector, ITestExecutionEnvironmentSpeci
 
     protected override void Dispose(bool disposing)
     {
-        // too soon??
-        _pubSocket.Dispose();
+        _events.TestHostLaunched -= TestHostLaunched_Handler;
+        _events.SessionStart -= SessionStarted_Handler;
+        _events.SessionEnd -= SessionEnded_Handler;
+        _events.TestCaseStart -= Events_TestCaseStart;
+        _events.TestCaseEnd -= Events_TestCaseEnd;
+
+        _publisher.Dispose();
     }
 }
