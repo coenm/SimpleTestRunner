@@ -65,6 +65,7 @@ internal class DotNetTestExecutor
 
         // cmdline = arg + " " + ADAPTER_PATH + COLLECT_LOGGER;
         psi = new ProcessStartInfo("wt", cmdline);
+        psi = new ProcessStartInfo("dotnet", cmdline1.Trim());
 
         // Required for EnvironmentVariables to be set
         psi.UseShellExecute = false;
@@ -73,8 +74,7 @@ internal class DotNetTestExecutor
         psi.EnvironmentVariables.Add("ZmqLoggerPort", port.ToString());
 
         psi.CreateNoWindow = true;
-        psi.WindowStyle = ProcessWindowStyle.Minimized;
-
+        psi.WindowStyle = ProcessWindowStyle.Hidden;
 
 
         // ProcessWindowStyle windowStyle = isExecutable ? ProcessWindowStyle.Normal : ProcessWindowStyle.Hidden;
