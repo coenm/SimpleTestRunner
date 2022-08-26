@@ -18,6 +18,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <PackageReference Include="MedallionShell" Version="1.6.2" />
       <PackageReference Include="Microsoft.TestPlatform.ObjectModel" Version="17.1.0" />
       <PackageReference Include="NetMQ" Version="4.0.1.8" />
       <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />

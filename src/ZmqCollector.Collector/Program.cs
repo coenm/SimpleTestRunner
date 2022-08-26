@@ -19,18 +19,11 @@ public class SampleDataCollector : DataCollector, ITestExecutionEnvironmentSpeci
 {
     public const string DATA_COLLECTOR_FRIENDLY_NAME = "zmq-publisher-collector";
     public const string DATA_COLLECTOR_TYPE_URI = "my://sample/datacollector";
-    
-    // private readonly PublisherSocket _pubSocket;
-    // private readonly IMapper _mapper;
-    // private readonly string _session = Guid.NewGuid().ToString();
     private readonly Publisher _publisher;
     private DataCollectionEvents _events;
 
     public SampleDataCollector()
     {
-        // var config = new MapperConfiguration(cfg => cfg.AddMaps(typeof(InterfaceProject).Assembly));
-        // _mapper = config.CreateMapper();
-
         _publisher = new Publisher();
     }
 

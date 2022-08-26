@@ -37,7 +37,7 @@ public class TestMonitor : ITestMonitor, IDisposable
         Console.WriteLine("Subscriber socket connecting...");
 
         // long running, fix
-        return Task.Run(() =>
+        return Task.Factory.StartNew(() =>
             {
                 try
                 {
@@ -47,10 +47,10 @@ public class TestMonitor : ITestMonitor, IDisposable
                         var eventName = _subSocket.ReceiveFrameString();
                         var msgType = _subSocket.ReceiveFrameString();
                         var payload = _subSocket.ReceiveFrameString();
-                        Console.WriteLine(eventName);
-                        Console.WriteLine(msgType);
-                        Console.WriteLine(payload);
-                        Console.WriteLine(new string('-', 100));
+                        // Console.WriteLine(eventName);
+                        // Console.WriteLine(msgType);
+                        // Console.WriteLine(payload);
+                        // Console.WriteLine(new string('-', 100));
 
                         EventArgsBaseDto o = null;
                         try
@@ -65,8 +65,8 @@ public class TestMonitor : ITestMonitor, IDisposable
 
                         if (o != null)
                         {
-                            _subject.OnNext(o);
-                            // Task.Run(() => _subject.OnNext(o));
+                            // _subject.OnNext(o);
+                            Task.Run(() => _subject.OnNext(o));
                         }
                         else
                         {
@@ -80,7 +80,8 @@ public class TestMonitor : ITestMonitor, IDisposable
                     Console.WriteLine(e);
                     // throw;
                 }
-            });
+            },
+            TaskCreationOptions.LongRunning);
     }
 
     public void StopMonitoring()

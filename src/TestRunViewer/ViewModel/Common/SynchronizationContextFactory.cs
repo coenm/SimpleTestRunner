@@ -1,5 +1,6 @@
 namespace TestRunViewer.ViewModel.Common;
 
+using System.ComponentModel.DataAnnotations;
 using System.Threading;
 using System.Windows;
 using System.Windows.Threading;
@@ -13,6 +14,12 @@ public class SynchronizationContextFactory
     {
         get
         {
+            SynchronizationContextFactory tmpInstance = _instance;
+            if (tmpInstance != null)
+            {
+                return tmpInstance;
+            }
+
             lock (_singletonLock)
             {
                 return _instance ??= new SynchronizationContextFactory();
