@@ -24,16 +24,13 @@ namespace Publisher
         {
             var config = new MapperConfiguration(cfg => cfg.AddMaps(typeof(InterfaceProject).Assembly));
             _mapper = config.CreateMapper();
-
-            // _pubSocket = new PublisherSocket();
-            // _pubSocket.Options.SendHighWatermark = 1000;
         }
 
         public void Start(int port)
         {
             _ = Task.Factory.StartNew(_ =>
                 {
-                    var pubSocket = new PublisherSocket();
+                    using var pubSocket = new PublisherSocket();
                     pubSocket.Options.SendHighWatermark = 1000;
                     pubSocket.Options.Linger = TimeSpan.MinValue;
                     pubSocket.Connect($"tcp://localhost:{port}");
@@ -52,12 +49,11 @@ namespace Publisher
                                 pubSocket.SendFrame(clientMessage[clientMessage.FrameCount-1].ToByteArray());
                             }
                         }
-
-                        if (_disposeCalled.IsSet && _q.IsEmpty)
+                        else if (_disposeCalled.IsSet && _q.IsEmpty)
                         {
                             while (pubSocket.HasOut)
                             {
-                                Thread.Sleep(1000);
+                                Thread.Sleep(500);
                             }
 
                             _queueEmpty.Set();
@@ -74,54 +70,19 @@ namespace Publisher
             dto!.SessionId = _session;
             var json = JsonConvert.SerializeObject(dto, Formatting.Indented);
             var @type = dto.GetType().Name;
-            // Console.WriteLine($"Send {@type}");
-            // Console.WriteLine(json);
-
-            // using var _pubSocket2 = new PublisherSocket();
-            // _pubSocket2.Options.SendHighWatermark = 1000;
-            // _pubSocket2.Options.Linger = TimeSpan.MinValue;
-            //
-            // _pubSocket2.Connect($"tcp://localhost:{_port}");
-            // Thread.Sleep(15);
-
-            // PublisherSocket client = null;
-            //
-            // if (!clientSocketPerThread.IsValueCreated)
-            // {
-            //     client = new PublisherSocket();
-            //     client.Options.SendHighWatermark = 1000;
-            //     client.Options.Linger = TimeSpan.MinValue;
-            //     client.Connect($"tcp://localhost:{_port}");
-            //     Thread.Sleep(5);
-            //     clientSocketPerThread.Value = client;
-            // }
-            // else
-            // {
-            //     client = clientSocketPerThread.Value!;
-            // }
-
 
             var m = new NetMQMessage();
-            m.Append("DataCollector");
+            m.Append("DataCollector"); // Logger
             m.Append(caller);
             m.Append(@type);
             m.Append(json);
             _q.Enqueue(m);
-
-            // client
-            //     .SendMoreFrame("DataCollector") // Logger
-            //     .SendMoreFrame(caller)
-            //     .SendMoreFrame(@type)
-            //     .SendFrame(json);
         }
 
         public void Dispose()
         {
             _disposeCalled.Set();
             _queueEmpty.Wait(TimeSpan.FromSeconds(10));
-
-            // too soon??
-            // _pubSocket.Dispose();
         }
     }
 }

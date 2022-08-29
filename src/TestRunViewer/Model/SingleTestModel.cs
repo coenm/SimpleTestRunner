@@ -11,7 +11,7 @@ using TestRunViewer.Misc.TestMonitor;
 public class SingleTestModel
 {
     private bool _isDisposed;
-    private object _stateLock = new();
+    private readonly object _stateLock = new();
     private TestState _state;
 
     public SingleTestModel(string sessionId, Guid id, string name, ITestMonitor testMonitor, EventArgsBaseDto evt)
@@ -93,6 +93,11 @@ public class SingleTestModel
             }
 
             if (_state == TestState.Skipped)
+            {
+                return;
+            }
+
+            if (_state == value)
             {
                 return;
             }
