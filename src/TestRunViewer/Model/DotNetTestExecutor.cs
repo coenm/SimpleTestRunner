@@ -22,7 +22,6 @@ internal class DotNetTestExecutor
 
     public static void Execute(string cmd, int port)
     {
-        // const string COLLECT_LOGGER = " --collect:zmq-publisher-collector  --logger:zmq-test-publisher ";
         const string COLLECT_LOGGER = $" --collect:{SampleDataCollector.DATA_COLLECTOR_FRIENDLY_NAME} --logger:{ZeroMqTestPublisher.FRIENDLY_NAME} ";
         var args = Environment.GetCommandLineArgs();
         var arg = Environment.CommandLine.Replace(args[0], string.Empty);
@@ -57,15 +56,6 @@ internal class DotNetTestExecutor
         }
 
         psi = new ProcessStartInfo("dotnet", cmdline1.Trim());
-        psi.EnvironmentVariables.Add("ZmqCollectorPort", port.ToString());
-        psi.EnvironmentVariables.Add("ZmqLoggerPort", port.ToString());
-        psi.UseShellExecute = false; // must be false when using env vars.
-        psi.CreateNoWindow = true;
-        // psi.WindowStyle = ProcessWindowStyle.Maximized;
-
-        // cmdline = arg + " " + ADAPTER_PATH + COLLECT_LOGGER;
-        psi = new ProcessStartInfo("wt", cmdline);
-        psi = new ProcessStartInfo("dotnet", cmdline1.Trim());
 
         // Required for EnvironmentVariables to be set
         psi.UseShellExecute = false;
@@ -75,19 +65,6 @@ internal class DotNetTestExecutor
 
         psi.CreateNoWindow = true;
         psi.WindowStyle = ProcessWindowStyle.Hidden;
-
-
-        // ProcessWindowStyle windowStyle = isExecutable ? ProcessWindowStyle.Normal : ProcessWindowStyle.Hidden;
-        //
-        // return new ProcessStartInfo
-        //     {
-        //         UseShellExecute = true, // this with Verb=runas forces elevation
-        //         CreateNoWindow = true,
-        //         WindowStyle = windowStyle,
-        //         FileName = executable,
-        //         Verb = "runas", // this with ShellEx=true forces elevation
-        //         Arguments = arguments,
-        //     };
 
 
         try
