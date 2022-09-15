@@ -11,7 +11,7 @@ using System;
 using System.Collections.Generic;
 using System.Xml;
 using Microsoft.VisualStudio.TestPlatform.ObjectModel.DataCollection;
-using Publisher;
+using NetMq.Publisher;
 
 [DataCollectorFriendlyName(SampleDataCollector.DATA_COLLECTOR_FRIENDLY_NAME)]
 [DataCollectorTypeUri(SampleDataCollector.DATA_COLLECTOR_TYPE_URI)]

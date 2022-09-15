@@ -6,13 +6,12 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.TestPlatform.ObjectModel" Version="17.1.0" />
-    <PackageReference Include="NetMQ" Version="4.0.1.8" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Interface\Interface.csproj" />
-    <ProjectReference Include="..\Publisher\Publisher.csproj" />
+    <ProjectReference Include="..\NetMq.Publisher\NetMq.Publisher.csproj" />
   </ItemGroup>
 
 </Project>
