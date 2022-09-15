@@ -53,7 +53,7 @@ public class Publisher : IDisposable
                         {
                             while (pubSocket.HasOut)
                             {
-                                Thread.Sleep(500);
+                                Thread.Sleep(20);
                             }
 
                             _queueEmpty.Set();
