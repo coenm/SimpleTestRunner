@@ -25,6 +25,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NetMq.Publisher", "src\NetM
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestRunner.Core", "src\TestRunner.Core\TestRunner.Core.csproj", "{7A18B328-D525-462A-9C94-A269350242D5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestRunner.Core.Tests", "tests\TestRunner.Core.Tests\TestRunner.Core.Tests.csproj", "{CA7D6019-879D-43DD-8AFE-68351C1D2E51}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -71,6 +73,10 @@ Global
 		{7A18B328-D525-462A-9C94-A269350242D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7A18B328-D525-462A-9C94-A269350242D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7A18B328-D525-462A-9C94-A269350242D5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA7D6019-879D-43DD-8AFE-68351C1D2E51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA7D6019-879D-43DD-8AFE-68351C1D2E51}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA7D6019-879D-43DD-8AFE-68351C1D2E51}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA7D6019-879D-43DD-8AFE-68351C1D2E51}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
