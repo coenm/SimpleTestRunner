@@ -3,7 +3,7 @@ namespace TestRunner.Core.Tests;
 using FluentAssertions;
 using Xunit;
 
-public class UnitTFreePortLocatorTests
+public class FreePortLocatorTests
 {
     [Fact]
     public void GetAvailablePort_ShouldReturnValueWithinRange()
@@ -14,6 +14,6 @@ public class UnitTFreePortLocatorTests
         var result = FreePortLocator.GetAvailablePort();
 
         // assert
-        result.Should().BeGreaterThan(1).And.BeLessThanOrEqualTo(65536);
+        result.Should().BeGreaterThanOrEqualTo(1).And.BeLessThanOrEqualTo(65536);
     }
 }
