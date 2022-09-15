@@ -6,19 +6,9 @@ namespace Listener.Console;
 
 static class Program
 {
-    public static IList<string> allowableCommandLineArgs  = new[] { "TopicA", "TopicB", "All" };
-
     public static void Main(string[] args)
     {
-        if (args.Length != 1 || !allowableCommandLineArgs.Contains(args[0]))
-        {
-            System.Console.WriteLine("Expected one argument, either " +
-                                     "'TopicA', 'TopicB' or 'All'");
-            // Environment.Exit(-1);
-            args = new[] { "All", };
-        }
-
-        string topic = args[0] == "All" ? "" : args[0];
+        var topic = args[0] == "All" ? "" : args[0];
         System.Console.WriteLine("Subscriber started for Topic : {0}", topic);
         using var subSocket = new SubscriberSocket();
         subSocket.Options.ReceiveHighWatermark = 1000;
