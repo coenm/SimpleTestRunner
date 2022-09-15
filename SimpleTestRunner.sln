@@ -23,6 +23,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Interface.Server", "src\Int
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NetMq.Publisher", "src\NetMq.Publisher\NetMq.Publisher.csproj", "{ABE7B29B-53C5-478F-893A-A3C4E743825E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestRunner.Core", "src\TestRunner.Core\TestRunner.Core.csproj", "{7A18B328-D525-462A-9C94-A269350242D5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -65,6 +67,10 @@ Global
 		{ABE7B29B-53C5-478F-893A-A3C4E743825E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ABE7B29B-53C5-478F-893A-A3C4E743825E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ABE7B29B-53C5-478F-893A-A3C4E743825E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A18B328-D525-462A-9C94-A269350242D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A18B328-D525-462A-9C94-A269350242D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A18B328-D525-462A-9C94-A269350242D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A18B328-D525-462A-9C94-A269350242D5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

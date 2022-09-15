@@ -10,15 +10,14 @@ namespace ZmqCollector.Collector;
 using System;
 using System.Collections.Generic;
 using System.Xml;
+using Interface.Naming;
 using Microsoft.VisualStudio.TestPlatform.ObjectModel.DataCollection;
 using NetMq.Publisher;
 
-[DataCollectorFriendlyName(SampleDataCollector.DATA_COLLECTOR_FRIENDLY_NAME)]
-[DataCollectorTypeUri(SampleDataCollector.DATA_COLLECTOR_TYPE_URI)]
+[DataCollectorFriendlyName(SampleDataCollectorNaming.DATA_COLLECTOR_FRIENDLY_NAME)]
+[DataCollectorTypeUri(SampleDataCollectorNaming.DATA_COLLECTOR_TYPE_URI)]
 public class SampleDataCollector : DataCollector, ITestExecutionEnvironmentSpecifier
 {
-    public const string DATA_COLLECTOR_FRIENDLY_NAME = "zmq-publisher-collector";
-    public const string DATA_COLLECTOR_TYPE_URI = "my://sample/datacollector";
     private readonly Publisher _publisher;
     private DataCollectionEvents _events;
 

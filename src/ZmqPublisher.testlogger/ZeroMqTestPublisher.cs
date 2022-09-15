@@ -7,19 +7,17 @@ namespace ZmqPublisher.TestLogger;
 
 using System;
 using System.Collections.Generic;
+using Interface.Naming;
 using Microsoft.VisualStudio.TestPlatform.ObjectModel;
 using Microsoft.VisualStudio.TestPlatform.ObjectModel.Client;
 using Microsoft.VisualStudio.TestPlatform.ObjectModel.Logging;
 using NetMq.Publisher;
 using TestResultEventArgs = Microsoft.VisualStudio.TestPlatform.ObjectModel.Logging.TestResultEventArgs;
 
-[FriendlyName(FRIENDLY_NAME)]
-[ExtensionUri(EXTENSION_URI)]
+[FriendlyName(TestLoggerNaming.FRIENDLY_NAME)]
+[ExtensionUri(TestLoggerNaming.EXTENSION_URI)]
 public class ZeroMqTestPublisher : ITestLoggerWithParameters, IDisposable
 {
-    public const string FRIENDLY_NAME = "zmq-test-publisher";
-    public const string EXTENSION_URI = "my://github.com/coenm/test-run-visualizer/zmq-test-publisher";
-
     private readonly Publisher _publisher;
     private TestLoggerEvents _events;
 

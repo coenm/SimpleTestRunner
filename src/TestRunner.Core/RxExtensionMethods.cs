@@ -1,4 +1,4 @@
-namespace TestRunViewer.Misc;
+namespace TestRunner.Core;
 
 using System;
 using System.Reactive;

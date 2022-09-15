@@ -18,11 +18,8 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="MedallionShell" Version="1.6.2" />
       <PackageReference Include="Microsoft.TestPlatform.ObjectModel" Version="17.1.0" />
       <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
-      <PackageReference Include="System.Reactive" Version="5.0.0" />
-      <PackageReference Include="System.Reactive.Linq" Version="5.0.0" />
       <!-- <PackageReference Include="Microsoft.CSharp" Version="4.7.0" /> -->
       <!-- <PackageReference Include="SimpleInjector" Version="5.3.3" /> -->
       <!-- <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" /> -->
@@ -41,6 +38,7 @@
       <ProjectReference Include="..\Interface.Server\Interface.Server.csproj" />
       <ProjectReference Include="..\Interface\Interface.csproj" />
       <ProjectReference Include="..\NetMq.Server\NetMq.Server.csproj" />
+      <ProjectReference Include="..\TestRunner.Core\TestRunner.Core.csproj" />
       <ProjectReference Include="..\ZmqCollector.Collector\ZmqCollector.Collector.csproj" />
       <ProjectReference Include="..\ZmqPublisher.testlogger\ZmqPublisher.TestLogger.csproj" />
     </ItemGroup>

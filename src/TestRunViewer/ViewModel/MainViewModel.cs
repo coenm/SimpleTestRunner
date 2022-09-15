@@ -13,6 +13,7 @@ using Interface.Data.Collector;
 using Interface.Data.Collector.Inner;
 using Interface.Data.Logger;
 using NetMq.Server;
+using TestRunner.Core;
 using TestRunViewer.Misc;
 using TestRunViewer.Model;
 using TestRunViewer.ViewModel.Common;

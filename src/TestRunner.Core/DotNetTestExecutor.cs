@@ -1,4 +1,4 @@
-namespace TestRunViewer.Model;
+namespace TestRunner.Core;
 
 using System;
 using System.Collections.Generic;
@@ -6,12 +6,10 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Interface.Naming;
 using Medallion.Shell;
-using ZmqPublisher.TestLogger;
-using ZmqCollector.Collector;
-using System.CodeDom.Compiler;
 
-internal class DotNetTestExecutor
+public class DotNetTestExecutor
 {
     private static readonly Lazy<string> _testAdapterPath = new(() =>
         {
@@ -38,8 +36,8 @@ internal class DotNetTestExecutor
 
         var argss = args.Skip(skip).ToList();
         argss.Add(_testAdapterPath.Value);
-        argss.Add($"--collect:{SampleDataCollector.DATA_COLLECTOR_FRIENDLY_NAME}");
-        argss.Add($"--logger:{ZeroMqTestPublisher.FRIENDLY_NAME}");
+        argss.Add($"--collect:{SampleDataCollectorNaming.DATA_COLLECTOR_FRIENDLY_NAME}");
+        argss.Add($"--logger:{TestLoggerNaming.FRIENDLY_NAME}");
 
         var argss2 = argss.ToList();
         argss.Add("--list-tests");
