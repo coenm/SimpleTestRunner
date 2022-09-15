@@ -11,6 +11,6 @@ public class FreePortLocator
     {
         using var socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
         socket.Bind(_defaultLoopbackEndpoint);
-        return ((IPEndPoint)socket.LocalEndPoint)!.Port;
+        return ((IPEndPoint)socket.LocalEndPoint!).Port;
     }
 }
