@@ -21,7 +21,7 @@ internal class DotNetTestExecutor
             return $"--test-adapter-path:{baseDirectory}";
         });
 
-    public static void Execute(string cmd, int port)
+    public static async Task Execute(string cmd, int port)
     {
         var args = Environment.GetCommandLineArgs();
         var arg = Environment.CommandLine.Replace(args[0], string.Empty);
@@ -46,7 +46,7 @@ internal class DotNetTestExecutor
 
         try
         {
-            _ = Execute(argss, argss2, port);
+            await Execute(argss, argss2, port);
             // _ = Command.Run("dotnet", argss, options =>
             //                {
             //                    options.StartInfo(psi =>

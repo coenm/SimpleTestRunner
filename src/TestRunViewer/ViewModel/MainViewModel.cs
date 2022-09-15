@@ -140,8 +140,14 @@ public class MainViewModel : ViewModelBase, IInitializable, IDisposable
     {
         ResetClients();
         _monitoringTask = _testMonitor.StartMonitoring(Port);
-        DotNetTestExecutor.Execute("", Port);
-        await Task.Yield();
+        await DotNetTestExecutor.Execute("", Port).ConfigureAwait(true);
+        // foreach (var x in Tests.ToList())
+        // {
+        //     if (x.State == State.Succeeded)
+        //     {
+        //         Tests.Remove(x);
+        //     }
+        // }
     }
 
     private Task OnResetClients(object arg)

@@ -1,10 +1,10 @@
+namespace TestProject;
+
 using System;
 using System.Threading;
 using Xunit;
 
-namespace TestProject;
-
-public class UnitTest1
+public class UnitTest2
 {
     [Fact]
     public void Test1()
@@ -25,6 +25,6 @@ public class UnitTest1
     {
         Thread.Sleep(TimeSpan.FromSeconds(i));
 
-        Assert.NotEqual(6, i);
+        Assert.NotEqual(2, i);
     }
 }
