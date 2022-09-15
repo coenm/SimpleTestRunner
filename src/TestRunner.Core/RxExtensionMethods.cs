@@ -11,7 +11,7 @@ public static class RxExtensionMethods
 
     public static IDisposable SubscribeAsync<T>(
         this IObservable<T> source,
-        Func<Task> asyncAction, Action<Exception> handler = null)
+        Func<Task> asyncAction, Action<Exception>? handler = null)
     {
         async Task<Unit> Wrapped(T t)
         {
@@ -26,7 +26,7 @@ public static class RxExtensionMethods
 
     public static IDisposable SubscribeAsync<T>(
         this IObservable<T> source,
-        Func<T, Task> asyncAction, Action<Exception> handler = null)
+        Func<T, Task> asyncAction, Action<Exception>? handler = null)
     {
         async Task<Unit> Wrapped(T t)
         {
