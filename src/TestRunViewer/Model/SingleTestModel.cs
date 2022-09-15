@@ -6,7 +6,7 @@ using Interface.Data;
 using Interface.Data.Collector;
 using Interface.Data.Logger;
 using Interface.Data.Logger.Inner;
-using TestRunViewer.Misc.TestMonitor;
+using Interface.Server;
 
 public class SingleTestModel
 {

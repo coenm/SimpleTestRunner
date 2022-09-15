@@ -12,8 +12,8 @@ using Interface.Data;
 using Interface.Data.Collector;
 using Interface.Data.Collector.Inner;
 using Interface.Data.Logger;
+using NetMq.Server;
 using TestRunViewer.Misc;
-using TestRunViewer.Misc.TestMonitor;
 using TestRunViewer.Model;
 using TestRunViewer.ViewModel.Common;
 
@@ -49,8 +49,6 @@ public class MainViewModel : ViewModelBase, IInitializable, IDisposable
 
         Tests = new ObservableCollection<SingleTestViewModel>();
         _testMonitor = new TestMonitor();
-
-        // _testFactory = new TestCaseFactory(_testMonitor);
 
         _testMonitor.Events
                     .Where(x => x is DiscoveredTestsEventArgsDto or TestRunStartEventArgsDto or TestCaseStartEventArgsDto)

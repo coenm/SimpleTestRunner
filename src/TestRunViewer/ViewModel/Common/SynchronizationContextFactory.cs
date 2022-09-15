@@ -1,6 +1,5 @@
 namespace TestRunViewer.ViewModel.Common;
 
-using System.ComponentModel.DataAnnotations;
 using System.Threading;
 using System.Windows;
 using System.Windows.Threading;

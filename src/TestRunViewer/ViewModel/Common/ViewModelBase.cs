@@ -23,7 +23,7 @@ public abstract class ViewModelBase : INotifyPropertyChanged
 
     protected void Post(Action action)
     {
-        var currentContext = SynchronizationContext.Current;
+        SynchronizationContext currentContext = SynchronizationContext.Current;
         if (currentContext != _context)
         {
             _context.Post(_ => action(), null);
@@ -36,7 +36,7 @@ public abstract class ViewModelBase : INotifyPropertyChanged
 
     protected void Send(Action action)
     {
-        var currentContext = SynchronizationContext.Current;
+        SynchronizationContext currentContext = SynchronizationContext.Current;
         if (currentContext != _context)
         {
             _context.Send(_ => action(), null);

@@ -1,4 +1,4 @@
-namespace TestRunViewer.Misc.TestMonitor;
+namespace NetMq.Server;
 
 using System;
 using System.Collections.Generic;
@@ -6,6 +6,7 @@ using System.Linq;
 using System.Reactive.Subjects;
 using System.Threading.Tasks;
 using Interface.Data.Logger;
+using Interface.Server;
 using NetMQ;
 using NetMQ.Sockets;
 using Newtonsoft.Json;
@@ -47,26 +48,22 @@ public class TestMonitor : ITestMonitor, IDisposable
                         var eventName = _subSocket.ReceiveFrameString();
                         var msgType = _subSocket.ReceiveFrameString();
                         var payload = _subSocket.ReceiveFrameString();
-                        // Console.WriteLine(eventName);
-                        // Console.WriteLine(msgType);
-                        // Console.WriteLine(payload);
-                        // Console.WriteLine(new string('-', 100));
 
-                        EventArgsBaseDto o = null;
+                        EventArgsBaseDto? evt = null;
                         try
                         {
                             Type @type = _types.Single(x => x.Name.Equals(msgType));
-                            o = JsonConvert.DeserializeObject(payload, @type) as EventArgsBaseDto;
+                            evt = JsonConvert.DeserializeObject(payload, @type) as EventArgsBaseDto;
                         }
                         catch (Exception e)
                         {
                             _subject.OnError(new Exception($"Cannot parse incoming json to type, {e.Message}", e));
                         }
 
-                        if (o != null)
+                        if (evt != null)
                         {
                             // _subject.OnNext(o);
-                            Task.Run(() => _subject.OnNext(o));
+                            Task.Run(() => _subject.OnNext(evt));
                         }
                         else
                         {

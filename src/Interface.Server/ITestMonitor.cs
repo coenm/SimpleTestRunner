@@ -1,4 +1,4 @@
-namespace TestRunViewer.Misc.TestMonitor;
+namespace Interface.Server;
 
 using System;
 using Interface.Data.Logger;
