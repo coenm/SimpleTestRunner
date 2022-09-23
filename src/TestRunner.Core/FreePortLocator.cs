@@ -3,7 +3,7 @@ namespace TestRunner.Core;
 using System.Net;
 using System.Net.Sockets;
 
-public class FreePortLocator
+public static class FreePortLocator
 {
     private static readonly IPEndPoint _defaultLoopbackEndpoint = new(IPAddress.Loopback, port: 0);
 
