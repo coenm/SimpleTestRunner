@@ -21,13 +21,13 @@ public partial class App : Application
             }
         }
     
-        var vm = new MainViewModel();
-        var mainWindow = new MainWindow(vm);
-        if (startMinimized)
-        {
-            mainWindow.WindowState = WindowState.Minimized;
-        }
-    
-        mainWindow.Show();
+        // var vm = new MainViewModel();
+        // var mainWindow = new MainWindow(vm);
+        // if (startMinimized)
+        // {
+        //     mainWindow.WindowState = WindowState.Minimized;
+        // }
+        //
+        // mainWindow.Show();
     }
 }

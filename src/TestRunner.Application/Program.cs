@@ -20,9 +20,9 @@ public class Program
         var container = new Container();
         container.Options.DefaultScopedLifestyle = new AsyncScopedLifestyle();
 
-        container.Register<MainWindow>(Lifestyle.Scoped);
-        container.Register<MainViewModel>(Lifestyle.Scoped);
-        container.Verify();
+        container.Register<MainWindow>(Lifestyle.Singleton);
+        container.Register<MainViewModel>(Lifestyle.Singleton);
+        // container.Verify();
 
         return container;
     }
@@ -39,6 +39,7 @@ public class Program
         catch (Exception ex)
         {
             //Log the exception and exit
+            throw;
         }
     }
 }
