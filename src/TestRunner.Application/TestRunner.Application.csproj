@@ -1,0 +1,60 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <OutputType>WinExe</OutputType>
+    <EnableWindowsTargeting>true</EnableWindowsTargeting>
+    <AssemblyName>TestRunner.Application</AssemblyName>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <UseWPF>true</UseWPF>
+    <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
+    <EnableDefaultApplicationDefinition>false</EnableDefaultApplicationDefinition>
+    <nullable>disable</nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <UseWPF>true</UseWPF>
+    <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
+    <EnableDefaultApplicationDefinition>false</EnableDefaultApplicationDefinition>
+    <StartupObject></StartupObject>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Remove="App.xaml" />
+    <None Remove="View\MainWindow.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.TestPlatform.ObjectModel" Version="17.1.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <!-- <PackageReference Include="Microsoft.CSharp" Version="4.7.0" /> -->
+    <!-- <PackageReference Include="SimpleInjector" Version="5.3.3" /> -->
+    <!-- <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" /> -->
+    <!-- <PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" /> -->
+    <!-- <PackageReference Include="System.ServiceModel.Federation" Version="4.8.1" /> -->
+    <!-- <PackageReference Include="Hardcodet.NotifyIcon.Wpf" Version="1.1.0" /> -->
+    <!-- <PackageReference Include="Microsoft.Windows.Compatibility" Version="6.0.0" /> -->
+    <PackageReference Include="FluentWPF" Version="0.8.0" />
+    <PackageReference Include="MahApps.Metro" Version="2.4.9" />
+    <PackageReference Include="MaterialDesignThemes.MahApps" Version="0.2.2" />
+    <PackageReference Include="SimpleInjector" Version="5.4.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Interface.Server\Interface.Server.csproj" />
+    <ProjectReference Include="..\Interface\Interface.csproj" />
+    <ProjectReference Include="..\NetMq.Server\NetMq.Server.csproj" />
+    <ProjectReference Include="..\TestRunner.Core\TestRunner.Core.csproj" />
+    <ProjectReference Include="..\ZmqCollector.Collector\ZmqCollector.Collector.csproj" />
+    <ProjectReference Include="..\ZmqPublisher.testlogger\ZmqPublisher.TestLogger.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="App.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+    </Page>
+    <Page Update="View\MainWindow.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Model\" />
+  </ItemGroup>
+</Project>
