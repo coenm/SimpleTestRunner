@@ -7,7 +7,7 @@ using Medallion.Shell;
 
 public static class PocShellExecutor
 {
-    public static async Task<bool> Execute(ICollection<string> collection1, ICollection<string> collection2, string arg = "info")
+    public static async Task<bool> Execute(ICollection<string> collection1, ICollection<string> collection2, string arg)
     {
         try
         {

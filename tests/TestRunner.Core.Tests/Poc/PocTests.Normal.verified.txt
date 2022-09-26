@@ -1,4 +1,6 @@
-﻿Out: args: info
+﻿{
+  Lines:
+Out: args: info
 Out: test --info
 Out: test 1info
 Out: test 2info
@@ -99,4 +101,17 @@ Out: test 96info
 Out: test 97info
 Out: test 98info
 Out: test 99info
-Out: ##coenm:DM(B2B96=TB7E{Nb03]4fFCgmfFCgjfFCgmeIF>jfFa$jfFC7jfFCgmfFCgmfFCg8efX58B96=TB7F9PzdK[Lb4j[*a$K{fB3<RPy?cHRB96=TB7DKRBAhInefX58B96&!wO(0@BrS+)b1Vq?iWcmifFCgmfFC7jfFCgjfFCgmeIF>jfFa$jfFCgmfFCgmfFBX4b1uY>y<w)2vqGT&x>p*IvqPN1i=o7Ry+c+#x(!lfvr>QRzdK[Lb4LjdefWJcwN/>8z/O&#x^bPQB.>>Bb13oVwKZxIwL=/SxD/FYwfJMGq/u/0v}u&BzGP=iefW=4zE(N=zdm6%b04AaefX27B8#5lzB[v.iWeS^1i>
+Out: #@testrunner:25:TestCaseStartEventArgsDto:358:DM(B2B96=TB7E{Nb03]4fFCgmfFCgjfFCgmeIF>jfFa$jfFC7jfFCgmfFCgmfFCg8efX58B96=TB7F9PzdK[Lb4j[*a$K{fB3<RPy?cHRB96=TB7DKRBAhInefX58B96&!wO(0@BrS+)b1Vq?iWcmifFCgmfFC7jfFCgjfFCgmeIF>jfFa$jfFCgmfFCgmfFBX4b1uY>y<w)2vqGT&x>p*IvqPN1i=o7Ry+c+#x(!lfvr>QRzdK[Lb4LjdefWJcwN/>8z/O&#x^bPQB.>>Bb13oVwKZxIwL=/SxD/FYwfJMGq/u/0v}u&BzGP=iefW=4zE(N=zdm6%b04AaefX27B8#5lzB[v.iWeS^1i>
+,
+  Events: [
+    {
+      TestCaseName: aaa,
+      IsChildTestCase: true,
+      TestElement: {
+        DisplayName: dd,
+        CodeFilePath: d
+      },
+      SessionId: ss
+    }
+  ]
+}
