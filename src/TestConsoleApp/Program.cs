@@ -1,14 +1,11 @@
 namespace TestConsoleApp
 {
     using System;
-    using System.Text.Json;
     using System.Threading.Tasks;
     using AutoMapper;
-    using CoenM.Encoding;
     using Interface;
     using Interface.Data.Collector;
     using Interface.Data.Collector.Inner;
-    using Newtonsoft.Json.Serialization;
     using Serialization;
 
 
@@ -53,7 +50,9 @@ namespace TestConsoleApp
                 };
 
             var s = new Serialization();
-            Console.WriteLine(s.Serialize(evt));
+            var ss = s.Serialize(evt);
+            Console.WriteLine(ss);
+            var obj = s.Deserialize(ss) as TestCaseStartEventArgsDto;
             //
             //
             // var bytes = JsonSerializer.SerializeToUtf8Bytes(evt, new JsonSerializerOptions
