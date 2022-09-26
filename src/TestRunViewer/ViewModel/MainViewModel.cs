@@ -160,7 +160,7 @@ public class MainViewModel : ViewModelBase, IInitializable, IDisposable
 
         argss = argss.Skip(1).ToList();
 
-        await new DotNetTestExecutorNew().Execute(_outputProcessor.Out, _outputProcessor.Err, argss.First(), argss.Skip(1).ToArray());
+        await new DotNetTestExecutor().Execute(_outputProcessor.Out, _outputProcessor.Err, argss.First(), argss.Skip(1).ToArray());
         //_monitoringTask = _testMonitor.StartMonitoring(Port);
         // await DotNetTestExecutor.Execute("", Port).ConfigureAwait(true);
         // foreach (var x in Tests.ToList())

@@ -21,12 +21,12 @@ public class DotNetTestExecutorTests
     private readonly EventCollection _eventCollection2;
     private readonly Serialization _serialization;
     private readonly List<EventArgsBaseDto> _events = new List<EventArgsBaseDto>(1);
-    private readonly DotNetTestExecutorNew _sut;
+    private readonly DotNetTestExecutor _sut;
     private readonly ConsoleOutputProcessor _consoleOutputProcessor;
 
     public DotNetTestExecutorTests()
     {
-        _sut = new DotNetTestExecutorNew();
+        _sut = new DotNetTestExecutor();
 
         _serialization = new Serialization();
         _sb = new StringBuilder();
