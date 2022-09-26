@@ -22,9 +22,10 @@ public class MainViewModel : ViewModelBase, IInitializable, IDisposable
 {
     private Task _runningTask;
     private CancellationTokenSource _runningCancellationTokenSource;
-    private readonly TestMonitor _testMonitor;
+    private readonly EvtMonitor _testMonitor;
     private Task _monitoringTask;
     private object _lock = new();
+    private ConsoleOutputProcessor _outputProcessor;
 
     private void TestsAdd(Guid id, string sessionId, string name, EventArgsBaseDto evt)
     {
@@ -47,9 +48,10 @@ public class MainViewModel : ViewModelBase, IInitializable, IDisposable
     public MainViewModel()
     {
         Port = FreePortLocator.GetAvailablePort();
-
+        _outputProcessor = new ConsoleOutputProcessor();
         Tests = new ObservableCollection<SingleTestViewModel>();
-        _testMonitor = new TestMonitor();
+        _testMonitor = new EvtMonitor(_outputProcessor);
+        // _testMonitor = new TestMonitor();
 
         _testMonitor.Events
                     .Where(x => x is DiscoveredTestsEventArgsDto or TestRunStartEventArgsDto or TestCaseStartEventArgsDto)
@@ -140,8 +142,27 @@ public class MainViewModel : ViewModelBase, IInitializable, IDisposable
     private async Task OnStart(object arg)
     {
         ResetClients();
-        _monitoringTask = _testMonitor.StartMonitoring(Port);
-        await DotNetTestExecutor.Execute("", Port).ConfigureAwait(true);
+        
+        var args = Environment.GetCommandLineArgs();
+        // var arg = Environment.CommandLine.Replace(args[0], string.Empty);
+
+        var skip = 2;
+        // for (var i = 0; i < args.Length; i++)
+        // {
+        //     if (args[i].Equals("---"))
+        //     {
+        //         skip = i + 1 + 1;
+        //         i = args.Length + 2;
+        //     }
+        // }
+
+        var argss = args.Skip(skip).ToList();
+
+        argss = argss.Skip(1).ToList();
+
+        await new DotNetTestExecutorNew().Execute(_outputProcessor.Out, _outputProcessor.Err, argss.First(), argss.Skip(1).ToArray());
+        //_monitoringTask = _testMonitor.StartMonitoring(Port);
+        // await DotNetTestExecutor.Execute("", Port).ConfigureAwait(true);
         // foreach (var x in Tests.ToList())
         // {
         //     if (x.State == State.Succeeded)

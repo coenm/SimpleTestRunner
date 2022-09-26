@@ -69,8 +69,8 @@
       <RowDefinition Height="Auto" />
       <RowDefinition Height="Auto" />
       <RowDefinition Height="2*" />
-      <!-- <RowDefinition Height="Auto" /> -->
-      <!-- <RowDefinition Height="*" /> -->
+      <RowDefinition Height="Auto" />
+      <RowDefinition Height="*" />
     </Grid.RowDefinitions>
 
     <StackPanel Grid.Row="0" Orientation="Vertical">
@@ -138,14 +138,14 @@
       </ItemsControl>
     </ScrollViewer>
 
-    <!-- <StackPanel Grid.Row="3" Orientation="Horizontal"> -->
-    <!--   <Button Content="Clear messages" Command="{Binding Path=ClearLogCommand}" Width="100" Margin="4" /> -->
-    <!-- </StackPanel> -->
-    <!-- -->
-    <!-- <Border Grid.Row="4" Margin="10" BorderBrush="Black" BorderThickness="1"> -->
-    <!--   <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto"> -->
-    <!--     <ItemsControl ItemsSource="{Binding Path=Messages}" HorizontalAlignment="Stretch" /> -->
-    <!--   </ScrollViewer> -->
-    <!-- </Border> -->
+    <StackPanel Grid.Row="3" Orientation="Horizontal">
+      <Button Content="Clear messages" Command="{Binding Path=ClearLogCommand}" Width="100" Margin="4" />
+    </StackPanel>
+    
+    <Border Grid.Row="4" Margin="10" BorderBrush="Black" BorderThickness="1">
+      <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+        <ItemsControl ItemsSource="{Binding Path=Messages}" HorizontalAlignment="Stretch" />
+      </ScrollViewer>
+    </Border>
   </Grid>
 </mah:MetroWindow>

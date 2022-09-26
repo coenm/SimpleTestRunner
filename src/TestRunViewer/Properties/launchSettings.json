@@ -9,7 +9,7 @@
     },
     "DRC": {
       "commandName": "Project",
-      "commandLineArgs": "coentje 4 --- dotnet test \"C:\\Projects\\Bdo\\git\\DRC\\Datarotonde Core\\BDO.Datarotonde.Core.sln\" -c release"
+      "commandLineArgs": "dotnet test \"C:\\Projects\\Bdo\\git\\DRC\\Datarotonde Core\\BDO.Datarotonde.Core.sln\" -c release"
     }
   }
 }

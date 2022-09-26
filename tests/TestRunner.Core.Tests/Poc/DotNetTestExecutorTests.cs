@@ -66,7 +66,12 @@ public class DotNetTestExecutorTests
         // arrange
 
         // act
-        var result = await _sut.Execute(_consoleOutputProcessor.Out, _consoleOutputProcessor.Err, "C:\\Projects\\Private\\git\\SimpleTestRunner\\src\\TestProject");
+        var result = await _sut.Execute(
+            _consoleOutputProcessor.Out,
+            _consoleOutputProcessor.Err,
+            "C:\\Projects\\Private\\git\\SimpleTestRunner\\src\\TestProject",
+            "--filter",
+            "Category=single");
 
         // assert
         await Verifier.Verify(new
