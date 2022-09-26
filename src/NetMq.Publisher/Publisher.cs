@@ -10,6 +10,7 @@ using Interface.Data.Logger;
 using NetMQ;
 using NetMQ.Sockets;
 using Newtonsoft.Json;
+using Serialization;
 
 public class Publisher : IDisposable
 {
@@ -19,11 +20,13 @@ public class Publisher : IDisposable
     private readonly ConcurrentQueue<NetMQMessage> _q = new ();
     private readonly ManualResetEventSlim _disposeCalled = new(false);
     private readonly ManualResetEventSlim _queueEmpty = new(false);
+    private readonly Serialization _s;
 
     public Publisher()
     {
         var config = new MapperConfiguration(cfg => cfg.AddMaps(typeof(InterfaceProject).Assembly));
         _mapper = config.CreateMapper();
+        _s = new Serialization();
     }
 
     public void Start(int port)
@@ -66,6 +69,14 @@ public class Publisher : IDisposable
 
     public void Send(EventArgs evt, string caller)
     {
+        if (_mapper.Map(evt, evt.GetType(), typeof(EventArgsBaseDto)) is EventArgsBaseDto dto)
+        {
+            Console.WriteLine(_s.Serialize(dto));
+        }
+    }
+
+    public void Send1(EventArgs evt, string caller)
+    {
         var dto = _mapper.Map(evt, evt.GetType(), typeof(EventArgsBaseDto)) as EventArgsBaseDto;
         dto!.SessionId = _session;
         var json = JsonConvert.SerializeObject(dto, Formatting.Indented);
@@ -81,7 +92,7 @@ public class Publisher : IDisposable
 
     public void Dispose()
     {
-        _disposeCalled.Set();
-        _queueEmpty.Wait(TimeSpan.FromSeconds(10));
+       // _disposeCalled.Set();
+       // _queueEmpty.Wait(TimeSpan.FromSeconds(10));
     }
 }

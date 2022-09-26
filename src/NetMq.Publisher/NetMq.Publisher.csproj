@@ -11,6 +11,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Interface\Interface.csproj" />
+    <ProjectReference Include="..\Serialization\Serialization.csproj" />
   </ItemGroup>
 
   <ItemGroup>

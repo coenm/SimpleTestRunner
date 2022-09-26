@@ -1,0 +1,1117 @@
+﻿{
+  ExitCode: 1,
+  Lines:
+Out:   Determining projects to restore...
+Out:   All projects are up-to-date for restore.
+Out:   Interface -> {SolutionDirectory}src\Interface\bin\Debug\net6.0\Interface.dll
+Out:   Serialization -> {SolutionDirectory}src\Serialization\bin\Debug\net6.0\Serialization.dll
+Out:   NetMq.Publisher -> {SolutionDirectory}src\NetMq.Publisher\bin\Debug\net6.0\NetMq.Publisher.dll
+Out:   ZmqPublisher.TestLogger -> {SolutionDirectory}src\ZmqPublisher.testlogger\bin\Debug\net6.0\ZmqPublisher.TestLogger.dll
+Out:   ZmqCollector.Collector -> {SolutionDirectory}src\ZmqCollector.Collector\bin\Debug\net6.0\ZmqCollector.Collector.dll
+Out:   TestProject -> {SolutionDirectory}src\TestProject\bin\Debug\net6.0\TestProject.dll
+Out: Test run for {SolutionDirectory}src\TestProject\bin\Debug\net6.0\TestProject.dll (.NETCoreApp,Version=v6.0)
+Out: Microsoft (R) Test Execution Command Line Tool Version 17.3.0 (x64)
+Out: Copyright (c) Microsoft Corporation.  All rights reserved.
+Out: 
+Out: Starting test execution, please wait...
+Out: #@testrunner:24:TestRunStartEventArgsDto:2449:DM(B2B97r5zBnCUBy/GbviN:Vb2&b{BAnS!tu@^7raQb)lT+4EmRMWXwPw$QzGP=iefWR[B5N3?v}/K?v]Eq*A:@W4b06*^B.99Foj.WNl2pmUwG<fEvqH0@efX58B97r5zC$a*BzkS9B0rT?tY?.OgEC5.zC$a*BzkS9B6J&wfF=d5A:iG8ay64yfF=6]B-6M+zF0P}B-H]jx(v(]BUCH9mo<>rzxH5Aay64yfF=6]wPJ0gBAo&:A+e:5z/QbdBUCH9mmfavtU]DVygQ)%B6I%DA+PY9By!YZxk8D)tVkuNAbo8+wPI@>B-88dA:h<<A:@uVraQb)p&ZF?wN/*!tVtoQBw=W>B.(evtY?.OgEA/[wPJ0gBAo&:A+e:5z/QbdBUCH9mo<>rzxH5Aay64yfF=6}vrc0(BwM^ZBy]DizcRiqfF=d1hz!VYfFCpIfh#w2xjVfYy*?A$z/PY1BUCH9mo<>rzxH5Aay64yfF=6}vrc0(BvHpVzdN{fA+!Y!A=U@kzD}rrfF=cIpdnbHz/PzPAbWvewPz<az/dZYhzcW*BUCH9lOzzEA+w%9mSI{OwP@6kyGt1!B7]MgtY?.OgEUL?tY7VbarT{ifFCpIraQb)l1BzyBy/Glp*[DVB6J&wfF=c+i:t]^A=kY7v@#=%tU]DPC42G7tWg]QBx&6Hx(d*9wMikZBw^m0zE)&[tY:K#BApX(raQb)qGV>{wPxy<z/PzwraQb)B6I%Vx(mfXl$G?IxiXXVwPP*.fGRS.tWgoIwPz&%tUPuUv@2:@w/%Dkn)CQNzGPP6Bx&6&vpK7YxjVc?tW}X}wPzP#Bs}6wy&0V)Bz(h8tR^#!e&3WpvS=y3wl-wSwPS0nvqYQ:A+3)SfKd</BUCH9lOzzIB96YUvq{s1A=U5=Bzb-2BUCH9mo<>rzxH5Aay64yfF=6:wPIM#zCt4WwN6vifF=c!vqH0@tY?.OgEA/-wPIM#zCt4WwN6vifF=d5A:iG8arR!iBUCH9lQL^dy?m9#q/u/0v}wkHw]zZbvruj4zD}rrfF=c!vqH0@tY?.OgEA/.z!%l3v@$T/B-H#6nP5cUA=2lbx(v(]BUCH9mo<>rzxH6bBUCH9lOztWzBntWw[+[2A::67z/e*5fFCpKtYK7!arT{ifFCpIl$7gClVl^SwN/*@z/eD}zC$a*BzkS9B6J&wfF=d5A:iG8arR!iBUCH9lQUv8vma%Hy?m9#z/P]7BUCH9mo<>rzxH5AarR!iBUCH9lQUv8vma%Hy?m9#z/M$jA+P95wnDJ^vqPNstY?.Ogbse)Av(cLvR/+1xK#iov@Dg1wN/?2A:i-vfFUyawO${=y?mcutY?.Ogbq*HB.a*2fFCmqatl#xfFCpKtYK7!arR^HtY?.OgEA/-vrt{Bz!%l3v@#TfB6J&wfF=d5A:iG8ay64yfF=6Hl$7gClVl^SwN/*@z/eD}zC$a*BzkS9B6J&wfF=d5A:iG8ay64yfF=6&z!AY]A-d3$q!p5)x(mN8tY?.OgEUL?tY7VbarT{ifFCpIoMaMRwPz&%BUCH9mo<>rzxH5AarR!iBUCH9lRIAhxjV9aw].P%zE^Nepgn0JjZra-fFUzfze?dHwPI@BAckSax(^%0A:i-vfFUyawO${=y?mcutY?.Ogbq*HB.a*2fFCmqatl#xfFCpKtYK7!arR^HarT{ifFCpIoMaMRwPw]9A+P95wnDJ^vqPNstY?.OgbqjnzGx-jwN6vifFUyaB-IgVtY?.OgbrV:xj>^@iXJd6x>8g4B8LVjfh#I7BwM^ZBy]Diz7!m{zGx-jwLv2PxjV9pB$)lAfFCmqayPtjwO>))C#nY)y?WG}wN[LAzdL>nBUCH8gehE)A=l2qw]]Uax(!A9y/tB#wnb%mraQb)p&6MZw]zZbe<<L]zddr)oLFxQe>G@5wPzV%y+w7[zGx-jwLv2PxjV9maA?*FwPI@Cv@Dmaz!@#oaxA5]B7]MgjUX/DfFk4ifF1tlB.(exA+dyKwP-9nvqEFqp<3k-x>6!EC#OY$wO%UufF^q#w&BrRf>rc}vkzs%BUCH8g9y7BwmX8oB7EHtBUCH8gda9ctU]DVxl4A$avZ6YwPI9Ywn=NcwPRfZB7x5>tSah*e&kmotWhC[By/Jne[n*qB8L(ae[w^mtY?.Ogbo$-zEE0<wN)@eBUCH8ge@ppwN6vifFUyafi&SNfF=d5A:iG8arR!iBUCH9lOzbKxj>^@B6J&wfF=d5A:iG8ay64yfF=6HoMaMRwPyW>zC$a*BzkS9B6J&wfF=d5A:iG!BUCH9lOztWzC$a*BzkS9B6J&wfF=cwefWM7wPq<7zEW@/w(r+?q/(C&B3<RHzF9JHC4CMkb04CjefW#mzC$T=BAo/.vqYZ?mrSlWBw#%>wP8Zkb03]4fGH)wiXSovh83ZrfFCg8EjMNvwPI{bz/ecSb06Q:bMF1
+Out: A total of 1 test files matched the specified pattern.
+Out: #@testrunner:24:SessionStartEventArgsDto:23:DM(y1B8#5lzB[v.i=o7R3?-
+Out: #@testrunner:28:TestHostLaunchedEventArgsDto:55:DM(B2B96@>B97l0z!0v1B4G)^iX-uyh.({dq!p2>x(v(XwfK6LB.>(x
+Out: #@testrunner:26:TestRunMessageEventArgsDto:165:DM(f}B8$=5wG<eVtx<d=x(>$BwPP4GfGH)wiXSlufFD=PCVwS}Bs}DxBrBQ.raQb)avfKDAcbViaA/H)g+HT<BUCH8lnq$UwO9YfgC-O+c]J[lvRG{be(1&mat$&ae&+v8efW=0C4CFliXS9eq!p2>x(v(XwfK6LB.>(x
+Out: #@testrunner:26:TestRunMessageEventArgsDto:114:DM(f}B8$=5wG<eVtx<d=x(>$BwPP4GfGH)wiXSlug=O+-arT6^B7ociwPzH5xf4emwPI@&A=kY7v@@[Cb1#M>wO-LKfF1zDwPI{bz/ecSb06Q:bMF1
+Out: #@testrunner:26:TestRunMessageEventArgsDto:114:DM(f}B8$=5wG<eVtx<d=x(>$BwPP4GfGH)wiXSluh8wIXarT6^B7ociwPzu)iV]LAwPI@&A=kY7v@@[Cb1#M>wO-LKfF1zDwPI{bz/ecSb06Q:bMF1
+Out: #@testrunner:26:TestRunMessageEventArgsDto:114:DM(f}B8$=5wG<eVtx<d=x(>$BwPP4GfGH)wiXSluh8wIXarTQ8vrcE7zF80MarR!awPI@&A=kY7v@@[Cb1#M>wO-LKfF1zDwPI{bz/ecSb06Q:bMF1
+Out: #@testrunner:25:TestCaseStartEventArgsDto:638:DM(B2B96=TB7E{Nb03]9hF1^8h8c%uwhN{ReIG7tw?tX@wItX{w[r+RhAtt6ggr6+efX58B96=TB7F9PzdK[Lb2&b{BwN0@ygQ)%e(=!6Bw#*)BtkyEwPI@Xc$$Z+g:%R1b1V&yxLzo[raQb)lT+4Eb06sAy&:esb2&b{Bvy1SzdNQbb075{nN%2aa#In&hA0AEh7-t@wI#a]hz/1$fGrR$eJmoMgD4cKwIC@Ghx<W@mS&J-C#nY)y?WG}wN[LAzdK[Lb2&b{BwN0@ygQ)%e(=!6Bw#*)BtkyEwPI@Xa$K{ax(!lfvr>QRzdK[Lb2&b{BwN0@ygQ)%e(=!6Bw#*)BtkyEwPI@Xc$$Z+g:%R1b1l-/v%8)iA-Ec]b03]VCX7xcBz(gXfe4M)zFshCr=.kKB97r5zF<3agb0JRByPlfwNPK%a$K{9z!9AGx(4uSvrufbi=o7Ry+c=ez/{8gwG<eVlPOESp&ZF?wN/?6tWg9Cx)9{bwN5FMx()P+q!Z8/y?lNSB97r5zF<3atWht<v{AnrwPI@&A=kY7v@$%XvRGZ+tTSdjB.s@:zE)]Fe?*KnraQb)p&ZF?wN/*mwnD6aefW=4zE(N=zdm6%b04AaefX27B8#5lzB[v.i=o7R3?-
+Out: #@testrunner:25:TestCaseStartEventArgsDto:673:DM(B2B96=TB7E{Nb03]4wN^CPwmEFGgb*{#eIYaxh.v3HggR$Cv}di3w[B5jvLIBrefX58B96=TB7F9PzdK[Lb2&b{BwN0@ygQ)%e(=!6Bw#*)BttEFwPI@Zc#AKqxM4AEA+xJiwO#PAiV{sfa$K{fB3<RPy?cHRB96=TB7DKRw)]H%wH]38wPI@Zy?mD{zGE6-DM(3(b03]4wN^CPwmEFGgb*{#eIYaxh.v3HggR$Cv}di3w[B5jvLIBrefWMay&1w]BZY92w[+*!pgn0Jb03]EwPI@&A=kY7v@%t6zFsh(wPI@Ge(Vz6Bvvx8b1cc^Abn%dpgn0Jb03]EwPI@&A=kY7v@%t6zFsh(wPI@Ge(Vz6BvvP{wPRQ7wi>lGB.$YcBtk*0hyP?3b1l-/v%8)iA-Ec]b03]VCX7xcBz(gXfe4M)zFshCr=.kKB97r5zF<3agb0JRByPlfwNPK%a$K{9z!9AGx(4uSvrufbi=o7Ry+c=ez/{8gwG<eVlPOESp&ZF?wN/?6tWg9Cx)9{bwN5FMx()P+q!Z8/y?lNSB97r5zF<3atWht<v{AnrwPI@&A=kY7v@$%XvRGZ+tTSdjB.s@:zE)]Fe?*KnraQb)p&ZF?wN/*mwnD6aefW=4zE(N=zdm6%b04AaefX27B8#5lzB[v.i=o7R3?-
+Out: #@testrunner:25:TestCaseStartEventArgsDto:673:DM(B2B96=TB7E{Nb03]4v}ECKvk}:GvL}QGeO3.IvL6PJfL8*@f>s=Fw?(h6wNWLwefX58B96=TB7F9PzdK[Lb2&b{BwN0@ygQ)%e(=!6Bw#*)BttEFwPI@Zc#AKqxM4AEA+xJiwO#PAiV{pea$K{fB3<RPy?cHRB96=TB7DKRw)]H%wH]38wPI@Zy?mD{zGE6-DM(3(b03]4v}ECKvk}:GvL}QGeO3.IvL6PJfL8*@f>s=Fw?(h6wNWLwefWMay&1w]BZY92w[+*!pgn0Jb03]EwPI@&A=kY7v@%t6zFsh(wPI@Ge(Vz6Bvvx8b1cc^Abn%dpgn0Jb03]EwPI@&A=kY7v@%t6zFsh(wPI@Ge(Vz6BvvP{wPRQ7wi>lGB.$YcBtk*0h7o.2b1l-/v%8)iA-Ec]b03]VCX7xcBz(gXfe4M)zFshCr=.kKB97r5zF<3agb0JRByPlfwNPK%a$K{9z!9AGx(4uSvrufbi=o7Ry+c=ez/{8gwG<eVlPOESp&ZF?wN/?6tWg9Cx)9{bwN5FMx()P+q!Z8/y?lNSB97r5zF<3atWht<v{AnrwPI@&A=kY7v@$%XvRGZ+tTSdjB.s@:zE)]Fe?*KnraQb)p&ZF?wN/*mwnD6aefW=4zE(N=zdm6%b04AaefX27B8#5lzB[v.i=o7R3?-
+Out: #@testrunner:25:TestCaseStartEventArgsDto:638:DM(B2B96=TB7E{Nb03]chdyfbvp?hBwhE*JeNZv*w?t}$hF1D]g+{*#h8E6FfKV{+efX58B96=TB7F9PzdK[Lb2&b{BwN0@ygQ)%e(=!6Bw#*)BtkyEwPI@Xc$$Z+f!1p$b1V&yxLzo[raQb)lT+4Eb06sAy&:esb2&b{Bvy1SzdNQbb075{nN%2aa#?C?w[2gXfFc/(wh2Pzf!)n(h-0v6eIG1pgg&y2gb{%@i3G)$mS&J-C#nY)y?WG}wN[LAzdK[Lb2&b{BwN0@ygQ)%e(=!6Bw#*)BtkyEwPI@Xa$K{ax(!lfvr>QRzdK[Lb2&b{BwN0@ygQ)%e(=!6Bw#*)BtkyEwPI@Xc$$Z+f!1p$b1l-/v%8)iA-Ec]b03]VCX7xcBz(gXfe4M)zFshCr=.kKB97r5zF<3agb0JRByPlfwNPK%a$K{9z!9AGx(4uSvrufbi=o7Ry+c=ez/{8gwG<eVlPOESp&ZF?wN/?6tWg9Cx)9{bwN5FMx()P+q!Z8/y?lNSB97r5zF<3atWht<v{AnrwPI@&A=kY7v@$%XvRGZ+tTSdjB.s@:zE)]Fe?*KnraQb)p&ZF?wN/*mwnD6aefW=4zE(N=zdm6%b04AaefX27B8#5lzB[v.i=o7R3?-
+Out: #@testrunner:25:TestCaseStartEventArgsDto:673:DM(B2B96=TB7E{Nb03]ch!s{Sgg&D%wNNuaeI]m]f!D*ygg-3>g=EB9f>K]Nh8^GsefX58B96=TB7F9PzdK[Lb2&b{BwN0@ygQ)%e(=!6Bw#*)BttEFwPI@Zc#AKqxM4AEA+xJiwO#PAiV{a9a$K{fB3<RPy?cHRB96=TB7DKRw)]H%wH]38wPI@Zy?mD{zGE6-DM(3(b03]ch!s{Sgg&D%wNNuaeI]m]f!D*ygg-3>g=EB9f>K]Nh8^GsefWMay&1w]BZY92w[+*!pgn0Jb03]EwPI@&A=kY7v@%t6zFsh(wPI@Ge(Vz6Bvvx8b1cc^Abn%dpgn0Jb03]EwPI@&A=kY7v@%t6zFsh(wPI@Ge(Vz6BvvP{wPRQ7wi>lGB.$YcBtk*0fEXg%b1l-/v%8)iA-Ec]b03]VCX7xcBz(gXfe4M)zFshCr=.kKB97r5zF<3agb0JRByPlfwNPK%a$K{9z!9AGx(4uSvrufbi=o7Ry+c=ez/{8gwG<eVlPOESp&ZF?wN/?6tWg9Cx)9{bwN5FMx()P+q!Z8/y?lNSB97r5zF<3atWht<v{AnrwPI@&A=kY7v@$%XvRGZ+tTSdjB.s@:zE)]Fe?*KnraQb)p&ZF?wN/*mwnD6aefW=4zE(N=zdm6%b04AaefX27B8#5lzB[v.i=o7R3?-
+Out: #@testrunner:25:TestCaseStartEventArgsDto:638:DM(B2B96=TB7E{Nb03]SwN^IRwJ16Jhd*zUeOcQ@gC7H}wh#kMgb.d7f!>HAw[9LtefX58B96=TB7F9PzdK[Lb2&b{BwN0@ygQ)%e(=!6Bw#*)BtkyEwPI@Xc$$Z+gBTI0b1V&yxLzo[raQb)lT+4Eb06sAy&:esb2&b{Bvy1SzdNQbb075{nN%2ab4ta[gDx28wgYVJwJ8hLfGy{vhE{tUeOcW}iB%{1g=P8Sf^nd)mS&J-C#nY)y?WG}wN[LAzdK[Lb2&b{BwN0@ygQ)%e(=!6Bw#*)BtkyEwPI@Xa$K{ax(!lfvr>QRzdK[Lb2&b{BwN0@ygQ)%e(=!6Bw#*)BtkyEwPI@Xc$$Z+gBTI0b1l-/v%8)iA-Ec]b03]VCX7xcBz(gXfe4M)zFshCr=.kKB97r5zF<3agb0JRByPlfwNPK%a$K{9z!9AGx(4uSvrufbi=o7Ry+c=ez/{8gwG<eVlPOESp&ZF?wN/?6tWg9Cx)9{bwN5FMx()P+q!Z8/y?lNSB97r5zF<3atWht<v{AnrwPI@&A=kY7v@$%XvRGZ+tTSdjB.s@:zE)]Fe?*KnraQb)p&ZF?wN/*mwnD6aefW=4zE(N=zdm6%b04AaefX27B8#5lzB[v.i=o7R3?-
+Out: #@testrunner:25:TestCaseStartEventArgsDto:623:DM(B2B96=TB7E{Nb03]WvLxGBvL*4@vpIbKeI{%Hg+An}fGpTwhdo{4vkREMv(lg?efX58B96=TB7F9PzdK[Lb2&b{BwN0@ygQ)%e(=!6Bw#*)BtkyEwPI@Wa$K{fB3<RPy?cHRB96=TB7DKRw)]H%wH]38wPI@Zy?mD{zGE6-DM(3(b03]WvLxGBvL*4@vpIbKeI{%Hg+An}fGpTwhdo{4vkREMv(lg?efWMay&1w]BZY92w[+*!pgn0Jb03]EwPI@&A=kY7v@%t6zFsh(wPI@Fe(Vz6Bv4f5b1cc^Abn%dpgn0Jb03]EwPI@&A=kY7v@%t6zFsh(wPI@Fe(Vz6Bv4f5b1l-/v%8)iA-Ec]b03]VCX7xcBz(gXfe4M)zFshCr=.kKB97r5zF<3agb0JRByPlfwNPK%a$K{9z!9AGx(4uSvrufbi=o7Ry+c=ez/{8gwG<eVlPOESp&ZF?wN/?6tWg9Cx)9{bwN5FMx()P+q!Z8/y?lNSB97r5zF<3atWht<v{AnrwPI@&A=kY7v@$%XvRGZ+tTSdjB.s@:zE)]Fe?*KnraQb)p&ZF?wN/*mwnD6aefW=4zE(N=zdm6%b04AaefX27B8#5lzB[v.i=o7R3?-
+Out: #@testrunner:25:TestCaseStartEventArgsDto:638:DM(B2B96=TB7E{Nb03]SvQ}qIwJsoMhdQhSeJbHAg+AfEwht!]vk6F{h8vlFgbSL=efX58B96=TB7F9PzdK[Lb2&b{BwN0@ygQ)%e(=!6Bw#*)BtkyEwPI@Xc$$Z+hyP?3b1V&yxLzo[raQb)lT+4Eb06sAy&:esb2&b{Bvy1SzdNQbb075{nN%2ab4t1(g+&M4wgYVHv(Vb0hz)ryvQ%19eI{(&gC}3CiwJuEv<iDFmS&J-C#nY)y?WG}wN[LAzdK[Lb2&b{BwN0@ygQ)%e(=!6Bw#*)BtkyEwPI@Xa$K{ax(!lfvr>QRzdK[Lb2&b{BwN0@ygQ)%e(=!6Bw#*)BtkyEwPI@Xc$$Z+hyP?3b1l-/v%8)iA-Ec]b03]VCX7xcBz(gXfe4M)zFshCr=.kKB97r5zF<3agb0JRByPlfwNPK%a$K{9z!9AGx(4uSvrufbi=o7Ry+c=ez/{8gwG<eVlPOESp&ZF?wN/?6tWg9Cx)9{bwN5FMx()P+q!Z8/y?lNSB97r5zF<3atWht<v{AnrwPI@&A=kY7v@$%XvRGZ+tTSdjB.s@:zE)]Fe?*KnraQb)p&ZF?wN/*mwnD6aefW=4zE(N=zdm6%b04AaefX27B8#5lzB[v.i=o7R3?-
+Out: #@testrunner:23:TestCaseEndEventArgsDto:693:DM(B2B97i2ByPlawG<e&efX58B96=TB7E{Nb03]ch!s{Sgg&D%wNNuaeI]m]f!D*ygg-3>g=EB9f>K]Nh8^GsefX58B96=TB7F9PzdK[Lb2&b{BwN0@ygQ)%e(=!6Bw#*)BttEFwPI@Zc#AKqxM4AEA+xJiwO#PAiV{a9a$K{fB3<RPy?cHRB96=TB7DKRw)]H%wH]38wPI@Zy?mD{zGE6-DM(3(b03]ch!s{Sgg&D%wNNuaeI]m]f!D*ygg-3>g=EB9f>K]Nh8^GsefWMay&1w]BZY92w[+*!pgn0Jb03]EwPI@&A=kY7v@%t6zFsh(wPI@Ge(Vz6Bvvx8b1cc^Abn%dpgn0Jb03]EwPI@&A=kY7v@%t6zFsh(wPI@Ge(Vz6BvvP{wPRQ7wi>lGB.$YcBtk*0fEXg%b1l-/v%8)iA-Ec]b03]VCX7xcBz(gXfe4M)zFshCr=.kKB97r5zF<3agb0JRByPlfwNPK%a$K{9z!9AGx(4uSvrufbi=o7Ry+c=ez/{8gwG<eVlPOESp&ZF?wN/?6tWg9Cx)9{bwN5FMx()P+q!Z8/y?lNSB97r5zF<3atWht<v{AnrwPI@&A=kY7v@$%XvRGZ+tTSdjB.s@:zE)]Fe?*KnraQb)p&ZF?wN/*mwnD6aefW=4zE(N=zdm6%b04AaefX27B8#5lzB[v.i=o7R3?-
+Out: #@testrunner:23:TestCaseEndEventArgsDto:643:DM(B2B97i2ByPlawG<e&efX58B96=TB7E{Nb03]WvLxGBvL*4@vpIbKeI{%Hg+An}fGpTwhdo{4vkREMv(lg?efX58B96=TB7F9PzdK[Lb2&b{BwN0@ygQ)%e(=!6Bw#*)BtkyEwPI@Wa$K{fB3<RPy?cHRB96=TB7DKRw)]H%wH]38wPI@Zy?mD{zGE6-DM(3(b03]WvLxGBvL*4@vpIbKeI{%Hg+An}fGpTwhdo{4vkREMv(lg?efWMay&1w]BZY92w[+*!pgn0Jb03]EwPI@&A=kY7v@%t6zFsh(wPI@Fe(Vz6Bv4f5b1cc^Abn%dpgn0Jb03]EwPI@&A=kY7v@%t6zFsh(wPI@Fe(Vz6Bv4f5b1l-/v%8)iA-Ec]b03]VCX7xcBz(gXfe4M)zFshCr=.kKB97r5zF<3agb0JRByPlfwNPK%a$K{9z!9AGx(4uSvrufbi=o7Ry+c=ez/{8gwG<eVlPOESp&ZF?wN/?6tWg9Cx)9{bwN5FMx()P+q!Z8/y?lNSB97r5zF<3atWht<v{AnrwPI@&A=kY7v@$%XvRGZ+tTSdjB.s@:zE)]Fe?*KnraQb)p&ZF?wN/*mwnD6aefW=4zE(N=zdm6%b04AaefX27B8#5lzB[v.i=o7R3?-
+Out: #@testrunner:25:TestCaseStartEventArgsDto:673:DM(B2B96=TB7E{Nb03]Rvk*eSfKXDyg=c%BeI{)Ef!CpvhE[yGv}vVjiaT=$wh4KrefX58B96=TB7F9PzdK[Lb2&b{BwN0@ygQ)%e(=!6Bw#*)BttEFwPI@Zc#AKqxM4AEA+xJiwO#PAiV{gba$K{fB3<RPy?cHRB96=TB7DKRw)]H%wH]38wPI@Zy?mD{zGE6-DM(3(b03]Rvk*eSfKXDyg=c%BeI{)Ef!CpvhE[yGv}vVjiaT=$wh4KrefWMay&1w]BZY92w[+*!pgn0Jb03]EwPI@&A=kY7v@%t6zFsh(wPI@Ge(Vz6Bvvx8b1cc^Abn%dpgn0Jb03]EwPI@&A=kY7v@%t6zFsh(wPI@Ge(Vz6BvvP{wPRQ7wi>lGB.$YcBtk*0gasy#b1l-/v%8)iA-Ec]b03]VCX7xcBz(gXfe4M)zFshCr=.kKB97r5zF<3agb0JRByPlfwNPK%a$K{9z!9AGx(4uSvrufbi=o7Ry+c=ez/{8gwG<eVlPOESp&ZF?wN/?6tWg9Cx)9{bwN5FMx()P+q!Z8/y?lNSB97r5zF<3atWht<v{AnrwPI@&A=kY7v@$%XvRGZ+tTSdjB.s@:zE)]Fe?*KnraQb)p&ZF?wN/*mwnD6aefW=4zE(N=zdm6%b04AaefX27B8#5lzB[v.i=o7R3?-
+Out: #@testrunner:25:TestCaseStartEventArgsDto:638:DM(B2B96=TB7E{Nb03]SiwrDHwIvNBi5k82eIHQBfFb7<iw&y0vk*83gg&B8h-A-vefX58B96=TB7F9PzdK[Lb2&b{BwN0@ygQ)%e(=!6Bw#*)BtkyEwPI@Xc$$Z+gasy#b1V&yxLzo[raQb)lT+4Eb06sAy&:esb2&b{Bvy1SzdNQbb075{nN%2ab4rL^iwUk2vL6L{w?+>>vp?hBgH&B5eO5oGhz^g3hArYPiu*0#mS&J-C#nY)y?WG}wN[LAzdK[Lb2&b{BwN0@ygQ)%e(=!6Bw#*)BtkyEwPI@Xa$K{ax(!lfvr>QRzdK[Lb2&b{BwN0@ygQ)%e(=!6Bw#*)BtkyEwPI@Xc$$Z+gasy#b1l-/v%8)iA-Ec]b03]VCX7xcBz(gXfe4M)zFshCr=.kKB97r5zF<3agb0JRByPlfwNPK%a$K{9z!9AGx(4uSvrufbi=o7Ry+c=ez/{8gwG<eVlPOESp&ZF?wN/?6tWg9Cx)9{bwN5FMx()P+q!Z8/y?lNSB97r5zF<3atWht<v{AnrwPI@&A=kY7v@$%XvRGZ+tTSdjB.s@:zE)]Fe?*KnraQb)p&ZF?wN/*mwnD6aefW=4zE(N=zdm6%b04AaefX27B8#5lzB[v.i=o7R3?-
+Out: #@testrunner:25:TestCaseStartEventArgsDto:623:DM(B2B96=TB7E{Nb03]Rh-Lzef>A9(iaBW6eIQ-)iw09DhzuZugb9oIfL0f#f>96=efX58B96=TB7F9PzdK[Lb2&b{BwN0@ygQ)%e(=!6Bw#*)BtkyEwPI@Va$K{fB3<RPy?cHRB96=TB7DKRw)]H%wH]38wPI@Zy?mD{zGE6-DM(3(b03]Rh-Lzef>A9(iaBW6eIQ-)iw09DhzuZugb9oIfL0f#f>96=efWMay&1w]BZY92w[+*!pgn0Jb03]EwPI@&A=kY7v@%t6zFsh(wPI@Fe(Vz6Bu}94b1cc^Abn%dpgn0Jb03]EwPI@&A=kY7v@%t6zFsh(wPI@Fe(Vz6Bu}94b1l-/v%8)iA-Ec]b03]VCX7xcBz(gXfe4M)zFshCr=.kKB97r5zF<3agb0JRByPlfwNPK%a$K{9z!9AGx(4uSvrufbi=o7Ry+c=ez/{8gwG<eVlPOESp&ZF?wN/?6tWg9Cx)9{bwN5FMx()P+q!Z8/y?lNSB97r5zF<3atWht<v{AnrwPI@&A=kY7v@$%XvRGZ+tTSdjB.s@:zE)]Fe?*KnraQb)p&ZF?wN/*mwnD6aefW=4zE(N=zdm6%b04AaefX27B8#5lzB[v.i=o7R3?-
+Out: #@testrunner:25:TestCaseStartEventArgsDto:673:DM(B2B96=TB7E{Nb03]ai5$FWgDvrAw&qIReIG1oi4XMIh8M%%i5SW9h!DMgh!3qwefX58B96=TB7F9PzdK[Lb2&b{BwN0@ygQ)%e(=!6Bw#*)BttEFwPI@Zc#AKqxM4AEA+xJiwO#PAiV{daa$K{fB3<RPy?cHRB96=TB7DKRw)]H%wH]38wPI@Zy?mD{zGE6-DM(3(b03]ai5$FWgDvrAw&qIReIG1oi4XMIh8M%%i5SW9h!DMgh!3qwefWMay&1w]BZY92w[+*!pgn0Jb03]EwPI@&A=kY7v@%t6zFsh(wPI@Ge(Vz6Bvvx8b1cc^Abn%dpgn0Jb03]EwPI@&A=kY7v@%t6zFsh(wPI@Ge(Vz6BvvP{wPRQ7wi>lGB.$YcBtk*0f!1p$b1l-/v%8)iA-Ec]b03]VCX7xcBz(gXfe4M)zFshCr=.kKB97r5zF<3agb0JRByPlfwNPK%a$K{9z!9AGx(4uSvrufbi=o7Ry+c=ez/{8gwG<eVlPOESp&ZF?wN/?6tWg9Cx)9{bwN5FMx()P+q!Z8/y?lNSB97r5zF<3atWht<v{AnrwPI@&A=kY7v@$%XvRGZ+tTSdjB.s@:zE)]Fe?*KnraQb)p&ZF?wN/*mwnD6aefW=4zE(N=zdm6%b04AaefX27B8#5lzB[v.i=o7R3?-
+Out: #@testrunner:25:TestCaseStartEventArgsDto:673:DM(B2B96=TB7E{Nb03]Th-SSNv}od5gbH{HeIHY(wgYU%h-03xgbJP0iB<%2wO2x@efX58B96=TB7F9PzdK[Lb2&b{BwN0@ygQ)%e(=!6Bw#*)BttEFwPI@Zc#AKqxM4AEA+xJiwO#PAiV{jca$K{fB3<RPy?cHRB96=TB7DKRw)]H%wH]38wPI@Zy?mD{zGE6-DM(3(b03]Th-SSNv}od5gbH{HeIHY(wgYU%h-03xgbJP0iB<%2wO2x@efWMay&1w]BZY92w[+*!pgn0Jb03]EwPI@&A=kY7v@%t6zFsh(wPI@Ge(Vz6Bvvx8b1cc^Abn%dpgn0Jb03]EwPI@&A=kY7v@%t6zFsh(wPI@Ge(Vz6BvvP{wPRQ7wi>lGB.$YcBtk*0gBTI0b1l-/v%8)iA-Ec]b03]VCX7xcBz(gXfe4M)zFshCr=.kKB97r5zF<3agb0JRByPlfwNPK%a$K{9z!9AGx(4uSvrufbi=o7Ry+c=ez/{8gwG<eVlPOESp&ZF?wN/?6tWg9Cx)9{bwN5FMx()P+q!Z8/y?lNSB97r5zF<3atWht<v{AnrwPI@&A=kY7v@$%XvRGZ+tTSdjB.s@:zE)]Fe?*KnraQb)p&ZF?wN/*mwnD6aefW=4zE(N=zdm6%b04AaefX27B8#5lzB[v.i=o7R3?-
+Out: #@testrunner:25:TestCaseStartEventArgsDto:638:DM(B2B96=TB7E{Nb03]7w)]j7h8vizggs=IeJ2Hxvj:iBwNNeBh!3kKi5As1f/p*jefX58B96=TB7F9PzdK[Lb2&b{BwN0@ygQ)%e(=!6Bw#*)BtkyEwPI@Xc$$Z+fEXg%b1V&yxLzo[raQb)lT+4Eb06sAy&:esb2&b{Bvy1SzdNQbb075{nN%2aa#r?twh2>%i4V)]w?>}}i5a?[f>B{8eIPg[vLP]1fK#)}h6KN}mS&J-C#nY)y?WG}wN[LAzdK[Lb2&b{BwN0@ygQ)%e(=!6Bw#*)BtkyEwPI@Xa$K{ax(!lfvr>QRzdK[Lb2&b{BwN0@ygQ)%e(=!6Bw#*)BtkyEwPI@Xc$$Z+fEXg%b1l-/v%8)iA-Ec]b03]VCX7xcBz(gXfe4M)zFshCr=.kKB97r5zF<3agb0JRByPlfwNPK%a$K{9z!9AGx(4uSvrufbi=o7Ry+c=ez/{8gwG<eVlPOESp&ZF?wN/?6tWg9Cx)9{bwN5FMx()P+q!Z8/y?lNSB97r5zF<3atWht<v{AnrwPI@&A=kY7v@$%XvRGZ+tTSdjB.s@:zE)]Fe?*KnraQb)p&ZF?wN/*mwnD6aefW=4zE(N=zdm6%b04AaefX27B8#5lzB[v.i=o7R3?-
+Out: #@testrunner:23:TestCaseEndEventArgsDto:658:DM(B2B97i2ByPlawG<e&efX58B96=TB7E{Nb03]7w)]j7h8vizggs=IeJ2Hxvj:iBwNNeBh!3kKi5As1f/p*jefX58B96=TB7F9PzdK[Lb2&b{BwN0@ygQ)%e(=!6Bw#*)BtkyEwPI@Xc$$Z+fEXg%b1V&yxLzo[raQb)lT+4Eb06sAy&:esb2&b{Bvy1SzdNQbb075{nN%2aa#r?twh2>%i4V)]w?>}}i5a?[f>B{8eIPg[vLP]1fK#)}h6KN}mS&J-C#nY)y?WG}wN[LAzdK[Lb2&b{BwN0@ygQ)%e(=!6Bw#*)BtkyEwPI@Xa$K{ax(!lfvr>QRzdK[Lb2&b{BwN0@ygQ)%e(=!6Bw#*)BtkyEwPI@Xc$$Z+fEXg%b1l-/v%8)iA-Ec]b03]VCX7xcBz(gXfe4M)zFshCr=.kKB97r5zF<3agb0JRByPlfwNPK%a$K{9z!9AGx(4uSvrufbi=o7Ry+c=ez/{8gwG<eVlPOESp&ZF?wN/?6tWg9Cx)9{bwN5FMx()P+q!Z8/y?lNSB97r5zF<3atWht<v{AnrwPI@&A=kY7v@$%XvRGZ+tTSdjB.s@:zE)]Fe?*KnraQb)p&ZF?wN/*mwnD6aefW=4zE(N=zdm6%b04AaefX27B8#5lzB[v.i=o7R3?-
+Out: #@testrunner:25:TestCaseStartEventArgsDto:673:DM(B2B96=TB7E{Nb03]4wIW?bvL}NChz)v2eIGd{v>zaHiC6<4h8Wp6fG0q#vkoLYefX58B96=TB7F9PzdK[Lb2&b{BwN0@ygQ)%e(=!6Bw#*)BttEFwPI@Zc#AKqxM4AEA+xJiwO#PAiV{mda$K{fB3<RPy?cHRB96=TB7DKRw)]H%wH]38wPI@Zy?mD{zGE6-DM(3(b03]4wIW?bvL}NChz)v2eIGd{v>zaHiC6<4h8Wp6fG0q#vkoLYefWMay&1w]BZY92w[+*!pgn0Jb03]EwPI@&A=kY7v@%t6zFsh(wPI@Ge(Vz6Bvvx8b1cc^Abn%dpgn0Jb03]EwPI@&A=kY7v@%t6zFsh(wPI@Ge(Vz6BvvP{wPRQ7wi>lGB.$YcBtk*0g:%R1b1l-/v%8)iA-Ec]b03]VCX7xcBz(gXfe4M)zFshCr=.kKB97r5zF<3agb0JRByPlfwNPK%a$K{9z!9AGx(4uSvrufbi=o7Ry+c=ez/{8gwG<eVlPOESp&ZF?wN/?6tWg9Cx)9{bwN5FMx()P+q!Z8/y?lNSB97r5zF<3atWht<v{AnrwPI@&A=kY7v@$%XvRGZ+tTSdjB.s@:zE)]Fe?*KnraQb)p&ZF?wN/*mwnD6aefW=4zE(N=zdm6%b04AaefX27B8#5lzB[v.i=o7R3?-
+Out: #@testrunner:25:TestCaseStartEventArgsDto:638:DM(B2B96=TB7E{Nb03]Sh-ry5g=Y4$wI)}eeN{IzgC7B)vQ}61v(Dq1h-Ce7g?HkwefX58B96=TB7F9PzdK[Lb2&b{BwN0@ygQ)%e(=!6Bw#*)BtkyEwPI@Xc$$Z+h7o.2b1V&yxLzo[raQb)lT+4Eb06sAy&:esb2&b{Bvy1SzdNQbb075{nN%2ab4rF?f>Jm5v>zmHvRdi4f<#<&g?6{8eN&iGhzv6Gvk*2Pv<iDFmS&J-C#nY)y?WG}wN[LAzdK[Lb2&b{BwN0@ygQ)%e(=!6Bw#*)BtkyEwPI@Xa$K{ax(!lfvr>QRzdK[Lb2&b{BwN0@ygQ)%e(=!6Bw#*)BtkyEwPI@Xc$$Z+h7o.2b1l-/v%8)iA-Ec]b03]VCX7xcBz(gXfe4M)zFshCr=.kKB97r5zF<3agb0JRByPlfwNPK%a$K{9z!9AGx(4uSvrufbi=o7Ry+c=ez/{8gwG<eVlPOESp&ZF?wN/?6tWg9Cx)9{bwN5FMx()P+q!Z8/y?lNSB97r5zF<3atWht<v{AnrwPI@&A=kY7v@$%XvRGZ+tTSdjB.s@:zE)]Fe?*KnraQb)p&ZF?wN/*mwnD6aefW=4zE(N=zdm6%b04AaefX27B8#5lzB[v.i=o7R3?-
+Out: #@testrunner:25:TestCaseStartEventArgsDto:623:DM(B2B96=TB7E{Nb03]5vRdx8g=O[}w&IXceJvlLhz3*Av>]SEhEOQ7h8NiCvkqmnefX58B96=TB7F9PzdK[Lb2&b{BwN0@ygQ)%e(=!6Bw#*)BttEFwPI@Ya$K{fB3<RPy?cHRB96=TB7DKRw)]H%wH]38wPI@Zy?mD{zGE6-DM(3(b03]5vRdx8g=O[}w&IXceJvlLhz3*Av>]SEhEOQ7h8NiCvkqmnefWMay&1w]BZY92w[+*!pgn0Jb03]EwPI@&A=kY7v@%t6zFsh(wPI@Ge(Vz6Bvmr7b1cc^Abn%dpgn0Jb03]EwPI@&A=kY7v@%t6zFsh(wPI@Ge(Vz6Bvmr7b1l-/v%8)iA-Ec]b03]VCX7xcBz(gXfe4M)zFshCr=.kKB97r5zF<3agb0JRByPlfwNPK%a$K{9z!9AGx(4uSvrufbi=o7Ry+c=ez/{8gwG<eVlPOESp&ZF?wN/?6tWg9Cx)9{bwN5FMx()P+q!Z8/y?lNSB97r5zF<3atWht<v{AnrwPI@&A=kY7v@$%XvRGZ+tTSdjB.s@:zE)]Fe?*KnraQb)p&ZF?wN/*mwnD6aefW=4zE(N=zdm6%b04AaefX27B8#5lzB[v.i=o7R3?-
+Out: #@testrunner:23:TestCaseEndEventArgsDto:658:DM(B2B97i2ByPlawG<e&efX58B96=TB7E{Nb03]chdyfbvp?hBwhE*JeNZv*w?t}$hF1D]g+{*#h8E6FfKV{+efX58B96=TB7F9PzdK[Lb2&b{BwN0@ygQ)%e(=!6Bw#*)BtkyEwPI@Xc$$Z+f!1p$b1V&yxLzo[raQb)lT+4Eb06sAy&:esb2&b{Bvy1SzdNQbb075{nN%2aa#?C?w[2gXfFc/(wh2Pzf!)n(h-0v6eIG1pgg&y2gb{%@i3G)$mS&J-C#nY)y?WG}wN[LAzdK[Lb2&b{BwN0@ygQ)%e(=!6Bw#*)BtkyEwPI@Xa$K{ax(!lfvr>QRzdK[Lb2&b{BwN0@ygQ)%e(=!6Bw#*)BtkyEwPI@Xc$$Z+f!1p$b1l-/v%8)iA-Ec]b03]VCX7xcBz(gXfe4M)zFshCr=.kKB97r5zF<3agb0JRByPlfwNPK%a$K{9z!9AGx(4uSvrufbi=o7Ry+c=ez/{8gwG<eVlPOESp&ZF?wN/?6tWg9Cx)9{bwN5FMx()P+q!Z8/y?lNSB97r5zF<3atWht<v{AnrwPI@&A=kY7v@$%XvRGZ+tTSdjB.s@:zE)]Fe?*KnraQb)p&ZF?wN/*mwnD6aefW=4zE(N=zdm6%b04AaefX27B8#5lzB[v.i=o7R3?-
+Out: #@testrunner:23:TestCaseEndEventArgsDto:693:DM(B2B97i2ByPlawG<e&efX58B96=TB7E{Nb03]ai5$FWgDvrAw&qIReIG1oi4XMIh8M%%i5SW9h!DMgh!3qwefX58B96=TB7F9PzdK[Lb2&b{BwN0@ygQ)%e(=!6Bw#*)BttEFwPI@Zc#AKqxM4AEA+xJiwO#PAiV{daa$K{fB3<RPy?cHRB96=TB7DKRw)]H%wH]38wPI@Zy?mD{zGE6-DM(3(b03]ai5$FWgDvrAw&qIReIG1oi4XMIh8M%%i5SW9h!DMgh!3qwefWMay&1w]BZY92w[+*!pgn0Jb03]EwPI@&A=kY7v@%t6zFsh(wPI@Ge(Vz6Bvvx8b1cc^Abn%dpgn0Jb03]EwPI@&A=kY7v@%t6zFsh(wPI@Ge(Vz6BvvP{wPRQ7wi>lGB.$YcBtk*0f!1p$b1l-/v%8)iA-Ec]b03]VCX7xcBz(gXfe4M)zFshCr=.kKB97r5zF<3agb0JRByPlfwNPK%a$K{9z!9AGx(4uSvrufbi=o7Ry+c=ez/{8gwG<eVlPOESp&ZF?wN/?6tWg9Cx)9{bwN5FMx()P+q!Z8/y?lNSB97r5zF<3atWht<v{AnrwPI@&A=kY7v@$%XvRGZ+tTSdjB.s@:zE)]Fe?*KnraQb)p&ZF?wN/*mwnD6aefW=4zE(N=zdm6%b04AaefX27B8#5lzB[v.i=o7R3?-
+Out: #@testrunner:22:TestResultEventArgsDto:862:DM(v0B9hqvb075{raQb)lT+4Eb075{nN%2aa#?I)h!1KOh.wPHgg&9{gH@i(vpz06eIG1uiB<<Rv(uh6i3G)$mS&J-C#nY)y?WG}wN[LAzdK[Lb2&b{BwN0@ygQ)%e(=!6Bw#*)BttEFwPI@Za$K{ax(!lfvr>QRzdK[Lb2&b{BwN0@ygQ)%e(=!6Bw#*)BttEFwPI@Zc#AKqxM4AEA+xJiwO#PAiV{a9a$K{bCX7xcBz(h1A+MZUb4V1gv%8)iAYL<bCY^[rBt3WoraQb)qGV>{wPxKVzE){1z/Pz$AbW0Lb13oVwKZxIwL=/SxD/GPB.>>Bb2-A5A:@V8iWc{LtWg9Cz!-&[BApX(p&Zn[vru6=tXv+)tWgiwze:r5raQb)qGV>{wPz3XB8>+}tVtoQBwN0@ygQ)%tWg-LzD{BmwNY^{tWheTBt+:9tWgltB97l0z!-&[Bs}9uy:7zOoLFxQpiyz.wPw$QfNUF@pJZ+?z/65fiX-ffmriA!A.Qa^B75Y)b06Q:y?$TDmriA!A-m6*v@24:vpJ<)i=o7Ry+c+#x(!lfvr>QRzdK[Lb2&b{BwN0@ygQ)%e(=!6Bw#*)BttEFwPI@Zc#AKqxM4AEA+xJiwO#PAiV{a9a$K{jwPI{3xjVcdi:k(vb13o=AclnlA.Z4WwG<eVlpsQ3h8E6ziu*0#m0iJUBzkVhb03]4fGH)wiXSlufFCssfFUycefX2mvrcD?x(dA9iWcskgbpBniw00Ar53c?f!+Tyf!Lmth8vfGiv=^qiXSliefWJ2wk)nWwG<eVgb7EseIGgpgb-8^gcdcziX-uwgC}3Ciw-YCfFCKwfD$]@b2-5]B7]MgnN%2azGP=i1E
+Out: #@testrunner:22:TestResultEventArgsDto:865:DM(v0B9hqvb075{raQb)lT+4Eb075{nN%2ab4+prfK!GFi4XMGg=l<wv}ELHwI=82eJ2y]vprO4vk}:OhZf^%mS&J-C#nY)y?WG}wN[LAzdK[Lb2&b{BwN0@ygQ)%e(=!6Bw#*)BtkyEwPI@Wa$K{ax(!lfvr>QRzdK[Lb2&b{BwN0@ygQ)%e(=!6Bw#*)BtkyEwPI@Wa$K{bCX7xcBz(h1A+MZUb4V1gv%8)iAYL<bCY^[rBt3WoraQb)qGV>{wPxKVzE){1z/Pz$AbW0Lb13oVwKZxIwL=/SxD/GPB.>>Bb2-A5A:@V8iWc{LtWg9Cz!-&[BApX(p&Zn[vru6=tXv+)tWgiwze:r5raQb)qGV>{wPz3XB8>+}tVtoQBwN0@ygQ)%tWg-LzD{BmwNY^{tWheTBt+:9tWgltB97l0z!-&[Bs}9uy:7zOoLFxQpiyz.wPw$QfNUF@pJZ+?z/65fiX-ffmriA!A.Qa^B75Y)b06Q:y?$TDmriA!A-m6*v@24:vpJ<)i=o7Ry+c+#x(!lfvr>QRzdK[Lb2&b{BwN0@ygQ)%e(=!6Bw#*)BtkyEwPI@Wa$K{jwPI{3xjVcdi:l}PlT+7Fxk.*ob03]DByXf&Bwl*?B0rdVraQq@b03]TBz(h8A:iGaEo!xFlVl*XB-.hnpgn0Jb03]ml@bx(g+{*Da$K{aB-H]jx(v(kiWcmiiXSlGfFCakfG7ZDhzVKdb2-O(A=+n{zdK[La#g&cga+gueIYj-f!$^AfGH{ye&bExh83*Bd>&UrfFBX4b1lxWrb3hXb03]6fFUynfGyZuhDhy^iX-rHf!>ppi5iuBgDl)sfGH)wb7h0^q!p2>x(v(XwfK6LB.>(x
+Out: #@testrunner:23:TestCaseEndEventArgsDto:658:DM(B2B97i2ByPlawG<e&efX58B96=TB7E{Nb03]SiwrDHwIvNBi5k82eIHQBfFb7<iw&y0vk*83gg&B8h-A-vefX58B96=TB7F9PzdK[Lb2&b{BwN0@ygQ)%e(=!6Bw#*)BtkyEwPI@Xc$$Z+gasy#b1V&yxLzo[raQb)lT+4Eb06sAy&:esb2&b{Bvy1SzdNQbb075{nN%2ab4rL^iwUk2vL6L{w?+>>vp?hBgH&B5eO5oGhz^g3hArYPiu*0#mS&J-C#nY)y?WG}wN[LAzdK[Lb2&b{BwN0@ygQ)%e(=!6Bw#*)BtkyEwPI@Xa$K{ax(!lfvr>QRzdK[Lb2&b{BwN0@ygQ)%e(=!6Bw#*)BtkyEwPI@Xc$$Z+gasy#b1l-/v%8)iA-Ec]b03]VCX7xcBz(gXfe4M)zFshCr=.kKB97r5zF<3agb0JRByPlfwNPK%a$K{9z!9AGx(4uSvrufbi=o7Ry+c=ez/{8gwG<eVlPOESp&ZF?wN/?6tWg9Cx)9{bwN5FMx()P+q!Z8/y?lNSB97r5zF<3atWht<v{AnrwPI@&A=kY7v@$%XvRGZ+tTSdjB.s@:zE)]Fe?*KnraQb)p&ZF?wN/*mwnD6aefW=4zE(N=zdm6%b04AaefX27B8#5lzB[v.i=o7R3?-
+Out: #@testrunner:26:TestRunMessageEventArgsDto:154:DM(f}B8$=5wG<eVtx<d=x(>$BwPP4GfGH)wiXSlui5j+ZarR^HraQb)p&ZF?wN/*mrC(I)raQb)ga(KqB96&0zdN*5z!8dOxlw65zGEP]atLw*tsH[IoKe?[b1#M>wO-LKgaTRFwPI{bz/ecSb06Q:bMF1
+Err: [xUnit.net 00:00:00.82]     TestProject.UnitTest2.TestE(methodArgument1: 2) [FAIL]
+Out: #@testrunner:26:TestRunMessageEventArgsDto:120:DM(f}B8$=5wG<eVtx<d=x(>$BwPP4GfGH)wiXSlui5s?.arR^HarS%>B7Gxle(3tbmr9DUy:Z.PmQZ1EB-I4qefW=0C4CFliXS9eq!p2>x(v(XwfK6LB.>(x
+Out: #@testrunner:26:TestRunMessageEventArgsDto:108:DM(f}B8$=5wG<eVtx<d=x(>$BwPP4GfGH)wiXSlui5s?.arR^HarT9$AaJK3wN)?Aph+j%g9Om[oL5xUy:7[]efX27B8#5lzB[v.i=o7R3?-
+Out: #@testrunner:26:TestRunMessageEventArgsDto:103:DM(f}B8$=5wG<eVtx<d=x(>$BwPP4GfGH)wiXSlui5s?.arR^HarS%WBAI2diV]K/g9Om[oL5xUy:7[]efX27B8#5lzB[v.i=o7R3?-
+Out: #@testrunner:26:TestRunMessageEventArgsDto:104:DM(f}B8$=5wG<eVtx<d=x(>$BwPP4GfGH)wiXSlui5s?.arR^HarTQ8vpK6}rb#zSwJz1^b1#M>wO-LKfF1zDwPI{bz/ecSb06Q:bMF1
+Out: #@testrunner:26:TestRunMessageEventArgsDto:263:DM(f}B8$=5wG<eVtx<d=x(>$BwPP4GfGH)wiXSlui5s?.arR^HarR^HlPOESp&ZF?wN/?6tWg9Cx)9{bwN5FMx()P+q!Z8/y?lNSB97r5zF<3atWht<v{AnrwPI@&A=kY7v@$%XrC(I)raQb)ga)6Tc]9+kfEY49vrrR>wPI@&A=kY7v@%t6zFsh(wPI@Ge(Vz6BvvPHzGEV&az>XixM4AEA+xJiwO#PAdiZq!oL5xUy:7[]efX27B8#5lzB[v.i=o7R3?-
+Out: #@testrunner:26:TestRunMessageEventArgsDto:153:DM(f}B8$=5wG<eVtx<d=x(>$BwPP4GfGH)wiXSlui5s?.arR^HarR^HeIeK%mq=SUz!pbkBywV{aARTjv}u={A=k!qAb]Jkx(wcnaz+$avruj4zxHI.eG#.&oL5xUy:7[]efX27B8#5lzB[v.i=o7R3?-
+Out: #@testrunner:23:TestCaseEndEventArgsDto:693:DM(B2B97i2ByPlawG<e<efX58B96=TB7E{Nb03]Rvk*eSfKXDyg=c%BeI{)Ef!CpvhE[yGv}vVjiaT=$wh4KrefX58B96=TB7F9PzdK[Lb2&b{BwN0@ygQ)%e(=!6Bw#*)BttEFwPI@Zc#AKqxM4AEA+xJiwO#PAiV{gba$K{fB3<RPy?cHRB96=TB7DKRw)]H%wH]38wPI@Zy?mD{zGE6-DM(3(b03]Rvk*eSfKXDyg=c%BeI{)Ef!CpvhE[yGv}vVjiaT=$wh4KrefWMay&1w]BZY92w[+*!pgn0Jb03]EwPI@&A=kY7v@%t6zFsh(wPI@Ge(Vz6Bvvx8b1cc^Abn%dpgn0Jb03]EwPI@&A=kY7v@%t6zFsh(wPI@Ge(Vz6BvvP{wPRQ7wi>lGB.$YcBtk*0gasy#b1l-/v%8)iA-Ec]b03]VCX7xcBz(gXfe4M)zFshCr=.kKB97r5zF<3agb0JRByPlfwNPK%a$K{9z!9AGx(4uSvrufbi=o7Ry+c=ez/{8gwG<eVlPOESp&ZF?wN/?6tWg9Cx)9{bwN5FMx()P+q!Z8/y?lNSB97r5zF<3atWht<v{AnrwPI@&A=kY7v@$%XvRGZ+tTSdjB.s@:zE)]Fe?*KnraQb)p&ZF?wN/*mwnD6aefW=4zE(N=zdm6%b04AaefX27B8#5lzB[v.i=o7R3?-
+Out: #@testrunner:22:TestResultEventArgsDto:880:DM(v0B9hqvb075{raQb)lT+4Eb075{nN%2aa#r?twh2>%i4V)]w?>}}i5a?[f>B{8eIPg[vLP]1fK#)}h6KN}mS&J-C#nY)y?WG}wN[LAzdK[Lb2&b{BwN0@ygQ)%e(=!6Bw#*)BtkyEwPI@Xa$K{ax(!lfvr>QRzdK[Lb2&b{BwN0@ygQ)%e(=!6Bw#*)BtkyEwPI@Xc$$Z+fEXg%b1l-/v%8)iA-Ec]b03]VCX7xcBz(gXfe4M)zFshCr=.kKB97r5zF<3agb0JRByPlfwNPK%a$K{9z!9AGx(4uSvrufbi=o7Ry+c=ez/{8gwG<eVlPOESp&ZF?wN/?6tWg9Cx)9{bwN5FMx()P+q!Z8/y?lNSB97r5zF<3atWht<v{AnrwPI@&A=kY7v@$%XvRGZ+tTSdjB.s@:zE)]Fe?*KnraQb)p&ZF?wN/*mwnD6aefW=4zE(N=zdm6%b04AaefW(jByPlawG<e&efWJ6A=k$)wPI{3xjSnFzGP=iefWJ6A=k$%BywV{rb#zSwG<fMB.>>Bb1cc^Abn%dpgn0Jb03]EwPI@&A=kY7v@%t6zFsh(wPI@Fe(Vz6BvdD<iV{a9a$K{jwPI{3xjVcdi:l}PlT+7Fxk.*ob03]DByXf&Bwl*?B0rdVraQq@b03]TBz(h8A:iGaEo!xFlVl*XB-.hnpgn0Jb03]ml@bx(g+{*Da$K{aB-H]jx(v(kiWcmiiXSlGfFCakfFCgng=lEdb2-O(A=+n{zdK[La#g&cga+gueIYj-f!$^AfGH{ye&ksrgCH:Bd>&UrfFBX4b1lxWrb3hXb03]6fFUynfGyZuhDhy^iX-rHf!>pqgbgNth8)9ufGH)wb7h0^q!p2>x(v(XwfK6LB.>(x
+Out: #@testrunner:22:TestResultEventArgsDto:880:DM(v0B9hqvb075{raQb)lT+4Eb075{nN%2aa#?C?w[2gXfFc/(wh2Pzf!)n(h-0v6eIG1pgg&y2gb{%@i3G)$mS&J-C#nY)y?WG}wN[LAzdK[Lb2&b{BwN0@ygQ)%e(=!6Bw#*)BtkyEwPI@Xa$K{ax(!lfvr>QRzdK[Lb2&b{BwN0@ygQ)%e(=!6Bw#*)BtkyEwPI@Xc$$Z+f!1p$b1l-/v%8)iA-Ec]b03]VCX7xcBz(gXfe4M)zFshCr=.kKB97r5zF<3agb0JRByPlfwNPK%a$K{9z!9AGx(4uSvrufbi=o7Ry+c=ez/{8gwG<eVlPOESp&ZF?wN/?6tWg9Cx)9{bwN5FMx()P+q!Z8/y?lNSB97r5zF<3atWht<v{AnrwPI@&A=kY7v@$%XvRGZ+tTSdjB.s@:zE)]Fe?*KnraQb)p&ZF?wN/*mwnD6aefW=4zE(N=zdm6%b04AaefW(jByPlawG<e&efWJ6A=k$)wPI{3xjSnFzGP=iefWJ6A=k$%BywV{rb#zSwG<fMB.>>Bb1cc^Abn%dpgn0Jb03]EwPI@&A=kY7v@%t6zFsh(wPI@Fe(Vz6BvdD<iV{daa$K{jwPI{3xjVcdi:l}PlT+7Fxk.*ob03]DByXf&Bwl*?B0rdVraQq@b03]TBz(h8A:iGaEo!xFlVl*XB-.hnpgn0Jb03]ml@bx(g+{*Da$K{aB-H]jx(v(kiWcmiiXSlGfFCalfGg<Gh-q<hb2-O(A=+n{zdK[La#g&cga+gueIYj-f!$^AfGH{ye&ksugbp*Bd>&UrfFBX4b1lxWrb3hXb03]6fFUynfGyZuhDhy^iX-rHf!>pqgbH:wiwJ9sfGH)wb7h0^q!p2>x(v(XwfK6LB.>(x
+Out: #@testrunner:22:TestResultEventArgsDto:862:DM(v0B9hqvb075{raQb)lT+4Eb075{nN%2aa#Rzvv}vCRh7-z#hdFi(g+*%wvp.qNeOc[1hE[:Uv}mJcwfJMGmS&J-C#nY)y?WG}wN[LAzdK[Lb2&b{BwN0@ygQ)%e(=!6Bw#*)BttEFwPI@Za$K{ax(!lfvr>QRzdK[Lb2&b{BwN0@ygQ)%e(=!6Bw#*)BttEFwPI@Zc#AKqxM4AEA+xJiwO#PAiV{daa$K{bCX7xcBz(h1A+MZUb4V1gv%8)iAYL<bCY^[rBt3WoraQb)qGV>{wPxKVzE){1z/Pz$AbW0Lb13oVwKZxIwL=/SxD/GPB.>>Bb2-A5A:@V8iWc{LtWg9Cz!-&[BApX(p&Zn[vru6=tXv+)tWgiwze:r5raQb)qGV>{wPz3XB8>+}tVtoQBwN0@ygQ)%tWg-LzD{BmwNY^{tWheTBt+:9tWgltB97l0z!-&[Bs}9uy:7zOoLFxQpiyz.wPw$QfNUF@pJZ+?z/65fiX-ffmriA!A.Qa^B75Y)b06Q:y?$TDmriA!A-m6*v@24:vpJ<)i=o7Ry+c+#x(!lfvr>QRzdK[Lb2&b{BwN0@ygQ)%e(=!6Bw#*)BttEFwPI@Zc#AKqxM4AEA+xJiwO#PAiV{daa$K{jwPI{3xjVcdi:k(vb13o=AclnlA.Z4WwG<eVlpsQ3h8E6ziu*0#m0iJUBzkVhb03]4fGH)wiXSluf!+QAgC*<hefX2mvrcD?x(dA9iWcskgbpBniw00Ar53c?f!+Tyf!Lprh83<vgaL4jiXSliefWJ2wk)nWwG<eVgb7EseIGgpgb-8^gcdcziX-uwg+{{xg+ZWnfFCKwfD$]@b2-5]B7]MgnN%2azGP=i1E
+Out: #@testrunner:22:TestResultEventArgsDto:880:DM(v0B9hqvb075{raQb)lT+4Eb075{nN%2ab4rL^iwUk2vL6L{w?+>>vp?hBgH&B5eO5oGhz^g3hArYPiu*0#mS&J-C#nY)y?WG}wN[LAzdK[Lb2&b{BwN0@ygQ)%e(=!6Bw#*)BtkyEwPI@Xa$K{ax(!lfvr>QRzdK[Lb2&b{BwN0@ygQ)%e(=!6Bw#*)BtkyEwPI@Xc$$Z+gasy#b1l-/v%8)iA-Ec]b03]VCX7xcBz(gXfe4M)zFshCr=.kKB97r5zF<3agb0JRByPlfwNPK%a$K{9z!9AGx(4uSvrufbi=o7Ry+c=ez/{8gwG<eVlPOESp&ZF?wN/?6tWg9Cx)9{bwN5FMx()P+q!Z8/y?lNSB97r5zF<3atWht<v{AnrwPI@&A=kY7v@$%XvRGZ+tTSdjB.s@:zE)]Fe?*KnraQb)p&ZF?wN/*mwnD6aefW=4zE(N=zdm6%b04AaefW(jByPlawG<e&efWJ6A=k$)wPI{3xjSnFzGP=iefWJ6A=k$%BywV{rb#zSwG<fMB.>>Bb1cc^Abn%dpgn0Jb03]EwPI@&A=kY7v@%t6zFsh(wPI@Fe(Vz6BvdD<iV{gba$K{jwPI{3xjVcdi:l}PlT+7Fxk.*ob03]DByXf&Bwl*?B0rdVraQq@b03]TBz(h8A:iGaEo!xFlVl*XB-.hnpgn0Jb03]ml@bx(g+{*Da$K{aB-H]jx(v(kiWcmiiXSlGfFCamfFLpxi5R%ib2-O(A=+n{zdK[La#g&cga+gueIYj-f!$^AfGH{ye&tvrgC*{zd>&UrfFBX4b1lxWrb3hXb03]6fFUynfGyZuhDhy^iX-rHf!>prf!>Evg=N0tfGH)wb7h0^q!p2>x(v(XwfK6LB.>(x
+Out: #@testrunner:22:TestResultEventArgsDto:1177:DM(v0B9hqvb075{raQb)lT+4Eb075{nN%2ab4j[siaT^Lv>xI]gbQTuvp.eBhz)y6eN&j3iC7lZfFE2>wfJMGmS&J-C#nY)y?WG}wN[LAzdK[Lb2&b{BwN0@ygQ)%e(=!6Bw#*)BttEFwPI@Za$K{ax(!lfvr>QRzdK[Lb2&b{BwN0@ygQ)%e(=!6Bw#*)BttEFwPI@Zc#AKqxM4AEA+xJiwO#PAiV{gba$K{bCX7xcBz(h1A+MZUb4V1gv%8)iAYL<bCY^[rBt3WoraQb)qGV>{wPxKVzE){1z/Pz$AbW0Lb13oVwKZxIwL=/SxD/GPB.>>Bb2-A5A:@V8iWc{LtWg9Cz!-&[BApX(p&Zn[vru6=tXv+)tWgiwze:r5raQb)qGV>{wPz3XB8>+}tVtoQBwN0@ygQ)%tWg-LzD{BmwNY^{tWheTBt+:9tWgltB97l0z!-&[Bs}9uy:7zOoLFxQpiyz.wPw$QfNUF@pJZ+?z/65fiX&lgmriA!A.Qa^B75Y)b03]lB8$]kBs{sbBvyg(vqEtvavY^Ny&%=ftYK7!mr&=.v@#o)iV}goBrAtzA:iGFv@#<4y=SWYatLb(b1lJ)z/O=#vpK7LA:-D?b03[<arU9maxh][BwN0@ygQ)%e(=!6Bw#*)BttEFwPI@Zc}Oq#gCQ7&wPRQ7wi>lGB.$YcBtki!x(k4Xi:t]^A=kY7v@#=%tU]DPC42G7tWg]QBx&6Hx(d*9wMikZBw^m0zE)&[tYT{}tWgltB97l0z!-&[Bx&6JzFsh(wPI@Ge[n@-y?W=#atL]YA:iGleIe8lzE:(dw/#epvpK6}BAg/1wGUP9z/3RoA+fAdz/{azy&r/(BzkVhat2e%a$K{ax(!lfvr>QRzdK[Lb2&b{BwN0@ygQ)%e(=!6Bw#*)BttEFwPI@Zc#AKqxM4AEA+xJiwO#PAiV{gba$K{jwPI{3xjVcdi:k(vb13o=AclnlA.Z4WwG<eVlpsQ3h8E6ziu*0#m0iJUBzkVhb03]4fGH)wiXSlugb7Tzixn#wefX2mvrcD?x(dA9iWcskgbpBniw00Ar53c?f!+Tyf!Lsugb}6Hhy*EniXSliefWJ2wk)nWwG<eVgb7EseIGgpgb-8^gcdcziX-uwh8E6FgDvlwfFCKwfD$]@b2-5]B7]MgnN%2azGP=i1E
+Out:   Failed TestProject.UnitTest2.TestE(methodArgument1: 2) [207 ms]
+Out:   Error Message:
+Out:    Assert.NotEqual() Failure
+Out: Expected: Not 2
+Out: Actual:   2
+Out:   Stack Trace:
+Out:      at TestProject.UnitTest2.TestE(Int32 methodArgument1) in {SolutionDirectory}src\TestProject\UnitTest2.cs:line 28
+Out: --- End of stack trace from previous location ---
+Out: #@testrunner:23:TestCaseEndEventArgsDto:658:DM(B2B97i2ByPlawG<e&efX58B96=TB7E{Nb03]SwN^IRwJ16Jhd*zUeOcQ@gC7H}wh#kMgb.d7f!>HAw[9LtefX58B96=TB7F9PzdK[Lb2&b{BwN0@ygQ)%e(=!6Bw#*)BtkyEwPI@Xc$$Z+gBTI0b1V&yxLzo[raQb)lT+4Eb06sAy&:esb2&b{Bvy1SzdNQbb075{nN%2ab4ta[gDx28wgYVJwJ8hLfGy{vhE{tUeOcW}iB%{1g=P8Sf^nd)mS&J-C#nY)y?WG}wN[LAzdK[Lb2&b{BwN0@ygQ)%e(=!6Bw#*)BtkyEwPI@Xa$K{ax(!lfvr>QRzdK[Lb2&b{BwN0@ygQ)%e(=!6Bw#*)BtkyEwPI@Xc$$Z+gBTI0b1l-/v%8)iA-Ec]b03]VCX7xcBz(gXfe4M)zFshCr=.kKB97r5zF<3agb0JRByPlfwNPK%a$K{9z!9AGx(4uSvrufbi=o7Ry+c=ez/{8gwG<eVlPOESp&ZF?wN/?6tWg9Cx)9{bwN5FMx()P+q!Z8/y?lNSB97r5zF<3atWht<v{AnrwPI@&A=kY7v@$%XvRGZ+tTSdjB.s@:zE)]Fe?*KnraQb)p&ZF?wN/*mwnD6aefW=4zE(N=zdm6%b04AaefX27B8#5lzB[v.i=o7R3?-
+Out: #@testrunner:23:TestCaseEndEventArgsDto:693:DM(B2B97i2ByPlawG<e&efX58B96=TB7E{Nb03]Th-SSNv}od5gbH{HeIHY(wgYU%h-03xgbJP0iB<%2wO2x@efX58B96=TB7F9PzdK[Lb2&b{BwN0@ygQ)%e(=!6Bw#*)BttEFwPI@Zc#AKqxM4AEA+xJiwO#PAiV{jca$K{fB3<RPy?cHRB96=TB7DKRw)]H%wH]38wPI@Zy?mD{zGE6-DM(3(b03]Th-SSNv}od5gbH{HeIHY(wgYU%h-03xgbJP0iB<%2wO2x@efWMay&1w]BZY92w[+*!pgn0Jb03]EwPI@&A=kY7v@%t6zFsh(wPI@Ge(Vz6Bvvx8b1cc^Abn%dpgn0Jb03]EwPI@&A=kY7v@%t6zFsh(wPI@Ge(Vz6BvvP{wPRQ7wi>lGB.$YcBtk*0gBTI0b1l-/v%8)iA-Ec]b03]VCX7xcBz(gXfe4M)zFshCr=.kKB97r5zF<3agb0JRByPlfwNPK%a$K{9z!9AGx(4uSvrufbi=o7Ry+c=ez/{8gwG<eVlPOESp&ZF?wN/?6tWg9Cx)9{bwN5FMx()P+q!Z8/y?lNSB97r5zF<3atWht<v{AnrwPI@&A=kY7v@$%XvRGZ+tTSdjB.s@:zE)]Fe?*KnraQb)p&ZF?wN/*mwnD6aefW=4zE(N=zdm6%b04AaefX27B8#5lzB[v.i=o7R3?-
+Out: #@testrunner:23:TestCaseEndEventArgsDto:658:DM(B2B97i2ByPlawG<e&efX58B96=TB7E{Nb03]9hF1^8h8c%uwhN{ReIG7tw?tX@wItX{w[r+RhAtt6ggr6+efX58B96=TB7F9PzdK[Lb2&b{BwN0@ygQ)%e(=!6Bw#*)BtkyEwPI@Xc$$Z+g:%R1b1V&yxLzo[raQb)lT+4Eb06sAy&:esb2&b{Bvy1SzdNQbb075{nN%2aa#In&hA0AEh7-t@wI#a]hz/1$fGrR$eJmoMgD4cKwIC@Ghx<W@mS&J-C#nY)y?WG}wN[LAzdK[Lb2&b{BwN0@ygQ)%e(=!6Bw#*)BtkyEwPI@Xa$K{ax(!lfvr>QRzdK[Lb2&b{BwN0@ygQ)%e(=!6Bw#*)BtkyEwPI@Xc$$Z+g:%R1b1l-/v%8)iA-Ec]b03]VCX7xcBz(gXfe4M)zFshCr=.kKB97r5zF<3agb0JRByPlfwNPK%a$K{9z!9AGx(4uSvrufbi=o7Ry+c=ez/{8gwG<eVlPOESp&ZF?wN/?6tWg9Cx)9{bwN5FMx()P+q!Z8/y?lNSB97r5zF<3atWht<v{AnrwPI@&A=kY7v@$%XvRGZ+tTSdjB.s@:zE)]Fe?*KnraQb)p&ZF?wN/*mwnD6aefW=4zE(N=zdm6%b04AaefX27B8#5lzB[v.i=o7R3?-
+Out: #@testrunner:23:TestCaseEndEventArgsDto:693:DM(B2B97i2ByPlawG<e&efX58B96=TB7E{Nb03]4wIW?bvL}NChz)v2eIGd{v>zaHiC6<4h8Wp6fG0q#vkoLYefX58B96=TB7F9PzdK[Lb2&b{BwN0@ygQ)%e(=!6Bw#*)BttEFwPI@Zc#AKqxM4AEA+xJiwO#PAiV{mda$K{fB3<RPy?cHRB96=TB7DKRw)]H%wH]38wPI@Zy?mD{zGE6-DM(3(b03]4wIW?bvL}NChz)v2eIGd{v>zaHiC6<4h8Wp6fG0q#vkoLYefWMay&1w]BZY92w[+*!pgn0Jb03]EwPI@&A=kY7v@%t6zFsh(wPI@Ge(Vz6Bvvx8b1cc^Abn%dpgn0Jb03]EwPI@&A=kY7v@%t6zFsh(wPI@Ge(Vz6BvvP{wPRQ7wi>lGB.$YcBtk*0g:%R1b1l-/v%8)iA-Ec]b03]VCX7xcBz(gXfe4M)zFshCr=.kKB97r5zF<3agb0JRByPlfwNPK%a$K{9z!9AGx(4uSvrufbi=o7Ry+c=ez/{8gwG<eVlPOESp&ZF?wN/?6tWg9Cx)9{bwN5FMx()P+q!Z8/y?lNSB97r5zF<3atWht<v{AnrwPI@&A=kY7v@$%XvRGZ+tTSdjB.s@:zE)]Fe?*KnraQb)p&ZF?wN/*mwnD6aefW=4zE(N=zdm6%b04AaefX27B8#5lzB[v.i=o7R3?-
+Out: #@testrunner:23:TestCaseEndEventArgsDto:658:DM(B2B97i2ByPlawG<e&efX58B96=TB7E{Nb03]Sh-ry5g=Y4$wI)}eeN{IzgC7B)vQ}61v(Dq1h-Ce7g?HkwefX58B96=TB7F9PzdK[Lb2&b{BwN0@ygQ)%e(=!6Bw#*)BtkyEwPI@Xc$$Z+h7o.2b1V&yxLzo[raQb)lT+4Eb06sAy&:esb2&b{Bvy1SzdNQbb075{nN%2ab4rF?f>Jm5v>zmHvRdi4f<#<&g?6{8eN&iGhzv6Gvk*2Pv<iDFmS&J-C#nY)y?WG}wN[LAzdK[Lb2&b{BwN0@ygQ)%e(=!6Bw#*)BtkyEwPI@Xa$K{ax(!lfvr>QRzdK[Lb2&b{BwN0@ygQ)%e(=!6Bw#*)BtkyEwPI@Xc$$Z+h7o.2b1l-/v%8)iA-Ec]b03]VCX7xcBz(gXfe4M)zFshCr=.kKB97r5zF<3agb0JRByPlfwNPK%a$K{9z!9AGx(4uSvrufbi=o7Ry+c=ez/{8gwG<eVlPOESp&ZF?wN/?6tWg9Cx)9{bwN5FMx()P+q!Z8/y?lNSB97r5zF<3atWht<v{AnrwPI@&A=kY7v@$%XvRGZ+tTSdjB.s@:zE)]Fe?*KnraQb)p&ZF?wN/*mwnD6aefW=4zE(N=zdm6%b04AaefX27B8#5lzB[v.i=o7R3?-
+Out: #@testrunner:23:TestCaseEndEventArgsDto:693:DM(B2B97i2ByPlawG<e&efX58B96=TB7E{Nb03]4v}ECKvk}:GvL}QGeO3.IvL6PJfL8*@f>s=Fw?(h6wNWLwefX58B96=TB7F9PzdK[Lb2&b{BwN0@ygQ)%e(=!6Bw#*)BttEFwPI@Zc#AKqxM4AEA+xJiwO#PAiV{pea$K{fB3<RPy?cHRB96=TB7DKRw)]H%wH]38wPI@Zy?mD{zGE6-DM(3(b03]4v}ECKvk}:GvL}QGeO3.IvL6PJfL8*@f>s=Fw?(h6wNWLwefWMay&1w]BZY92w[+*!pgn0Jb03]EwPI@&A=kY7v@%t6zFsh(wPI@Ge(Vz6Bvvx8b1cc^Abn%dpgn0Jb03]EwPI@&A=kY7v@%t6zFsh(wPI@Ge(Vz6BvvP{wPRQ7wi>lGB.$YcBtk*0h7o.2b1l-/v%8)iA-Ec]b03]VCX7xcBz(gXfe4M)zFshCr=.kKB97r5zF<3agb0JRByPlfwNPK%a$K{9z!9AGx(4uSvrufbi=o7Ry+c=ez/{8gwG<eVlPOESp&ZF?wN/?6tWg9Cx)9{bwN5FMx()P+q!Z8/y?lNSB97r5zF<3atWht<v{AnrwPI@&A=kY7v@$%XvRGZ+tTSdjB.s@:zE)]Fe?*KnraQb)p&ZF?wN/*mwnD6aefW=4zE(N=zdm6%b04AaefX27B8#5lzB[v.i=o7R3?-
+Out: #@testrunner:23:TestCaseEndEventArgsDto:693:DM(B2B97i2ByPlawG<e&efX58B96=TB7E{Nb03]4wN^CPwmEFGgb*{#eIYaxh.v3HggR$Cv}di3w[B5jvLIBrefX58B96=TB7F9PzdK[Lb2&b{BwN0@ygQ)%e(=!6Bw#*)BttEFwPI@Zc#AKqxM4AEA+xJiwO#PAiV{sfa$K{fB3<RPy?cHRB96=TB7DKRw)]H%wH]38wPI@Zy?mD{zGE6-DM(3(b03]4wN^CPwmEFGgb*{#eIYaxh.v3HggR$Cv}di3w[B5jvLIBrefWMay&1w]BZY92w[+*!pgn0Jb03]EwPI@&A=kY7v@%t6zFsh(wPI@Ge(Vz6Bvvx8b1cc^Abn%dpgn0Jb03]EwPI@&A=kY7v@%t6zFsh(wPI@Ge(Vz6BvvP{wPRQ7wi>lGB.$YcBtk*0hyP?3b1l-/v%8)iA-Ec]b03]VCX7xcBz(gXfe4M)zFshCr=.kKB97r5zF<3agb0JRByPlfwNPK%a$K{9z!9AGx(4uSvrufbi=o7Ry+c=ez/{8gwG<eVlPOESp&ZF?wN/?6tWg9Cx)9{bwN5FMx()P+q!Z8/y?lNSB97r5zF<3atWht<v{AnrwPI@&A=kY7v@$%XvRGZ+tTSdjB.s@:zE)]Fe?*KnraQb)p&ZF?wN/*mwnD6aefW=4zE(N=zdm6%b04AaefX27B8#5lzB[v.i=o7R3?-
+Out: #@testrunner:26:TestRunMessageEventArgsDto:137:DM(f}B8$=5wG<eVtx<d=x(>$BwPP4GfGH)wiXSovgb8#RarR^HraQb)p&ZF?wN/*mrC(I)raQb)f!MBpB96+$x/Wv{diI?:k$K:Qa$K{iwP?T3b04Fgb2-5]B7]MgnN%2azGP=i1E
+Err: [xUnit.net 00:00:01.20]     TestProject.UnitTest1.TestC(i: 6) [FAIL]
+Out: #@testrunner:26:TestRunMessageEventArgsDto:120:DM(f}B8$=5wG<eVtx<d=x(>$BwPP4GfGH)wiXSovgb8#RarR^HarS%>B7Gxle(3tbmr9DUy:Z.PmQZ1EB-I4qefW=0C4CFliXS9eq!p2>x(v(XwfK6LB.>(x
+Out: #@testrunner:26:TestRunMessageEventArgsDto:108:DM(f}B8$=5wG<eVtx<d=x(>$BwPP4GfGH)wiXSovgb8#RarR^HarT9$AaJK3wN)?Aph+j%hx<W@oL5xUy:7[]efX27B8#5lzB[v.i=o7R3?-
+Out: #@testrunner:26:TestRunMessageEventArgsDto:103:DM(f}B8$=5wG<eVtx<d=x(>$BwPP4GfGH)wiXSovgb8#RarR^HarS%WBAI2diV]K/hx<W@oL5xUy:7[]efX27B8#5lzB[v.i=o7R3?-
+Out: #@testrunner:26:TestRunMessageEventArgsDto:104:DM(f}B8$=5wG<eVtx<d=x(>$BwPP4GfGH)wiXSovgb8#RarR^HarTQ8vpK6}rb#zSwJz1^b1#M>wO-LKfF1zDwPI{bz/ecSb06Q:bMF1
+Out: #@testrunner:26:TestRunMessageEventArgsDto:245:DM(f}B8$=5wG<eVtx<d=x(>$BwPP4GfGH)wiXSovgb8#RarR^HarR^HlPOESp&ZF?wN/?6tWg9Cx)9{bwN5FMx()P+q!Z8/y?lNSB97r5zF<3atWht<v{AnrwPI@&A=kY7v@$%XrC(I)raQb)f!M%Sc]r?kfEY49vrrR>wPI@&A=kY7v@%t6zFsh(wPI@Fe(Vz6BvdDFzGEV&azAnGefW=0C4CFliXS9eq!p2>x(v(XwfK6LB.>(x
+Out: #@testrunner:26:TestRunMessageEventArgsDto:98:DM(f}B8$=5wG<eVtx<d=x(>$BwPP4GfGH)wiXSovgb8#RarR^HarTE5Bz#wAiWca0oL5xUy:7[]efX27B8#5lzB[v.i=o7R3?-
+Out: #@testrunner:26:TestRunMessageEventArgsDto:97:DM(f}B8$=5wG<eVtx<d=x(>$BwPP4GfGH)wiXSovgb8#RarR^HarR^Hv@#Tfa$K{iwP?T3b04zeb2-5]B7]MgnN%2azGP=i1E
+Out: #@testrunner:23:TestCaseEndEventArgsDto:658:DM(B2B97i2ByPlawG<e<efX58B96=TB7E{Nb03]SvQ}qIwJsoMhdQhSeJbHAg+AfEwht!]vk6F{h8vlFgbSL=efX58B96=TB7F9PzdK[Lb2&b{BwN0@ygQ)%e(=!6Bw#*)BtkyEwPI@Xc$$Z+hyP?3b1V&yxLzo[raQb)lT+4Eb06sAy&:esb2&b{Bvy1SzdNQbb075{nN%2ab4t1(g+&M4wgYVHv(Vb0hz)ryvQ%19eI{(&gC}3CiwJuEv<iDFmS&J-C#nY)y?WG}wN[LAzdK[Lb2&b{BwN0@ygQ)%e(=!6Bw#*)BtkyEwPI@Xa$K{ax(!lfvr>QRzdK[Lb2&b{BwN0@ygQ)%e(=!6Bw#*)BtkyEwPI@Xc$$Z+hyP?3b1l-/v%8)iA-Ec]b03]VCX7xcBz(gXfe4M)zFshCr=.kKB97r5zF<3agb0JRByPlfwNPK%a$K{9z!9AGx(4uSvrufbi=o7Ry+c=ez/{8gwG<eVlPOESp&ZF?wN/?6tWg9Cx)9{bwN5FMx()P+q!Z8/y?lNSB97r5zF<3atWht<v{AnrwPI@&A=kY7v@$%XvRGZ+tTSdjB.s@:zE)]Fe?*KnraQb)p&ZF?wN/*mwnD6aefW=4zE(N=zdm6%b04AaefX27B8#5lzB[v.i=o7R3?-
+Out: #@testrunner:23:TestCaseEndEventArgsDto:643:DM(B2B97i2ByPlawG<e&efX58B96=TB7E{Nb03]Rh-Lzef>A9(iaBW6eIQ-)iw09DhzuZugb9oIfL0f#f>96=efX58B96=TB7F9PzdK[Lb2&b{BwN0@ygQ)%e(=!6Bw#*)BtkyEwPI@Va$K{fB3<RPy?cHRB96=TB7DKRw)]H%wH]38wPI@Zy?mD{zGE6-DM(3(b03]Rh-Lzef>A9(iaBW6eIQ-)iw09DhzuZugb9oIfL0f#f>96=efWMay&1w]BZY92w[+*!pgn0Jb03]EwPI@&A=kY7v@%t6zFsh(wPI@Fe(Vz6Bu}94b1cc^Abn%dpgn0Jb03]EwPI@&A=kY7v@%t6zFsh(wPI@Fe(Vz6Bu}94b1l-/v%8)iA-Ec]b03]VCX7xcBz(gXfe4M)zFshCr=.kKB97r5zF<3agb0JRByPlfwNPK%a$K{9z!9AGx(4uSvrufbi=o7Ry+c=ez/{8gwG<eVlPOESp&ZF?wN/?6tWg9Cx)9{bwN5FMx()P+q!Z8/y?lNSB97r5zF<3atWht<v{AnrwPI@&A=kY7v@$%XvRGZ+tTSdjB.s@:zE)]Fe?*KnraQb)p&ZF?wN/*mwnD6aefW=4zE(N=zdm6%b04AaefX27B8#5lzB[v.i=o7R3?-
+Out: #@testrunner:23:TestCaseEndEventArgsDto:643:DM(B2B97i2ByPlawG<e&efX58B96=TB7E{Nb03]5vRdx8g=O[}w&IXceJvlLhz3*Av>]SEhEOQ7h8NiCvkqmnefX58B96=TB7F9PzdK[Lb2&b{BwN0@ygQ)%e(=!6Bw#*)BttEFwPI@Ya$K{fB3<RPy?cHRB96=TB7DKRw)]H%wH]38wPI@Zy?mD{zGE6-DM(3(b03]5vRdx8g=O[}w&IXceJvlLhz3*Av>]SEhEOQ7h8NiCvkqmnefWMay&1w]BZY92w[+*!pgn0Jb03]EwPI@&A=kY7v@%t6zFsh(wPI@Ge(Vz6Bvmr7b1cc^Abn%dpgn0Jb03]EwPI@&A=kY7v@%t6zFsh(wPI@Ge(Vz6Bvmr7b1l-/v%8)iA-Ec]b03]VCX7xcBz(gXfe4M)zFshCr=.kKB97r5zF<3agb0JRByPlfwNPK%a$K{9z!9AGx(4uSvrufbi=o7Ry+c=ez/{8gwG<eVlPOESp&ZF?wN/?6tWg9Cx)9{bwN5FMx()P+q!Z8/y?lNSB97r5zF<3atWht<v{AnrwPI@&A=kY7v@$%XvRGZ+tTSdjB.s@:zE)]Fe?*KnraQb)p&ZF?wN/*mwnD6aefW=4zE(N=zdm6%b04AaefX27B8#5lzB[v.i=o7R3?-
+Out: #@testrunner:22:TestResultEventArgsDto:880:DM(v0B9hqvb075{raQb)lT+4Eb075{nN%2ab4ta[gDx28wgYVJwJ8hLfGy{vhE{tUeOcW}iB%{1g=P8Sf^nd)mS&J-C#nY)y?WG}wN[LAzdK[Lb2&b{BwN0@ygQ)%e(=!6Bw#*)BtkyEwPI@Xa$K{ax(!lfvr>QRzdK[Lb2&b{BwN0@ygQ)%e(=!6Bw#*)BtkyEwPI@Xc$$Z+gBTI0b1l-/v%8)iA-Ec]b03]VCX7xcBz(gXfe4M)zFshCr=.kKB97r5zF<3agb0JRByPlfwNPK%a$K{9z!9AGx(4uSvrufbi=o7Ry+c=ez/{8gwG<eVlPOESp&ZF?wN/?6tWg9Cx)9{bwN5FMx()P+q!Z8/y?lNSB97r5zF<3atWht<v{AnrwPI@&A=kY7v@$%XvRGZ+tTSdjB.s@:zE)]Fe?*KnraQb)p&ZF?wN/*mwnD6aefW=4zE(N=zdm6%b04AaefW(jByPlawG<e&efWJ6A=k$)wPI{3xjSnFzGP=iefWJ6A=k$%BywV{rb#zSwG<fMB.>>Bb1cc^Abn%dpgn0Jb03]EwPI@&A=kY7v@%t6zFsh(wPI@Fe(Vz6BvdD<iV{jca$K{jwPI{3xjVcdi:l}PlT+7Fxk.*ob03]DByXf&Bwl*?B0rdVraQq@b03]TBz(h8A:iGaEo!xFlVl*XB-.hnpgn0Jb03]ml@bx(g+{*Da$K{aB-H]jx(v(kiWcmiiXSlGfFCanfGz0Fiw@6jb2-O(A=+n{zdK[La#g&cga+gueIYj-f!$^AfGH{ye&CyvfGz3Jd>&UrfFBX4b1lxWrb3hXb03]6fFUynfGyZuhDhy^iX-rHf!>psfF$KAh-93sfGH)wb7h0^q!p2>x(v(XwfK6LB.>(x
+Out: #@testrunner:22:TestResultEventArgsDto:862:DM(v0B9hqvb075{raQb)lT+4Eb075{nN%2ab4AL(gc5&PwI2U]h-JxywhE*Gh8WxHeI]jtw?#CTg+-GLwfJMGmS&J-C#nY)y?WG}wN[LAzdK[Lb2&b{BwN0@ygQ)%e(=!6Bw#*)BttEFwPI@Za$K{ax(!lfvr>QRzdK[Lb2&b{BwN0@ygQ)%e(=!6Bw#*)BttEFwPI@Zc#AKqxM4AEA+xJiwO#PAiV{jca$K{bCX7xcBz(h1A+MZUb4V1gv%8)iAYL<bCY^[rBt3WoraQb)qGV>{wPxKVzE){1z/Pz$AbW0Lb13oVwKZxIwL=/SxD/GPB.>>Bb2-A5A:@V8iWc{LtWg9Cz!-&[BApX(p&Zn[vru6=tXv+)tWgiwze:r5raQb)qGV>{wPz3XB8>+}tVtoQBwN0@ygQ)%tWg-LzD{BmwNY^{tWheTBt+:9tWgltB97l0z!-&[Bs}9uy:7zOoLFxQpiyz.wPw$QfNUF@pJZ+?z/65fiX-ffmriA!A.Qa^B75Y)b06Q:y?$TDmriA!A-m6*v@24:vpJ<)i=o7Ry+c+#x(!lfvr>QRzdK[Lb2&b{BwN0@ygQ)%e(=!6Bw#*)BttEFwPI@Zc#AKqxM4AEA+xJiwO#PAiV{jca$K{jwPI{3xjVcdi:k(vb13o=AclnlA.Z4WwG<eVlpsQ3h8E6ziu*0#m0iJUBzkVhb03]4fGH)wiXSlugCHNzhzN0hefX2mvrcD?x(dA9iWcskgbpBniw00Ar53c?f!+Tyf!Lvtgb7yxiv=^qiXSliefWJ2wk)nWwG<eVgb7EseIGgpgb-8^gcdcziX-uwhzN3wf!+KpfFCKwfD$]@b2-5]B7]MgnN%2azGP=i1E
+Out: #@testrunner:22:TestResultEventArgsDto:879:DM(v0B9hqvb075{raQb)lT+4Eb075{nN%2aa#In&hA0AEh7-t@wI#a]hz/1$fGrR$eJmoMgD4cKwIC@Ghx<W@mS&J-C#nY)y?WG}wN[LAzdK[Lb2&b{BwN0@ygQ)%e(=!6Bw#*)BtkyEwPI@Xa$K{ax(!lfvr>QRzdK[Lb2&b{BwN0@ygQ)%e(=!6Bw#*)BtkyEwPI@Xc$$Z+g:%R1b1l-/v%8)iA-Ec]b03]VCX7xcBz(gXfe4M)zFshCr=.kKB97r5zF<3agb0JRByPlfwNPK%a$K{9z!9AGx(4uSvrufbi=o7Ry+c=ez/{8gwG<eVlPOESp&ZF?wN/?6tWg9Cx)9{bwN5FMx()P+q!Z8/y?lNSB97r5zF<3atWht<v{AnrwPI@&A=kY7v@$%XvRGZ+tTSdjB.s@:zE)]Fe?*KnraQb)p&ZF?wN/*mwnD6aefW=4zE(N=zdm6%b04AaefW(jByPlawG<e&efWJ6A=k$)wPI{3xjSnFzGP=iefWJ6A=k$%BywV{rb#zSwG<fMB.>>Bb1cc^Abn%dpgn0Jb03]EwPI@&A=kY7v@%t6zFsh(wPI@Fe(Vz6BvdD<iV{mda$K{jwPI{3xjVcdi:l}PlT+7Fxk.*ob03]DByXf&Bwl*?B0rdVraQq@b03]TBz(h8A:iGaEo!xFlVl*XB-.hnpgn0Jb03]ml@bx(g+{*Da$K{aB-H]jx(v(kiWcmiiXSlGfFCaofG7TugDlNfb2-O(A=+n{zdK[La#g&cga+gueIYj-f!$^AfGH{ye&LEshz^iFd>&UrfFBX4b1lxWrb3hXb03]6fFUynfGyZuhDhy^iX-rHf!>ptfFLExg+gmliXSliEjMNvwPI{bz/ecSb06Q:bMF1
+Out: #@testrunner:22:TestResultEventArgsDto:862:DM(v0B9hqvb075{raQb)lT+4Eb075{nN%2aa#0N:v}o4avj:w{hdn6<iaMIJvl3tWeJkKBg?FB0vMdZJf^nd)mS&J-C#nY)y?WG}wN[LAzdK[Lb2&b{BwN0@ygQ)%e(=!6Bw#*)BttEFwPI@Za$K{ax(!lfvr>QRzdK[Lb2&b{BwN0@ygQ)%e(=!6Bw#*)BttEFwPI@Zc#AKqxM4AEA+xJiwO#PAiV{mda$K{bCX7xcBz(h1A+MZUb4V1gv%8)iAYL<bCY^[rBt3WoraQb)qGV>{wPxKVzE){1z/Pz$AbW0Lb13oVwKZxIwL=/SxD/GPB.>>Bb2-A5A:@V8iWc{LtWg9Cz!-&[BApX(p&Zn[vru6=tXv+)tWgiwze:r5raQb)qGV>{wPz3XB8>+}tVtoQBwN0@ygQ)%tWg-LzD{BmwNY^{tWheTBt+:9tWgltB97l0z!-&[Bs}9uy:7zOoLFxQpiyz.wPw$QfNUF@pJZ+?z/65fiX-ffmriA!A.Qa^B75Y)b06Q:y?$TDmriA!A-m6*v@24:vpJ<)i=o7Ry+c+#x(!lfvr>QRzdK[Lb2&b{BwN0@ygQ)%e(=!6Bw#*)BttEFwPI@Zc#AKqxM4AEA+xJiwO#PAiV{mda$K{jwPI{3xjVcdi:k(vb13o=AclnlA.Z4WwG<eVlpsQ3h8E6ziu*0#m0iJUBzkVhb03]4fGH)wiXSlug+Z*Bi5&&vefX2mvrcD?x(dA9iWcskgbpBniw00Ar53c?f!+Tyf!Lyth-JGEiv=^qiXSliefWJ2wk)nWwG<eVgb7EseIGgpgb-8^gcdcziX-uwh.^lJfGp*rfFCKwfD$]@b2-5]B7]MgnN%2azGP=i1E
+Out: #@testrunner:22:TestResultEventArgsDto:880:DM(v0B9hqvb075{raQb)lT+4Eb075{nN%2ab4rF?f>Jm5v>zmHvRdi4f<#<&g?6{8eN&iGhzv6Gvk*2Pv<iDFmS&J-C#nY)y?WG}wN[LAzdK[Lb2&b{BwN0@ygQ)%e(=!6Bw#*)BtkyEwPI@Xa$K{ax(!lfvr>QRzdK[Lb2&b{BwN0@ygQ)%e(=!6Bw#*)BtkyEwPI@Xc$$Z+h7o.2b1l-/v%8)iA-Ec]b03]VCX7xcBz(gXfe4M)zFshCr=.kKB97r5zF<3agb0JRByPlfwNPK%a$K{9z!9AGx(4uSvrufbi=o7Ry+c=ez/{8gwG<eVlPOESp&ZF?wN/?6tWg9Cx)9{bwN5FMx()P+q!Z8/y?lNSB97r5zF<3atWht<v{AnrwPI@&A=kY7v@$%XvRGZ+tTSdjB.s@:zE)]Fe?*KnraQb)p&ZF?wN/*mwnD6aefW=4zE(N=zdm6%b04AaefW(jByPlawG<e&efWJ6A=k$)wPI{3xjSnFzGP=iefWJ6A=k$%BywV{rb#zSwG<fMB.>>Bb1cc^Abn%dpgn0Jb03]EwPI@&A=kY7v@%t6zFsh(wPI@Fe(Vz6BvdD<iV{pea$K{jwPI{3xjVcdi:l}PlT+7Fxk.*ob03]DByXf&Bwl*?B0rdVraQq@b03]TBz(h8A:iGaEo!xFlVl*XB-.hnpgn0Jb03]ml@bx(g+{*Da$K{aB-H]jx(v(kiWcmiiXSlGfFCapfFLvqiwqTdb2-O(A=+n{zdK[La#g&cga+gueIYj-f!$^AfGH{ye&UNvhzD)ud>&UrfFBX4b1lxWrb3hXb03]6fFUynfGyZuhDhy^iX-rHf!>puf!$TwfG7BnfGH)wb7h0^q!p2>x(v(XwfK6LB.>(x
+Out: #@testrunner:22:TestResultEventArgsDto:862:DM(v0B9hqvb075{raQb)lT+4Eb075{nN%2aa#0Isf/9k$v>zdEvLxxAhdZkGiB<*PeJCK@v>.HIg=YbRhx<W@mS&J-C#nY)y?WG}wN[LAzdK[Lb2&b{BwN0@ygQ)%e(=!6Bw#*)BttEFwPI@Za$K{ax(!lfvr>QRzdK[Lb2&b{BwN0@ygQ)%e(=!6Bw#*)BttEFwPI@Zc#AKqxM4AEA+xJiwO#PAiV{pea$K{bCX7xcBz(h1A+MZUb4V1gv%8)iAYL<bCY^[rBt3WoraQb)qGV>{wPxKVzE){1z/Pz$AbW0Lb13oVwKZxIwL=/SxD/GPB.>>Bb2-A5A:@V8iWc{LtWg9Cz!-&[BApX(p&Zn[vru6=tXv+)tWgiwze:r5raQb)qGV>{wPz3XB8>+}tVtoQBwN0@ygQ)%tWg-LzD{BmwNY^{tWheTBt+:9tWgltB97l0z!-&[Bs}9uy:7zOoLFxQpiyz.wPw$QfNUF@pJZ+?z/65fiX-ffmriA!A.Qa^B75Y)b06Q:y?$TDmriA!A-m6*v@24:vpJ<)i=o7Ry+c+#x(!lfvr>QRzdK[Lb2&b{BwN0@ygQ)%e(=!6Bw#*)BttEFwPI@Zc#AKqxM4AEA+xJiwO#PAiV{pea$K{jwPI{3xjVcdi:k(vb13o=AclnlA.Z4WwG<eVlpsQ3h8E6ziu*0#m0iJUBzkVhb03]4fGH)wiXSluh8c%BgC}coefX2mvrcD?x(dA9iWcskgbpBniw00Ar53c?f!+Tyf!LBugC{)EgB>dkiXSliefWJ2wk)nWwG<eVgb7EseIGgpgb-8^gcdcziX-uwi59iDf/.9wfFCKwfD$]@b2-5]B7]MgnN%2azGP=i1E
+Out: #@testrunner:22:TestResultEventArgsDto:862:DM(v0B9hqvb075{raQb)lT+4Eb075{nN%2aa#0Orf/-=Oh7ZNxf>q<>gDvxCixe^8eN&j1fKXN9iBVCLwG&VHmS&J-C#nY)y?WG}wN[LAzdK[Lb2&b{BwN0@ygQ)%e(=!6Bw#*)BttEFwPI@Za$K{ax(!lfvr>QRzdK[Lb2&b{BwN0@ygQ)%e(=!6Bw#*)BttEFwPI@Zc#AKqxM4AEA+xJiwO#PAiV{sfa$K{bCX7xcBz(h1A+MZUb4V1gv%8)iAYL<bCY^[rBt3WoraQb)qGV>{wPxKVzE){1z/Pz$AbW0Lb13oVwKZxIwL=/SxD/GPB.>>Bb2-A5A:@V8iWc{LtWg9Cz!-&[BApX(p&Zn[vru6=tXv+)tWgiwze:r5raQb)qGV>{wPz3XB8>+}tVtoQBwN0@ygQ)%tWg-LzD{BmwNY^{tWheTBt+:9tWgltB97l0z!-&[Bs}9uy:7zOoLFxQpiyz.wPw$QfNUF@pJZ+?z/65fiX-ffmriA!A.Qa^B75Y)b06Q:y?$TDmriA!A-m6*v@24:vpJ<)i=o7Ry+c+#x(!lfvr>QRzdK[Lb2&b{BwN0@ygQ)%e(=!6Bw#*)BttEFwPI@Zc#AKqxM4AEA+xJiwO#PAiV{sfa$K{jwPI{3xjVcdi:k(vb13o=AclnlA.Z4WwG<eVlpsQ3h8E6ziu*0#m0iJUBzkVhb03]4fGH)wiXSluhzD)xf/Q<hefX2mvrcD?x(dA9iWcskgbpBniw00Ar53c?f!+Tyf!LEuh-rMNh7HvmiXSliefWJ2wk)nWwG<eVgb7EseIGgpgb-8^gcdcziX-uwiwrxIhArGxfFCKwfD$]@b2-5]B7]MgnN%2azGP=i1E
+Out: #@testrunner:22:TestResultEventArgsDto:1112:DM(v0B9hqvb075{raQb)lT+4Eb075{nN%2ab4t1(g+&M4wgYVHv(Vb0hz)ryvQ%19eI{(&gC}3CiwJuEv<iDFmS&J-C#nY)y?WG}wN[LAzdK[Lb2&b{BwN0@ygQ)%e(=!6Bw#*)BtkyEwPI@Xa$K{ax(!lfvr>QRzdK[Lb2&b{BwN0@ygQ)%e(=!6Bw#*)BtkyEwPI@Xc$$Z+hyP?3b1l-/v%8)iA-Ec]b03]VCX7xcBz(gXfe4M)zFshCr=.kKB97r5zF<3agb0JRByPlfwNPK%a$K{9z!9AGx(4uSvrufbi=o7Ry+c=ez/{8gwG<eVlPOESp&ZF?wN/?6tWg9Cx)9{bwN5FMx()P+q!Z8/y?lNSB97r5zF<3atWht<v{AnrwPI@&A=kY7v@$%XvRGZ+tTSdjB.s@:zE)]Fe?*KnraQb)p&ZF?wN/*mwnD6aefW=4zE(N=zdm6%b04AaefW(jByPlawG<e<efWJ6A=k$)wPI{3xjSnFb0*o>wPz(Bph+kyADLYac[codvqfL2A+eG@tY8#PAaJK3wN)?Aph+j%hE7oczB4=OBZY8EarR^+a$K{bA=M8sq/(CTyGbs.v}u&Ba%n0JvrrR>wPI@&A=kY7v@%t6zFsh(wPI@Fe(Vz6BvdDFzGEV&azAnEx(k4Xi:t]^A=kY7v@#=%tU]DPC42G7tWg]QBx&6Hx(d*9wMikZBw^m0zE)&[tYT{}tWgltB97l0z!-&[Bx&6JzFsh(wPI@Fe[n@-y?W=#at+#2efWF@B8U@7C$}^+wG<eVraQb)p&ZF?wN/*mrC(I)raQb)f!MBpB96+$x/Wv{diZq!o>wx!vp%d)b05}Pb12^XwOk}4C{ko[q/(LCB-Zu0xlbmFb2&b#BrS:&v@#TftYK7!b7i-Fb13o=AclnlA.Z4WwG<eVlpsQ3h8E6ziu*0#m0iJUBzkVhb03]4fGH)wiXSluhzE0Fh-rulefX2mvrcD?x(dA9iWcskgbpBniw00Ar53c?f!+Tyf!LEvfFCvxf!j}iiXSliefWJ2wk)nWwG<eVgb7EseIGgpgb-8^gcdcziX-uwiwAiwh8WlvfFCKwfD$]@b2-5]B7]MgnN%2azGP=i1E
+Out:   Failed TestProject.UnitTest1.TestC(i: 6) [613 ms]
+Out:   Error Message:
+Out:    Assert.NotEqual() Failure
+Out: Expected: Not 6
+Out: Actual:   6
+Out:   Stack Trace:
+Out:      at TestProject.UnitTest1.TestC(Int32 i) in {SolutionDirectory}src\TestProject\UnitTest1.cs:line 46
+Out:   Standard Output Messages:
+Out:  ctor
+Out: 
+Out: 
+Out: #@testrunner:22:TestResultEventArgsDto:927:DM(v0B9hqvb075{raQb)lT+4Eb075{nN%2ab4iz&w&IIRga+E}f/Z*uv(lm#h8WuDeJ2pqwN)G9iwAl$hZf^%mS&J-C#nY)y?WG}wN[LAzdK[Lb2&b{BwN0@ygQ)%e(=!6Bw#*)BtkyEwPI@Va$K{ax(!lfvr>QRzdK[Lb2&b{BwN0@ygQ)%e(=!6Bw#*)BtkyEwPI@Va$K{bCX7xcBz(h1A+MZUb4V1gv%8)iAYL<bCY^[rBt3WoraQb)qGV>{wPxKVzE){1z/Pz$AbW0Lb13oVwKZxIwL=/SxD/GPB.>>Bb2-A5A:@V8iWc{LtWg9Cz!-&[BApX(p&Zn[vru6=tXv+)tWgiwze:r5raQb)qGV>{wPz3XB8>+}tVtoQBwN0@ygQ)%tWg-LzD{BmwNY^{tWheTBt+:9tWgltB97l0z!-&[Bs}9uy:7zOoLFxQpiyz.wPw$QfNUF@pJZ+?z/65fiX-ffmriA!A.Qa^B75Y)b06Q:y?$TDmriA!A-m6*v@24:vpJ<)i=o7Ry+c+#x(!lfvr>QRzdK[Lb2&b{BwN0@ygQ)%e(=!6Bw#*)BtkyEwPI@Va$K{jwPI{3xjVcdi:l}PlT+7Fxk.*ob03]DByXf&Bwl*?B0rdVraQq@b03]TBz(h8A:iH7wPI@ovixz#B8$=5wGUC[w]zZ3tYK7!By/JnayMyfwPI{3xjSh]w]}Q8tYK7!b7i-Fb13o=AclnlA.Z4WwG<eVlpsQ3h8E6ziu*0#m0iJUBzkVhb03]4fGH)wiXSluh.WiIixn/refX2mvrcD?x(dA9iWcskgbpBniw00Ar53c?f!+Tyga>mniw@SKgaL4jiXSliefWJ2wk)nWwG<eVgb7EseIGgpgb-8^gcdcziX-xxfFLNCgb?cxfFCKwfD$]@b2-5]B7]MgnN%2azGP=i1E
+Out: #@testrunner:22:TestResultEventArgsDto:812:DM(v0B9hqvb075{raQb)lT+4Eb075{nN%2aa#9LsggA71vj=7JhA9iEv}ERJhz[#1eOc?Giw@-Lg+@F{viNlDmS&J-C#nY)y?WG}wN[LAzdK[Lb2&b{BwN0@ygQ)%e(=!6Bw#*)BttEFwPI@Ya$K{ax(!lfvr>QRzdK[Lb2&b{BwN0@ygQ)%e(=!6Bw#*)BttEFwPI@Ya$K{bCX7xcBz(h1A+MZUb4V1gv%8)iAYL<bCY^[rBt3WoraQb)qGV>{wPxKVzE){1z/Pz$AbW0Lb13oVwKZxIwL=/SxD/GPB.>>Bb2-A5A:@V8iWc{LtWg9Cz!-&[BApX(p&Zn[vru6=tXv+)tWgiwze:r5raQb)qGV>{wPz3XB8>+}tVtoQBwN0@ygQ)%tWg-LzD{BmwNY^{tWheTBt+:9tWgltB97l0z!-&[Bs}9uy:7zOoLFxQpiyz.wPw$QfNUF@pJZ+?z/65fiX-ffmriA!A.Qa^B75Y)b06Q:y?$TDmriA!A-m6*v@24:vpJ<)i=o7Ry+c+#x(!lfvr>QRzdK[Lb2&b{BwN0@ygQ)%e(=!6Bw#*)BttEFwPI@Ya$K{jwPI{3xjVcdi:k(vb13o=AclnlA.Z4WwG<eVlpsQ3h8E6ziu*0#m0iJUBzkVhb03]4fGH)wiXSluh.WiDg=WomefX2mvrcD?x(dA9iWcskgbpBniw00Ar53c?f!+Tyga>mofGg:Ahy*EniXSliefWJ2wk)nWwG<eVgb7EseIGgpgb-8^gcdcziX-xxfFUsvgbQ%ufFCKwfD$]@b2-5]B7]MgnN%2azGP=i1E
+Out: #@testrunner:26:TestRunMessageEventArgsDto:114:DM(f}B8$=5wG<eVtx<d=x(>$BwPP4GfGH)wiXSovgCJeTarTc/zFsf9wN)?AarR!awPI@&A=kY7v@@[Cb1#M>wO-LKfF1zDwPI{bz/ecSb06Q:bMF1
+Out: #@testrunner:22:SessionEndEventArgsDto:23:DM(y1B8#5lzB[v.i=o7R3?-
+Out: #@testrunner:27:TestRunCompleteEventArgsDto:253:DM(B2B97r5zC$T=Bzk/rx>8idi^S5HByxojb075{p*[A^wN(#Cf/pHamQZ1EwN(#CgjpX$mr&xNB-.h9raQb)B0rU1h*)k3nPNmczEWl]wN(#Cw)]H%wH]2%B3TnNA=+(6b06sAy&:esb1lJ)z/N3.zGP=iefWJ0vq{p0wk)nWwL3=qB-88hzF8{WB98EEiWcmiiXSlGfFUmqgb*{Df/718b28S<A+P38b0770efX27B8#5lzB[v.i=o7R3?-
+Out: 
+Out: Failed!  - Failed:     2, Passed:    15, Skipped:     0, Total:    17, Duration: 665 ms - TestProject.dll (net6.0)
+,
+  Events: [
+    {
+      $type: TestRunStartEventArgsDto,
+      TestRunCriteria: {
+        Tests: [],
+        HasSpecificSources: true,
+        KeepAlive: false,
+        TestRunSettings:
+<RunSettings>
+  <RunConfiguration>
+    <ResultsDirectory>{SolutionDirectory}src\TestProject\TestResults</ResultsDirectory>
+    <TargetPlatform>X64</TargetPlatform>
+    <TargetFrameworkVersion>.NETCoreApp,Version=v6.0</TargetFrameworkVersion>
+    <TestAdaptersPaths>{CurrentDirectory};{UserProfile}\.nuget\packages\coverlet.collector\3.1.2\build\netstandard1.0\</TestAdaptersPaths>
+    <DesignMode>False</DesignMode>
+    <CollectSourceInformation>False</CollectSourceInformation>
+  </RunConfiguration>
+  <DataCollectionRunSettings>
+    <DataCollectors>
+      <DataCollector friendlyName="zmq-publisher-collector" enabled="True" />
+    </DataCollectors>
+  </DataCollectionRunSettings>
+  <LoggerRunSettings>
+    <Loggers>
+      <Logger friendlyName="zmq-test-publisher" enabled="True" />
+      <Logger friendlyName="Console" uri="logger://microsoft/TestPlatform/ConsoleLogger/v1" assemblyQualifiedName="Microsoft.VisualStudio.TestPlatform.CommandLine.Internal.ConsoleLogger, vstest.console, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" codeBase="C:\Program Files\dotnet\sdk\6.0.400\vstest.console.dll" enabled="True" />
+    </Loggers>
+  </LoggerRunSettings>
+</RunSettings>,
+        FrequencyOfRunStatsChangeEvent: 10,
+        RunStatsChangeEventTimeout: 00:00:01.5000000
+      }
+    },
+    {
+      $type: SessionStartEventArgsDto
+    },
+    {
+      $type: TestHostLaunchedEventArgsDto,
+      TestHostProcessId: 11072
+    },
+    {
+      $type: TestRunMessageEventArgsDto,
+      Message: [xUnit.net 00:00:00.00] xUnit.net VSTest Adapter v2.4.5+1caef2f33e (64-bit .NET 6.0.9)
+    },
+    {
+      $type: TestRunMessageEventArgsDto,
+      Message: [xUnit.net 00:00:00.48]   Discovering: TestProject
+    },
+    {
+      $type: TestRunMessageEventArgsDto,
+      Message: [xUnit.net 00:00:00.53]   Discovered:  TestProject
+    },
+    {
+      $type: TestRunMessageEventArgsDto,
+      Message: [xUnit.net 00:00:00.53]   Starting:    TestProject
+    },
+    {
+      $type: TestCaseStartEventArgsDto,
+      TestCaseId: Guid_1,
+      TestCaseName: TestProject.UnitTest1.TestC(i: 4),
+      IsChildTestCase: false,
+      TestElement: {
+        Id: Guid_1,
+        FullyQualifiedName: TestProject.UnitTest1.TestC,
+        DisplayName: TestProject.UnitTest1.TestC(i: 4),
+        ExecutorUri: 'executor://xunit/VsTestRunner2/netcoreapp',
+        Source: {SolutionDirectory}src\TestProject\bin\Debug\net6.0\TestProject.dll
+      }
+    },
+    {
+      $type: TestCaseStartEventArgsDto,
+      TestCaseId: Guid_2,
+      TestCaseName: TestProject.UnitTest2.TestE(methodArgument1: 6),
+      IsChildTestCase: false,
+      TestElement: {
+        Id: Guid_2,
+        FullyQualifiedName: TestProject.UnitTest2.TestE,
+        DisplayName: TestProject.UnitTest2.TestE(methodArgument1: 6),
+        ExecutorUri: 'executor://xunit/VsTestRunner2/netcoreapp',
+        Source: {SolutionDirectory}src\TestProject\bin\Debug\net6.0\TestProject.dll
+      }
+    },
+    {
+      $type: TestCaseStartEventArgsDto,
+      TestCaseId: Guid_3,
+      TestCaseName: TestProject.UnitTest2.TestE(methodArgument1: 5),
+      IsChildTestCase: false,
+      TestElement: {
+        Id: Guid_3,
+        FullyQualifiedName: TestProject.UnitTest2.TestE,
+        DisplayName: TestProject.UnitTest2.TestE(methodArgument1: 5),
+        ExecutorUri: 'executor://xunit/VsTestRunner2/netcoreapp',
+        Source: {SolutionDirectory}src\TestProject\bin\Debug\net6.0\TestProject.dll
+      }
+    },
+    {
+      $type: TestCaseStartEventArgsDto,
+      TestCaseId: Guid_4,
+      TestCaseName: TestProject.UnitTest1.TestC(i: 1),
+      IsChildTestCase: false,
+      TestElement: {
+        Id: Guid_4,
+        FullyQualifiedName: TestProject.UnitTest1.TestC,
+        DisplayName: TestProject.UnitTest1.TestC(i: 1),
+        ExecutorUri: 'executor://xunit/VsTestRunner2/netcoreapp',
+        Source: {SolutionDirectory}src\TestProject\bin\Debug\net6.0\TestProject.dll
+      }
+    },
+    {
+      $type: TestCaseStartEventArgsDto,
+      TestCaseId: Guid_5,
+      TestCaseName: TestProject.UnitTest2.TestE(methodArgument1: 0),
+      IsChildTestCase: false,
+      TestElement: {
+        Id: Guid_5,
+        FullyQualifiedName: TestProject.UnitTest2.TestE,
+        DisplayName: TestProject.UnitTest2.TestE(methodArgument1: 0),
+        ExecutorUri: 'executor://xunit/VsTestRunner2/netcoreapp',
+        Source: {SolutionDirectory}src\TestProject\bin\Debug\net6.0\TestProject.dll
+      }
+    },
+    {
+      $type: TestCaseStartEventArgsDto,
+      TestCaseId: Guid_6,
+      TestCaseName: TestProject.UnitTest1.TestC(i: 3),
+      IsChildTestCase: false,
+      TestElement: {
+        Id: Guid_6,
+        FullyQualifiedName: TestProject.UnitTest1.TestC,
+        DisplayName: TestProject.UnitTest1.TestC(i: 3),
+        ExecutorUri: 'executor://xunit/VsTestRunner2/netcoreapp',
+        Source: {SolutionDirectory}src\TestProject\bin\Debug\net6.0\TestProject.dll
+      }
+    },
+    {
+      $type: TestCaseStartEventArgsDto,
+      TestCaseId: Guid_7,
+      TestCaseName: TestProject.UnitTest1.TestB,
+      IsChildTestCase: false,
+      TestElement: {
+        Id: Guid_7,
+        FullyQualifiedName: TestProject.UnitTest1.TestB,
+        DisplayName: TestProject.UnitTest1.TestB,
+        ExecutorUri: 'executor://xunit/VsTestRunner2/netcoreapp',
+        Source: {SolutionDirectory}src\TestProject\bin\Debug\net6.0\TestProject.dll
+      }
+    },
+    {
+      $type: TestCaseStartEventArgsDto,
+      TestCaseId: Guid_8,
+      TestCaseName: TestProject.UnitTest1.TestC(i: 6),
+      IsChildTestCase: false,
+      TestElement: {
+        Id: Guid_8,
+        FullyQualifiedName: TestProject.UnitTest1.TestC,
+        DisplayName: TestProject.UnitTest1.TestC(i: 6),
+        ExecutorUri: 'executor://xunit/VsTestRunner2/netcoreapp',
+        Source: {SolutionDirectory}src\TestProject\bin\Debug\net6.0\TestProject.dll
+      }
+    },
+    {
+      $type: TestCaseEndEventArgsDto,
+      TestOutcome: Passed,
+      TestCaseId: Guid_5,
+      TestCaseName: TestProject.UnitTest2.TestE(methodArgument1: 0),
+      IsChildTestCase: false,
+      TestElement: {
+        Id: Guid_5,
+        FullyQualifiedName: TestProject.UnitTest2.TestE,
+        DisplayName: TestProject.UnitTest2.TestE(methodArgument1: 0),
+        ExecutorUri: 'executor://xunit/VsTestRunner2/netcoreapp',
+        Source: {SolutionDirectory}src\TestProject\bin\Debug\net6.0\TestProject.dll
+      }
+    },
+    {
+      $type: TestCaseEndEventArgsDto,
+      TestOutcome: Passed,
+      TestCaseId: Guid_7,
+      TestCaseName: TestProject.UnitTest1.TestB,
+      IsChildTestCase: false,
+      TestElement: {
+        Id: Guid_7,
+        FullyQualifiedName: TestProject.UnitTest1.TestB,
+        DisplayName: TestProject.UnitTest1.TestB,
+        ExecutorUri: 'executor://xunit/VsTestRunner2/netcoreapp',
+        Source: {SolutionDirectory}src\TestProject\bin\Debug\net6.0\TestProject.dll
+      }
+    },
+    {
+      $type: TestCaseStartEventArgsDto,
+      TestCaseId: Guid_9,
+      TestCaseName: TestProject.UnitTest2.TestE(methodArgument1: 2),
+      IsChildTestCase: false,
+      TestElement: {
+        Id: Guid_9,
+        FullyQualifiedName: TestProject.UnitTest2.TestE,
+        DisplayName: TestProject.UnitTest2.TestE(methodArgument1: 2),
+        ExecutorUri: 'executor://xunit/VsTestRunner2/netcoreapp',
+        Source: {SolutionDirectory}src\TestProject\bin\Debug\net6.0\TestProject.dll
+      }
+    },
+    {
+      $type: TestCaseStartEventArgsDto,
+      TestCaseId: Guid_10,
+      TestCaseName: TestProject.UnitTest1.TestC(i: 2),
+      IsChildTestCase: false,
+      TestElement: {
+        Id: Guid_10,
+        FullyQualifiedName: TestProject.UnitTest1.TestC,
+        DisplayName: TestProject.UnitTest1.TestC(i: 2),
+        ExecutorUri: 'executor://xunit/VsTestRunner2/netcoreapp',
+        Source: {SolutionDirectory}src\TestProject\bin\Debug\net6.0\TestProject.dll
+      }
+    },
+    {
+      $type: TestCaseStartEventArgsDto,
+      TestCaseId: Guid_11,
+      TestCaseName: TestProject.UnitTest1.TestA,
+      IsChildTestCase: false,
+      TestElement: {
+        Id: Guid_11,
+        FullyQualifiedName: TestProject.UnitTest1.TestA,
+        DisplayName: TestProject.UnitTest1.TestA,
+        ExecutorUri: 'executor://xunit/VsTestRunner2/netcoreapp',
+        Source: {SolutionDirectory}src\TestProject\bin\Debug\net6.0\TestProject.dll
+      }
+    },
+    {
+      $type: TestCaseStartEventArgsDto,
+      TestCaseId: Guid_12,
+      TestCaseName: TestProject.UnitTest2.TestE(methodArgument1: 1),
+      IsChildTestCase: false,
+      TestElement: {
+        Id: Guid_12,
+        FullyQualifiedName: TestProject.UnitTest2.TestE,
+        DisplayName: TestProject.UnitTest2.TestE(methodArgument1: 1),
+        ExecutorUri: 'executor://xunit/VsTestRunner2/netcoreapp',
+        Source: {SolutionDirectory}src\TestProject\bin\Debug\net6.0\TestProject.dll
+      }
+    },
+    {
+      $type: TestCaseStartEventArgsDto,
+      TestCaseId: Guid_13,
+      TestCaseName: TestProject.UnitTest2.TestE(methodArgument1: 3),
+      IsChildTestCase: false,
+      TestElement: {
+        Id: Guid_13,
+        FullyQualifiedName: TestProject.UnitTest2.TestE,
+        DisplayName: TestProject.UnitTest2.TestE(methodArgument1: 3),
+        ExecutorUri: 'executor://xunit/VsTestRunner2/netcoreapp',
+        Source: {SolutionDirectory}src\TestProject\bin\Debug\net6.0\TestProject.dll
+      }
+    },
+    {
+      $type: TestCaseStartEventArgsDto,
+      TestCaseId: Guid_14,
+      TestCaseName: TestProject.UnitTest1.TestC(i: 0),
+      IsChildTestCase: false,
+      TestElement: {
+        Id: Guid_14,
+        FullyQualifiedName: TestProject.UnitTest1.TestC,
+        DisplayName: TestProject.UnitTest1.TestC(i: 0),
+        ExecutorUri: 'executor://xunit/VsTestRunner2/netcoreapp',
+        Source: {SolutionDirectory}src\TestProject\bin\Debug\net6.0\TestProject.dll
+      }
+    },
+    {
+      $type: TestCaseEndEventArgsDto,
+      TestOutcome: Passed,
+      TestCaseId: Guid_14,
+      TestCaseName: TestProject.UnitTest1.TestC(i: 0),
+      IsChildTestCase: false,
+      TestElement: {
+        Id: Guid_14,
+        FullyQualifiedName: TestProject.UnitTest1.TestC,
+        DisplayName: TestProject.UnitTest1.TestC(i: 0),
+        ExecutorUri: 'executor://xunit/VsTestRunner2/netcoreapp',
+        Source: {SolutionDirectory}src\TestProject\bin\Debug\net6.0\TestProject.dll
+      }
+    },
+    {
+      $type: TestCaseStartEventArgsDto,
+      TestCaseId: Guid_15,
+      TestCaseName: TestProject.UnitTest2.TestE(methodArgument1: 4),
+      IsChildTestCase: false,
+      TestElement: {
+        Id: Guid_15,
+        FullyQualifiedName: TestProject.UnitTest2.TestE,
+        DisplayName: TestProject.UnitTest2.TestE(methodArgument1: 4),
+        ExecutorUri: 'executor://xunit/VsTestRunner2/netcoreapp',
+        Source: {SolutionDirectory}src\TestProject\bin\Debug\net6.0\TestProject.dll
+      }
+    },
+    {
+      $type: TestCaseStartEventArgsDto,
+      TestCaseId: Guid_16,
+      TestCaseName: TestProject.UnitTest1.TestC(i: 5),
+      IsChildTestCase: false,
+      TestElement: {
+        Id: Guid_16,
+        FullyQualifiedName: TestProject.UnitTest1.TestC,
+        DisplayName: TestProject.UnitTest1.TestC(i: 5),
+        ExecutorUri: 'executor://xunit/VsTestRunner2/netcoreapp',
+        Source: {SolutionDirectory}src\TestProject\bin\Debug\net6.0\TestProject.dll
+      }
+    },
+    {
+      $type: TestCaseStartEventArgsDto,
+      TestCaseId: Guid_17,
+      TestCaseName: TestProject.UnitTest2.TestD,
+      IsChildTestCase: false,
+      TestElement: {
+        Id: Guid_17,
+        FullyQualifiedName: TestProject.UnitTest2.TestD,
+        DisplayName: TestProject.UnitTest2.TestD,
+        ExecutorUri: 'executor://xunit/VsTestRunner2/netcoreapp',
+        Source: {SolutionDirectory}src\TestProject\bin\Debug\net6.0\TestProject.dll
+      }
+    },
+    {
+      $type: TestCaseEndEventArgsDto,
+      TestOutcome: Passed,
+      TestCaseId: Guid_4,
+      TestCaseName: TestProject.UnitTest1.TestC(i: 1),
+      IsChildTestCase: false,
+      TestElement: {
+        Id: Guid_4,
+        FullyQualifiedName: TestProject.UnitTest1.TestC,
+        DisplayName: TestProject.UnitTest1.TestC(i: 1),
+        ExecutorUri: 'executor://xunit/VsTestRunner2/netcoreapp',
+        Source: {SolutionDirectory}src\TestProject\bin\Debug\net6.0\TestProject.dll
+      }
+    },
+    {
+      $type: TestCaseEndEventArgsDto,
+      TestOutcome: Passed,
+      TestCaseId: Guid_12,
+      TestCaseName: TestProject.UnitTest2.TestE(methodArgument1: 1),
+      IsChildTestCase: false,
+      TestElement: {
+        Id: Guid_12,
+        FullyQualifiedName: TestProject.UnitTest2.TestE,
+        DisplayName: TestProject.UnitTest2.TestE(methodArgument1: 1),
+        ExecutorUri: 'executor://xunit/VsTestRunner2/netcoreapp',
+        Source: {SolutionDirectory}src\TestProject\bin\Debug\net6.0\TestProject.dll
+      }
+    },
+    {
+      $type: TestResultEventArgsDto,
+      Result: {
+        TestCase: {
+          Id: Guid_5,
+          FullyQualifiedName: TestProject.UnitTest2.TestE,
+          DisplayName: TestProject.UnitTest2.TestE(methodArgument1: 0),
+          ExecutorUri: 'executor://xunit/VsTestRunner2/netcoreapp',
+          Source: {SolutionDirectory}src\TestProject\bin\Debug\net6.0\TestProject.dll
+        },
+        Outcome: Passed,
+        DisplayName: TestProject.UnitTest2.TestE(methodArgument1: 0),
+        ComputerName: BDO-54229,
+        Duration: 00:00:00.0042022,
+        StartTime: DateTimeOffset_1,
+        EndTime: DateTimeOffset_2
+      }
+    },
+    {
+      $type: TestResultEventArgsDto,
+      Result: {
+        TestCase: {
+          Id: Guid_7,
+          FullyQualifiedName: TestProject.UnitTest1.TestB,
+          DisplayName: TestProject.UnitTest1.TestB,
+          ExecutorUri: 'executor://xunit/VsTestRunner2/netcoreapp',
+          Source: {SolutionDirectory}src\TestProject\bin\Debug\net6.0\TestProject.dll
+        },
+        Outcome: Passed,
+        DisplayName: TestProject.UnitTest1.TestB,
+        Messages: [
+          {
+            $type: TestResultMessageDto,
+            Category: StdOutMsgs,
+            Text:
+ctor
+
+          }
+        ],
+        ComputerName: BDO-54229,
+        Duration: 00:00:00.0063863,
+        StartTime: DateTimeOffset_3,
+        EndTime: DateTimeOffset_4
+      }
+    },
+    {
+      $type: TestCaseEndEventArgsDto,
+      TestOutcome: Passed,
+      TestCaseId: Guid_10,
+      TestCaseName: TestProject.UnitTest1.TestC(i: 2),
+      IsChildTestCase: false,
+      TestElement: {
+        Id: Guid_10,
+        FullyQualifiedName: TestProject.UnitTest1.TestC,
+        DisplayName: TestProject.UnitTest1.TestC(i: 2),
+        ExecutorUri: 'executor://xunit/VsTestRunner2/netcoreapp',
+        Source: {SolutionDirectory}src\TestProject\bin\Debug\net6.0\TestProject.dll
+      }
+    },
+    {
+      $type: TestRunMessageEventArgsDto,
+      Message: [xUnit.net 00:00:00.82]     TestProject.UnitTest2.TestE(methodArgument1: 2) [FAIL],
+      Level: Error
+    },
+    {
+      $type: TestRunMessageEventArgsDto,
+      Message: [xUnit.net 00:00:00.83]       Assert.NotEqual() Failure
+    },
+    {
+      $type: TestRunMessageEventArgsDto,
+      Message: [xUnit.net 00:00:00.83]       Expected: Not 2
+    },
+    {
+      $type: TestRunMessageEventArgsDto,
+      Message: [xUnit.net 00:00:00.83]       Actual:   2
+    },
+    {
+      $type: TestRunMessageEventArgsDto,
+      Message: [xUnit.net 00:00:00.83]       Stack Trace:
+    },
+    {
+      $type: TestRunMessageEventArgsDto,
+      Message: [xUnit.net 00:00:00.83]         {SolutionDirectory}src\TestProject\UnitTest2.cs(28,0): at TestProject.UnitTest2.TestE(Int32 methodArgument1)
+    },
+    {
+      $type: TestRunMessageEventArgsDto,
+      Message: [xUnit.net 00:00:00.83]         --- End of stack trace from previous location ---
+    },
+    {
+      $type: TestCaseEndEventArgsDto,
+      TestOutcome: Failed,
+      TestCaseId: Guid_9,
+      TestCaseName: TestProject.UnitTest2.TestE(methodArgument1: 2),
+      IsChildTestCase: false,
+      TestElement: {
+        Id: Guid_9,
+        FullyQualifiedName: TestProject.UnitTest2.TestE,
+        DisplayName: TestProject.UnitTest2.TestE(methodArgument1: 2),
+        ExecutorUri: 'executor://xunit/VsTestRunner2/netcoreapp',
+        Source: {SolutionDirectory}src\TestProject\bin\Debug\net6.0\TestProject.dll
+      }
+    },
+    {
+      $type: TestResultEventArgsDto,
+      Result: {
+        TestCase: {
+          Id: Guid_14,
+          FullyQualifiedName: TestProject.UnitTest1.TestC,
+          DisplayName: TestProject.UnitTest1.TestC(i: 0),
+          ExecutorUri: 'executor://xunit/VsTestRunner2/netcoreapp',
+          Source: {SolutionDirectory}src\TestProject\bin\Debug\net6.0\TestProject.dll
+        },
+        Outcome: Passed,
+        DisplayName: TestProject.UnitTest1.TestC(i: 0),
+        Messages: [
+          {
+            $type: TestResultMessageDto,
+            Category: StdOutMsgs,
+            Text:
+ctor
+
+          }
+        ],
+        ComputerName: BDO-54229,
+        Duration: 00:00:00.0000145,
+        StartTime: DateTimeOffset_5,
+        EndTime: DateTimeOffset_6
+      }
+    },
+    {
+      $type: TestResultEventArgsDto,
+      Result: {
+        TestCase: {
+          Id: Guid_4,
+          FullyQualifiedName: TestProject.UnitTest1.TestC,
+          DisplayName: TestProject.UnitTest1.TestC(i: 1),
+          ExecutorUri: 'executor://xunit/VsTestRunner2/netcoreapp',
+          Source: {SolutionDirectory}src\TestProject\bin\Debug\net6.0\TestProject.dll
+        },
+        Outcome: Passed,
+        DisplayName: TestProject.UnitTest1.TestC(i: 1),
+        Messages: [
+          {
+            $type: TestResultMessageDto,
+            Category: StdOutMsgs,
+            Text:
+ctor
+
+          }
+        ],
+        ComputerName: BDO-54229,
+        Duration: 00:00:00.1075876,
+        StartTime: DateTimeOffset_7,
+        EndTime: DateTimeOffset_8
+      }
+    },
+    {
+      $type: TestResultEventArgsDto,
+      Result: {
+        TestCase: {
+          Id: Guid_12,
+          FullyQualifiedName: TestProject.UnitTest2.TestE,
+          DisplayName: TestProject.UnitTest2.TestE(methodArgument1: 1),
+          ExecutorUri: 'executor://xunit/VsTestRunner2/netcoreapp',
+          Source: {SolutionDirectory}src\TestProject\bin\Debug\net6.0\TestProject.dll
+        },
+        Outcome: Passed,
+        DisplayName: TestProject.UnitTest2.TestE(methodArgument1: 1),
+        ComputerName: BDO-54229,
+        Duration: 00:00:00.1094342,
+        StartTime: DateTimeOffset_9,
+        EndTime: DateTimeOffset_9
+      }
+    },
+    {
+      $type: TestResultEventArgsDto,
+      Result: {
+        TestCase: {
+          Id: Guid_10,
+          FullyQualifiedName: TestProject.UnitTest1.TestC,
+          DisplayName: TestProject.UnitTest1.TestC(i: 2),
+          ExecutorUri: 'executor://xunit/VsTestRunner2/netcoreapp',
+          Source: {SolutionDirectory}src\TestProject\bin\Debug\net6.0\TestProject.dll
+        },
+        Outcome: Passed,
+        DisplayName: TestProject.UnitTest1.TestC(i: 2),
+        Messages: [
+          {
+            $type: TestResultMessageDto,
+            Category: StdOutMsgs,
+            Text:
+ctor
+
+          }
+        ],
+        ComputerName: BDO-54229,
+        Duration: 00:00:00.2011986,
+        StartTime: DateTimeOffset_10,
+        EndTime: DateTimeOffset_11
+      }
+    },
+    {
+      $type: TestResultEventArgsDto,
+      Result: {
+        TestCase: {
+          Id: Guid_9,
+          FullyQualifiedName: TestProject.UnitTest2.TestE,
+          DisplayName: TestProject.UnitTest2.TestE(methodArgument1: 2),
+          ExecutorUri: 'executor://xunit/VsTestRunner2/netcoreapp',
+          Source: {SolutionDirectory}src\TestProject\bin\Debug\net6.0\TestProject.dll
+        },
+        Outcome: Failed,
+        ErrorMessage:
+Assert.NotEqual() Failure
+Expected: Not 2
+Actual:   2,
+        ErrorStackTrace:
+   at TestProject.UnitTest2.TestE(Int32 methodArgument1) in {SolutionDirectory}src\TestProject\UnitTest2.cs:line 28
+--- End of stack trace from previous location ---,
+        DisplayName: TestProject.UnitTest2.TestE(methodArgument1: 2),
+        ComputerName: BDO-54229,
+        Duration: 00:00:00.2074996,
+        StartTime: DateTimeOffset_12,
+        EndTime: DateTimeOffset_13
+      }
+    },
+    {
+      $type: TestCaseEndEventArgsDto,
+      TestOutcome: Passed,
+      TestCaseId: Guid_6,
+      TestCaseName: TestProject.UnitTest1.TestC(i: 3),
+      IsChildTestCase: false,
+      TestElement: {
+        Id: Guid_6,
+        FullyQualifiedName: TestProject.UnitTest1.TestC,
+        DisplayName: TestProject.UnitTest1.TestC(i: 3),
+        ExecutorUri: 'executor://xunit/VsTestRunner2/netcoreapp',
+        Source: {SolutionDirectory}src\TestProject\bin\Debug\net6.0\TestProject.dll
+      }
+    },
+    {
+      $type: TestCaseEndEventArgsDto,
+      TestOutcome: Passed,
+      TestCaseId: Guid_13,
+      TestCaseName: TestProject.UnitTest2.TestE(methodArgument1: 3),
+      IsChildTestCase: false,
+      TestElement: {
+        Id: Guid_13,
+        FullyQualifiedName: TestProject.UnitTest2.TestE,
+        DisplayName: TestProject.UnitTest2.TestE(methodArgument1: 3),
+        ExecutorUri: 'executor://xunit/VsTestRunner2/netcoreapp',
+        Source: {SolutionDirectory}src\TestProject\bin\Debug\net6.0\TestProject.dll
+      }
+    },
+    {
+      $type: TestCaseEndEventArgsDto,
+      TestOutcome: Passed,
+      TestCaseId: Guid_1,
+      TestCaseName: TestProject.UnitTest1.TestC(i: 4),
+      IsChildTestCase: false,
+      TestElement: {
+        Id: Guid_1,
+        FullyQualifiedName: TestProject.UnitTest1.TestC,
+        DisplayName: TestProject.UnitTest1.TestC(i: 4),
+        ExecutorUri: 'executor://xunit/VsTestRunner2/netcoreapp',
+        Source: {SolutionDirectory}src\TestProject\bin\Debug\net6.0\TestProject.dll
+      }
+    },
+    {
+      $type: TestCaseEndEventArgsDto,
+      TestOutcome: Passed,
+      TestCaseId: Guid_15,
+      TestCaseName: TestProject.UnitTest2.TestE(methodArgument1: 4),
+      IsChildTestCase: false,
+      TestElement: {
+        Id: Guid_15,
+        FullyQualifiedName: TestProject.UnitTest2.TestE,
+        DisplayName: TestProject.UnitTest2.TestE(methodArgument1: 4),
+        ExecutorUri: 'executor://xunit/VsTestRunner2/netcoreapp',
+        Source: {SolutionDirectory}src\TestProject\bin\Debug\net6.0\TestProject.dll
+      }
+    },
+    {
+      $type: TestCaseEndEventArgsDto,
+      TestOutcome: Passed,
+      TestCaseId: Guid_16,
+      TestCaseName: TestProject.UnitTest1.TestC(i: 5),
+      IsChildTestCase: false,
+      TestElement: {
+        Id: Guid_16,
+        FullyQualifiedName: TestProject.UnitTest1.TestC,
+        DisplayName: TestProject.UnitTest1.TestC(i: 5),
+        ExecutorUri: 'executor://xunit/VsTestRunner2/netcoreapp',
+        Source: {SolutionDirectory}src\TestProject\bin\Debug\net6.0\TestProject.dll
+      }
+    },
+    {
+      $type: TestCaseEndEventArgsDto,
+      TestOutcome: Passed,
+      TestCaseId: Guid_3,
+      TestCaseName: TestProject.UnitTest2.TestE(methodArgument1: 5),
+      IsChildTestCase: false,
+      TestElement: {
+        Id: Guid_3,
+        FullyQualifiedName: TestProject.UnitTest2.TestE,
+        DisplayName: TestProject.UnitTest2.TestE(methodArgument1: 5),
+        ExecutorUri: 'executor://xunit/VsTestRunner2/netcoreapp',
+        Source: {SolutionDirectory}src\TestProject\bin\Debug\net6.0\TestProject.dll
+      }
+    },
+    {
+      $type: TestCaseEndEventArgsDto,
+      TestOutcome: Passed,
+      TestCaseId: Guid_2,
+      TestCaseName: TestProject.UnitTest2.TestE(methodArgument1: 6),
+      IsChildTestCase: false,
+      TestElement: {
+        Id: Guid_2,
+        FullyQualifiedName: TestProject.UnitTest2.TestE,
+        DisplayName: TestProject.UnitTest2.TestE(methodArgument1: 6),
+        ExecutorUri: 'executor://xunit/VsTestRunner2/netcoreapp',
+        Source: {SolutionDirectory}src\TestProject\bin\Debug\net6.0\TestProject.dll
+      }
+    },
+    {
+      $type: TestRunMessageEventArgsDto,
+      Message: [xUnit.net 00:00:01.20]     TestProject.UnitTest1.TestC(i: 6) [FAIL],
+      Level: Error
+    },
+    {
+      $type: TestRunMessageEventArgsDto,
+      Message: [xUnit.net 00:00:01.20]       Assert.NotEqual() Failure
+    },
+    {
+      $type: TestRunMessageEventArgsDto,
+      Message: [xUnit.net 00:00:01.20]       Expected: Not 6
+    },
+    {
+      $type: TestRunMessageEventArgsDto,
+      Message: [xUnit.net 00:00:01.20]       Actual:   6
+    },
+    {
+      $type: TestRunMessageEventArgsDto,
+      Message: [xUnit.net 00:00:01.20]       Stack Trace:
+    },
+    {
+      $type: TestRunMessageEventArgsDto,
+      Message: [xUnit.net 00:00:01.20]         {SolutionDirectory}src\TestProject\UnitTest1.cs(46,0): at TestProject.UnitTest1.TestC(Int32 i)
+    },
+    {
+      $type: TestRunMessageEventArgsDto,
+      Message: [xUnit.net 00:00:01.20]       Output:
+    },
+    {
+      $type: TestRunMessageEventArgsDto,
+      Message: [xUnit.net 00:00:01.20]         ctor
+    },
+    {
+      $type: TestCaseEndEventArgsDto,
+      TestOutcome: Failed,
+      TestCaseId: Guid_8,
+      TestCaseName: TestProject.UnitTest1.TestC(i: 6),
+      IsChildTestCase: false,
+      TestElement: {
+        Id: Guid_8,
+        FullyQualifiedName: TestProject.UnitTest1.TestC,
+        DisplayName: TestProject.UnitTest1.TestC(i: 6),
+        ExecutorUri: 'executor://xunit/VsTestRunner2/netcoreapp',
+        Source: {SolutionDirectory}src\TestProject\bin\Debug\net6.0\TestProject.dll
+      }
+    },
+    {
+      $type: TestCaseEndEventArgsDto,
+      TestOutcome: Passed,
+      TestCaseId: Guid_11,
+      TestCaseName: TestProject.UnitTest1.TestA,
+      IsChildTestCase: false,
+      TestElement: {
+        Id: Guid_11,
+        FullyQualifiedName: TestProject.UnitTest1.TestA,
+        DisplayName: TestProject.UnitTest1.TestA,
+        ExecutorUri: 'executor://xunit/VsTestRunner2/netcoreapp',
+        Source: {SolutionDirectory}src\TestProject\bin\Debug\net6.0\TestProject.dll
+      }
+    },
+    {
+      $type: TestCaseEndEventArgsDto,
+      TestOutcome: Passed,
+      TestCaseId: Guid_17,
+      TestCaseName: TestProject.UnitTest2.TestD,
+      IsChildTestCase: false,
+      TestElement: {
+        Id: Guid_17,
+        FullyQualifiedName: TestProject.UnitTest2.TestD,
+        DisplayName: TestProject.UnitTest2.TestD,
+        ExecutorUri: 'executor://xunit/VsTestRunner2/netcoreapp',
+        Source: {SolutionDirectory}src\TestProject\bin\Debug\net6.0\TestProject.dll
+      }
+    },
+    {
+      $type: TestResultEventArgsDto,
+      Result: {
+        TestCase: {
+          Id: Guid_6,
+          FullyQualifiedName: TestProject.UnitTest1.TestC,
+          DisplayName: TestProject.UnitTest1.TestC(i: 3),
+          ExecutorUri: 'executor://xunit/VsTestRunner2/netcoreapp',
+          Source: {SolutionDirectory}src\TestProject\bin\Debug\net6.0\TestProject.dll
+        },
+        Outcome: Passed,
+        DisplayName: TestProject.UnitTest1.TestC(i: 3),
+        Messages: [
+          {
+            $type: TestResultMessageDto,
+            Category: StdOutMsgs,
+            Text:
+ctor
+
+          }
+        ],
+        ComputerName: BDO-54229,
+        Duration: 00:00:00.3095596,
+        StartTime: DateTimeOffset_14,
+        EndTime: DateTimeOffset_15
+      }
+    },
+    {
+      $type: TestResultEventArgsDto,
+      Result: {
+        TestCase: {
+          Id: Guid_13,
+          FullyQualifiedName: TestProject.UnitTest2.TestE,
+          DisplayName: TestProject.UnitTest2.TestE(methodArgument1: 3),
+          ExecutorUri: 'executor://xunit/VsTestRunner2/netcoreapp',
+          Source: {SolutionDirectory}src\TestProject\bin\Debug\net6.0\TestProject.dll
+        },
+        Outcome: Passed,
+        DisplayName: TestProject.UnitTest2.TestE(methodArgument1: 3),
+        ComputerName: BDO-54229,
+        Duration: 00:00:00.3109621,
+        StartTime: DateTimeOffset_16,
+        EndTime: DateTimeOffset_17
+      }
+    },
+    {
+      $type: TestResultEventArgsDto,
+      Result: {
+        TestCase: {
+          Id: Guid_1,
+          FullyQualifiedName: TestProject.UnitTest1.TestC,
+          DisplayName: TestProject.UnitTest1.TestC(i: 4),
+          ExecutorUri: 'executor://xunit/VsTestRunner2/netcoreapp',
+          Source: {SolutionDirectory}src\TestProject\bin\Debug\net6.0\TestProject.dll
+        },
+        Outcome: Passed,
+        DisplayName: TestProject.UnitTest1.TestC(i: 4),
+        Messages: [
+          {
+            $type: TestResultMessageDto,
+            Category: StdOutMsgs,
+            Text:
+ctor
+
+          }
+        ],
+        ComputerName: BDO-54229,
+        Duration: 00:00:00.4061138,
+        StartTime: DateTimeOffset_18,
+        EndTime: DateTimeOffset_19
+      }
+    },
+    {
+      $type: TestResultEventArgsDto,
+      Result: {
+        TestCase: {
+          Id: Guid_15,
+          FullyQualifiedName: TestProject.UnitTest2.TestE,
+          DisplayName: TestProject.UnitTest2.TestE(methodArgument1: 4),
+          ExecutorUri: 'executor://xunit/VsTestRunner2/netcoreapp',
+          Source: {SolutionDirectory}src\TestProject\bin\Debug\net6.0\TestProject.dll
+        },
+        Outcome: Passed,
+        DisplayName: TestProject.UnitTest2.TestE(methodArgument1: 4),
+        ComputerName: BDO-54229,
+        Duration: 00:00:00.4065887,
+        StartTime: DateTimeOffset_20,
+        EndTime: DateTimeOffset_21
+      }
+    },
+    {
+      $type: TestResultEventArgsDto,
+      Result: {
+        TestCase: {
+          Id: Guid_16,
+          FullyQualifiedName: TestProject.UnitTest1.TestC,
+          DisplayName: TestProject.UnitTest1.TestC(i: 5),
+          ExecutorUri: 'executor://xunit/VsTestRunner2/netcoreapp',
+          Source: {SolutionDirectory}src\TestProject\bin\Debug\net6.0\TestProject.dll
+        },
+        Outcome: Passed,
+        DisplayName: TestProject.UnitTest1.TestC(i: 5),
+        Messages: [
+          {
+            $type: TestResultMessageDto,
+            Category: StdOutMsgs,
+            Text:
+ctor
+
+          }
+        ],
+        ComputerName: BDO-54229,
+        Duration: 00:00:00.5013090,
+        StartTime: DateTimeOffset_22,
+        EndTime: DateTimeOffset_23
+      }
+    },
+    {
+      $type: TestResultEventArgsDto,
+      Result: {
+        TestCase: {
+          Id: Guid_3,
+          FullyQualifiedName: TestProject.UnitTest2.TestE,
+          DisplayName: TestProject.UnitTest2.TestE(methodArgument1: 5),
+          ExecutorUri: 'executor://xunit/VsTestRunner2/netcoreapp',
+          Source: {SolutionDirectory}src\TestProject\bin\Debug\net6.0\TestProject.dll
+        },
+        Outcome: Passed,
+        DisplayName: TestProject.UnitTest2.TestE(methodArgument1: 5),
+        ComputerName: BDO-54229,
+        Duration: 00:00:00.5154358,
+        StartTime: DateTimeOffset_24,
+        EndTime: DateTimeOffset_25
+      }
+    },
+    {
+      $type: TestResultEventArgsDto,
+      Result: {
+        TestCase: {
+          Id: Guid_2,
+          FullyQualifiedName: TestProject.UnitTest2.TestE,
+          DisplayName: TestProject.UnitTest2.TestE(methodArgument1: 6),
+          ExecutorUri: 'executor://xunit/VsTestRunner2/netcoreapp',
+          Source: {SolutionDirectory}src\TestProject\bin\Debug\net6.0\TestProject.dll
+        },
+        Outcome: Passed,
+        DisplayName: TestProject.UnitTest2.TestE(methodArgument1: 6),
+        ComputerName: BDO-54229,
+        Duration: 00:00:00.6104180,
+        StartTime: DateTimeOffset_26,
+        EndTime: DateTimeOffset_27
+      }
+    },
+    {
+      $type: TestResultEventArgsDto,
+      Result: {
+        TestCase: {
+          Id: Guid_8,
+          FullyQualifiedName: TestProject.UnitTest1.TestC,
+          DisplayName: TestProject.UnitTest1.TestC(i: 6),
+          ExecutorUri: 'executor://xunit/VsTestRunner2/netcoreapp',
+          Source: {SolutionDirectory}src\TestProject\bin\Debug\net6.0\TestProject.dll
+        },
+        Outcome: Failed,
+        ErrorMessage:
+Assert.NotEqual() Failure
+Expected: Not 6
+Actual:   6,
+        ErrorStackTrace:    at TestProject.UnitTest1.TestC(Int32 i) in {SolutionDirectory}src\TestProject\UnitTest1.cs:line 46,
+        DisplayName: TestProject.UnitTest1.TestC(i: 6),
+        Messages: [
+          {
+            $type: TestResultMessageDto,
+            Category: StdOutMsgs,
+            Text:
+ctor
+
+          }
+        ],
+        ComputerName: BDO-54229,
+        Duration: 00:00:00.6139760,
+        StartTime: DateTimeOffset_28,
+        EndTime: DateTimeOffset_29
+      }
+    },
+    {
+      $type: TestResultEventArgsDto,
+      Result: {
+        TestCase: {
+          Id: Guid_11,
+          FullyQualifiedName: TestProject.UnitTest1.TestA,
+          DisplayName: TestProject.UnitTest1.TestA,
+          ExecutorUri: 'executor://xunit/VsTestRunner2/netcoreapp',
+          Source: {SolutionDirectory}src\TestProject\bin\Debug\net6.0\TestProject.dll
+        },
+        Outcome: Passed,
+        DisplayName: TestProject.UnitTest1.TestA,
+        Messages: [
+          {
+            $type: TestResultMessageDto,
+            Category: StdOutMsgs,
+            Text:
+ctor
+test a message before
+test a message after
+
+          }
+        ],
+        ComputerName: BDO-54229,
+        Duration: 00:00:00.7087991,
+        StartTime: DateTimeOffset_30,
+        EndTime: DateTimeOffset_31
+      }
+    },
+    {
+      $type: TestResultEventArgsDto,
+      Result: {
+        TestCase: {
+          Id: Guid_17,
+          FullyQualifiedName: TestProject.UnitTest2.TestD,
+          DisplayName: TestProject.UnitTest2.TestD,
+          ExecutorUri: 'executor://xunit/VsTestRunner2/netcoreapp',
+          Source: {SolutionDirectory}src\TestProject\bin\Debug\net6.0\TestProject.dll
+        },
+        Outcome: Passed,
+        DisplayName: TestProject.UnitTest2.TestD,
+        ComputerName: BDO-54229,
+        Duration: 00:00:00.7082491,
+        StartTime: DateTimeOffset_32,
+        EndTime: DateTimeOffset_32
+      }
+    },
+    {
+      $type: TestRunMessageEventArgsDto,
+      Message: [xUnit.net 00:00:01.31]   Finished:    TestProject
+    },
+    {
+      $type: SessionEndEventArgsDto
+    },
+    {
+      $type: TestRunCompleteEventArgsDto,
+      TestRunStatistics: {
+        Stats: {
+          Passed: 15,
+          Failed: 2
+        },
+        ExecutedTests: 17
+      },
+      IsCanceled: false,
+      IsAborted: false,
+      ElapsedTimeInRunningTests: 00:00:02.4271713
+    }
+  ]
+}

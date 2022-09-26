@@ -2,17 +2,17 @@ namespace TestProject;
 
 using System;
 using System.Threading;
+using System.Threading.Tasks;
 using Xunit;
 
 public class UnitTest2
 {
     [Fact]
-    public void Test1()
+    public void TestD()
     {
-        Thread.Sleep(TimeSpan.FromSeconds(7));
+        Thread.Sleep(TimeSpan.FromMilliseconds(700));
     }
-
-
+    
     [Theory]
     [InlineData(0)]
     [InlineData(1)]
@@ -21,10 +21,10 @@ public class UnitTest2
     [InlineData(4)]
     [InlineData(5)]
     [InlineData(6)]
-    public void Test2(int i)
+    public async Task TestE(int methodArgument1)
     {
-        Thread.Sleep(TimeSpan.FromSeconds(i));
+        await Task.Delay(TimeSpan.FromMilliseconds(methodArgument1*100));
 
-        Assert.NotEqual(2, i);
+        Assert.NotEqual(2, methodArgument1);
     }
 }

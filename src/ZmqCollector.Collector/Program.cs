@@ -33,8 +33,8 @@ public class SampleDataCollector : DataCollector, ITestExecutionEnvironmentSpeci
         DataCollectionLogger logger,
         DataCollectionEnvironmentContext environmentContext)
     {
-        var port = GetPort(configurationElement);
-        _publisher.Start(port);
+        //var port = GetPort(configurationElement);
+        //_publisher.Start(port);
 
         _events = events;
         _events.TestHostLaunched += TestHostLaunched_Handler;

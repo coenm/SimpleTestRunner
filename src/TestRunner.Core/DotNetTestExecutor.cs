@@ -10,9 +10,9 @@ using System.Threading.Tasks;
 using Interface.Naming;
 using Medallion.Shell;
 
-public class DotNetTestExecutor
+public class DotNetExecutorExtras
 {
-    private static readonly Lazy<string> _testAdapterPath = new(() =>
+    public static readonly Lazy<string> TestAdapterPath = new(() =>
         {
             var baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
             baseDirectory = baseDirectory.Replace('/', '\\');
@@ -20,6 +20,19 @@ public class DotNetTestExecutor
             return $"--test-adapter-path:{baseDirectory}";
         });
 
+    public static IEnumerable<string> AdditionalArguments
+    {
+        get
+        {
+            yield return TestAdapterPath.Value;
+            yield return $"--collect:{SampleDataCollectorNaming.DATA_COLLECTOR_FRIENDLY_NAME}";
+            yield return $"--logger:{TestLoggerNaming.FRIENDLY_NAME}";
+        }
+    }
+}
+
+public class DotNetTestExecutor
+{
     public static async Task Execute(string cmd, int port)
     {
         var args = Environment.GetCommandLineArgs();
@@ -36,9 +49,13 @@ public class DotNetTestExecutor
         }
 
         var argss = args.Skip(skip).ToList();
-        argss.Add(_testAdapterPath.Value);
-        argss.Add($"--collect:{SampleDataCollectorNaming.DATA_COLLECTOR_FRIENDLY_NAME}");
-        argss.Add($"--logger:{TestLoggerNaming.FRIENDLY_NAME}");
+        foreach (var item in DotNetExecutorExtras.AdditionalArguments)
+        {
+            argss.Add(item);
+        }
+        // argss.Add(DotNetExecutorExtras.TestAdapterPath.Value);
+        // argss.Add($"--collect:{SampleDataCollectorNaming.DATA_COLLECTOR_FRIENDLY_NAME}");
+        // argss.Add($"--logger:{TestLoggerNaming.FRIENDLY_NAME}");
 
         var argss2 = argss.ToList();
         argss.Add("--list-tests");

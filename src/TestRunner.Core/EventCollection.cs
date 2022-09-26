@@ -1,4 +1,4 @@
-namespace TestRunner.Core.Tests.Poc;
+namespace TestRunner.Core;
 
 using System;
 using System.Collections.ObjectModel;
