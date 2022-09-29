@@ -2,7 +2,6 @@ namespace TestRunner.Core;
 
 using System;
 using System.Collections.ObjectModel;
-using System.Threading.Tasks;
 using Interface.Data.Logger;
 using Serialization;
 
@@ -28,7 +27,18 @@ public class ConsoleOutputProcessor : IDisposable
 
     private void OutOnLineAdded(object? sender, string e)
     {
-        EventArgsBaseDto? result = _serializer.Deserialize(e);
+        EventArgsBaseDto? result;
+        try
+        {
+            result = _serializer.Deserialize(e);
+        }
+        catch (Exception exception)
+        {
+            OnLine.Invoke(this, "++++++++++++++++++++++++++++++++++++++++>> " + exception.Message);
+            // throw exception;
+            return;
+        }
+        
         if (result == null)
         {
             OnLine.Invoke(this, e);
@@ -41,7 +51,26 @@ public class ConsoleOutputProcessor : IDisposable
 
     private void ErrOnLineAdded(object? sender, string e)
     {
-        OnLine.Invoke(this, e);
+        EventArgsBaseDto? result;
+        try
+        {
+            result = _serializer.Deserialize(e);
+        }
+        catch (Exception exception)
+        {
+            OnLine.Invoke(this, "++++++++++++++++++++++>> " + exception.Message);
+            // throw exception;
+            return;
+        }
+
+        if (result == null)
+        {
+            OnLine.Invoke(this, e);
+        }
+        else
+        {
+            OnEvent.Invoke(this, result);
+        }
     }
 
     public Collection<string> Out => _out;

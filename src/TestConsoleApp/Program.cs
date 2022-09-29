@@ -47,7 +47,6 @@ namespace TestConsoleApp
             var evt = new TestCaseStartEventArgsDto
                 {
                     IsChildTestCase = true,
-                    SessionId = "ss",
                     TestCaseId = Guid.Empty,
                     TestCaseName = "aaa",
                     TestElement = new TestCaseDto
@@ -56,6 +55,8 @@ namespace TestConsoleApp
                             DisplayName = "dd",
                         },
                 };
+
+            await Console.Error.WriteLineAsync($"Err: {Console.IsErrorRedirected}.");
 
             var s = new Serialization();
             Console.WriteLine(s.Serialize(evt));

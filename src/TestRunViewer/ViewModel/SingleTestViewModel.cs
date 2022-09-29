@@ -54,8 +54,6 @@ public class SingleTestViewModel : ViewModelBase, IDisposable
         }
     }
 
-    public string SessionId => _client.SessionId;
-
     public void Initialize()
     {
         try

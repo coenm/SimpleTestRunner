@@ -1,4 +1,4 @@
-﻿using Interface.Data.Collector.Base;
+using Interface.Data.Collector.Base;
 
 namespace Interface.Data.Collector;
 

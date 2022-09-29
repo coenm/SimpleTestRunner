@@ -9,7 +9,8 @@ public class EventCollection : Collection<string>
 
     protected override void InsertItem(int index, string item)
     {
-        LineAdded.Invoke(this, item);
         base.InsertItem(index, item);
+        // if (item.StartsWith("Ended"))
+        LineAdded.Invoke(this, item);
     }
 }

@@ -2,6 +2,7 @@ namespace TestRunner.Core;
 
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Threading.Tasks;
 using Medallion.Shell;
 
@@ -23,10 +24,13 @@ public class DotNetTestExecutor
             }
 
             cmdArgs.AddRange(DotNetExecutorExtras.AdditionalArguments);
-
+            var dt = DateTime.Now.ToString("yyyyMMddHHmmss");
+            // dt = "coentje";
             Command cmd = Command.Run("dotnet", cmdArgs)
                                  .RedirectTo(stdOut)
-                                 .RedirectStandardErrorTo(stdErr);
+                                 //.RedirectStandardErrorTo(new FileInfo($"C:\\tmp\\dotnetstderr_coen_{dt}.txt"))
+                                 .RedirectStandardErrorTo(stdErr)
+                                 ;
 
             CommandResult result = await cmd.Task.ConfigureAwait(false);
             

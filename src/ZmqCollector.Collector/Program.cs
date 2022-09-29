@@ -10,8 +10,10 @@ namespace ZmqCollector.Collector;
 using System;
 using System.Collections.Generic;
 using System.Xml;
+using Interface;
 using Interface.Naming;
 using Microsoft.VisualStudio.TestPlatform.ObjectModel.DataCollection;
+using Microsoft.VisualStudio.TestPlatform.Utilities;
 using NetMq.Publisher;
 
 [DataCollectorFriendlyName(SampleDataCollectorNaming.DATA_COLLECTOR_FRIENDLY_NAME)]
@@ -23,7 +25,7 @@ public class SampleDataCollector : DataCollector, ITestExecutionEnvironmentSpeci
 
     public SampleDataCollector()
     {
-        _publisher = new Publisher();
+        _publisher = new Publisher(ConsoleOutput.Instance);
     }
 
     public override void Initialize(
@@ -35,7 +37,7 @@ public class SampleDataCollector : DataCollector, ITestExecutionEnvironmentSpeci
     {
         //var port = GetPort(configurationElement);
         //_publisher.Start(port);
-
+      
         _events = events;
         _events.TestHostLaunched += TestHostLaunched_Handler;
         _events.SessionStart += SessionStarted_Handler;
@@ -132,6 +134,8 @@ public class SampleDataCollector : DataCollector, ITestExecutionEnvironmentSpeci
         _events.TestCaseStart -= Events_TestCaseStart;
         _events.TestCaseEnd -= Events_TestCaseEnd;
 
+        ConsoleOutput.Instance.Write("--- Disposing Collector ----" + Environment.NewLine, OutputLevel.Information);
         _publisher.Dispose();
+        ConsoleOutput.Instance.Write("--- Disposed Collector ----" + Environment.NewLine, OutputLevel.Information);
     }
 }

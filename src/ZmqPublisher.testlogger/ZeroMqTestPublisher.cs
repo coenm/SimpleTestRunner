@@ -7,10 +7,12 @@ namespace ZmqPublisher.TestLogger;
 
 using System;
 using System.Collections.Generic;
+using Interface;
 using Interface.Naming;
 using Microsoft.VisualStudio.TestPlatform.ObjectModel;
 using Microsoft.VisualStudio.TestPlatform.ObjectModel.Client;
 using Microsoft.VisualStudio.TestPlatform.ObjectModel.Logging;
+using Microsoft.VisualStudio.TestPlatform.Utilities;
 using NetMq.Publisher;
 using TestResultEventArgs = Microsoft.VisualStudio.TestPlatform.ObjectModel.Logging.TestResultEventArgs;
 
@@ -18,12 +20,14 @@ using TestResultEventArgs = Microsoft.VisualStudio.TestPlatform.ObjectModel.Logg
 [ExtensionUri(TestLoggerNaming.EXTENSION_URI)]
 public class ZeroMqTestPublisher : ITestLoggerWithParameters, IDisposable
 {
+    private readonly IOutput _output;
     private readonly Publisher _publisher;
     private TestLoggerEvents _events;
 
     public ZeroMqTestPublisher()
     {
-        _publisher = new Publisher();
+        // _output = output;
+        _publisher = new Publisher(ConsoleOutput.Instance);
     }
 
     public void Initialize(TestLoggerEvents events, string testRunDirectory)
@@ -146,6 +150,8 @@ public class ZeroMqTestPublisher : ITestLoggerWithParameters, IDisposable
         _events.TestResult -= EventsOnTestResult;
         _events.TestRunMessage -= EventsOnTestRunMessage;
 
+        ConsoleOutput.Instance.Write("--- Disposing Logger ----" + Environment.NewLine, OutputLevel.Information);
         _publisher.Dispose();
+        ConsoleOutput.Instance.Write("--- Disposed Logger ----" + Environment.NewLine, OutputLevel.Information);
     }
 }

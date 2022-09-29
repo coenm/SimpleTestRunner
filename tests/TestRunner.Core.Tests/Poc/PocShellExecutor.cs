@@ -11,16 +11,11 @@ public static class PocShellExecutor
     {
         try
         {
-            Command cmd = Command.Run("TestConsoleApp.exe", new object[] { arg, }/*, options =>
-                             {
-                                 options.EnvironmentVariable("ZmqLoggerPort", "d");
-                             }*/)
+            Command cmd = Command.Run("TestConsoleApp.exe", new object[] { arg, })
                                  .RedirectTo(collection1)
                                  .RedirectStandardErrorTo(collection2);
-
             CommandResult result = await cmd.Task;
             return result.Success;
-
         }
         catch (Exception e)
         {

@@ -2,6 +2,7 @@ namespace TestRunner.Core.Tests.Poc;
 
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 using FluentAssertions;
@@ -82,7 +83,6 @@ public class PocTests
         var inputEvent = new TestCaseStartEventArgsDto
             {
                 IsChildTestCase = true,
-                SessionId = "ss",
                 TestCaseId = Guid.Empty,
                 TestCaseName = "aaa",
                 TestElement = new TestCaseDto
@@ -105,5 +105,46 @@ public class PocTests
                 String = line,
                 IsTestRunnerLine = isTestRunnerLine,
             });
+    }
+
+    [Fact]
+    public async Task FromFile1()
+    {
+        // arrange
+        int count = 0;
+        var lines = await File.ReadAllLinesAsync("Poc\\output4.txt");
+
+        string line = string.Empty;
+
+        // act
+        try
+        {
+            foreach (var line1 in lines)
+            {
+                line = line1;
+                if (_serialization.IsTestRunnerLine(line))
+                {
+                    // if (line[1..].Contains("#@testrunner"))
+                    if (line.Contains("Microsoft (R) Test Execution Command Line Tool Version 17.3.0 (x64)"))
+                    {
+                        continue;
+                    }
+
+                    count++;
+                    EventArgsBaseDto? output = _serialization.Deserialize(line);
+
+                    // assert
+                    output.Should().NotBeNull();
+                }
+            }
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
+       
+
+        count.Should().BeGreaterThan(20);
     }
 }

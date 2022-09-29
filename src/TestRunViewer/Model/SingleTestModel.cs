@@ -14,9 +14,8 @@ public class SingleTestModel
     private readonly object _stateLock = new();
     private TestState _state;
 
-    public SingleTestModel(string sessionId, Guid id, string name, ITestMonitor testMonitor, EventArgsBaseDto evt)
+    public SingleTestModel(Guid id, string name, ITestMonitor testMonitor, EventArgsBaseDto evt)
     {
-        SessionId = sessionId;
         Id = id;
         Name = name;
 
@@ -25,7 +24,6 @@ public class SingleTestModel
             : TestState.Empty;
 
         testMonitor.Events
-                   .Where(x => x.SessionId == SessionId)
                    .Where(x => x is TestResultEventArgsDto result && result.Result.TestCase.Id == Id)
                    .Subscribe(x =>
                        {
@@ -37,7 +35,6 @@ public class SingleTestModel
                        });
 
         testMonitor.Events
-                   .Where(x => x.SessionId == SessionId)
                    .Where(x => x is TestCaseStartEventArgsDto result && result.TestCaseId == Id)
                    .Subscribe(x =>
                        {
@@ -45,7 +42,6 @@ public class SingleTestModel
                        });
 
         testMonitor.Events
-                   .Where(x => x.SessionId == SessionId)
                    .Where(x => x is TestCaseEndEventArgsDto result && result.TestCaseId == Id)
                    .Subscribe(x =>
                        {
@@ -72,8 +68,6 @@ public class SingleTestModel
     public event EventHandler Update = delegate { };
 
     public event EventHandler ItemsChanged = delegate { };
-
-    public string SessionId { get; }
 
     public Guid Id { get; }
 

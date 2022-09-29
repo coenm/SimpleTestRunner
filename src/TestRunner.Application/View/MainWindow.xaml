@@ -10,6 +10,7 @@
    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
     xmlns:viewModel="clr-namespace:TestRunner.Application.ViewModel"
+    xmlns:view="clr-namespace:TestRunner.Application.View"
     d:DataContext="{d:DesignInstance Type=viewModel:MainViewModel}"
    mc:Ignorable="d"
    Title="TestMonitor" Height="600" Width="800">
@@ -37,8 +38,8 @@
       <RowDefinition Height="Auto" />
       <RowDefinition Height="Auto" />
       <RowDefinition Height="2*" />
-      <!-- <RowDefinition Height="Auto" /> -->
-      <!-- <RowDefinition Height="*" /> -->
+      <RowDefinition Height="Auto" />
+      <RowDefinition Height="*" />
     </Grid.RowDefinitions>
 
     <StackPanel Grid.Row="0" Orientation="Vertical">
@@ -55,14 +56,18 @@
       </ItemsControl>
     </ScrollViewer>
 
-    <!-- <StackPanel Grid.Row="3" Orientation="Horizontal"> -->
-    <!--   <Button Content="Clear messages" Command="{Binding Path=ClearLogCommand}" Width="100" Margin="4" /> -->
-    <!-- </StackPanel> -->
-    <!-- -->
-    <!-- <Border Grid.Row="4" Margin="10" BorderBrush="Black" BorderThickness="1"> -->
-    <!--   <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto"> -->
-    <!--     <ItemsControl ItemsSource="{Binding Path=Messages}" HorizontalAlignment="Stretch" /> -->
-    <!--   </ScrollViewer> -->
-    <!-- </Border> -->
+      <GridSplitter Grid.Row="3" Grid.Column="0" Height="5" HorizontalAlignment="Stretch" VerticalAlignment="Center" ShowsPreview="True" ResizeBehavior="PreviousAndNext" ResizeDirection="Rows" />
+      <view:OutputControl Grid.Row="4" Grid.Column="0" DataContext="{Binding Path=Logs, Mode=OneWay}" />
+
+<!--     <StackPanel Grid.Row="3" Orientation="Horizontal"> -->
+<!--       <Button Content="Clear messages" Command="{Binding Path=ClearLogCommand}" Width="100" Margin="4" /> -->
+<!--     </StackPanel> -->
+<!--      -->
+<!--     <Border Grid.Row="4" Margin="10" BorderBrush="Black" BorderThickness="1"> -->
+<!--       <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto"> -->
+<!--           <RichTextBox x:Name="Rtb" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"></RichTextBox> -->
+<!-- ~1~ <ItemsControl ItemsSource="{Binding Path=Messages}" HorizontalAlignment="Stretch" /> @1@ -->
+<!--       </ScrollViewer> -->
+<!--     </Border> -->
   </Grid>
 </mah:MetroWindow>

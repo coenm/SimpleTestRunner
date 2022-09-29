@@ -10,6 +10,4 @@ public class TestRunMessageEventArgsDto : EventArgsBaseDto
 
 public abstract class EventArgsBaseDto
 {
-    // ZeroMq session id
-    public string SessionId { get; set; }
 }

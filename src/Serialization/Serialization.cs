@@ -36,58 +36,71 @@ namespace Serialization
             // dto!.SessionId = _session;
             var @type = dto.GetType().Name;
 
-            var bytes = JsonSerializer.SerializeToUtf8Bytes(dto, dto.GetType(), _jsonSerializerOptions);
-            
-            var z85Encoded = Z85Extended.Encode(bytes);
+            // var bytes = JsonSerializer.SerializeToUtf8Bytes(dto, dto.GetType(), _jsonSerializerOptions);
+            // var z85Encoded = Z85Extended.Encode(bytes);
+            // return $"{PREFIX}:{@type.Length}:{@type}:{z85Encoded.Length}:{z85Encoded}";
 
-            return $"{PREFIX}:{@type.Length}:{@type}:{z85Encoded.Length}:{z85Encoded}";
+            var s = JsonSerializer.Serialize(dto, dto.GetType(), _jsonSerializerOptions);
+            return $"{PREFIX}:{@type.Length}:{@type}:{s.Length}:{s}";
         }
 
         public EventArgsBaseDto? Deserialize(ReadOnlySpan<char> line)
         {
-            if (!IsTestRunnerLine(line))
+            try
             {
-                return null;
+                if (!IsTestRunnerLine(line))
+                {
+                    return null;
+                }
+
+               // return null;
+
+                ReadOnlySpan<char> unprocessed = line[(PREFIX.Length + 1)..];
+
+                int index = unprocessed.IndexOf(':');
+                ReadOnlySpan<char> lenString = unprocessed[..index];
+                if (!int.TryParse(lenString, NumberStyles.None, CultureInfo.CurrentCulture, out int len))
+                {
+                    return null;
+                }
+
+                if (len <= 0)
+                {
+                    return null;
+                }
+
+                unprocessed = unprocessed[(index + 1)..];
+                var msgType = unprocessed[..len].ToString();
+                unprocessed = unprocessed[(len + 1)..];
+
+                index = unprocessed.IndexOf(':');
+                lenString = unprocessed[..index];
+                if (!int.TryParse(lenString, NumberStyles.None, CultureInfo.CurrentCulture, out len))
+                {
+                    return null;
+                }
+
+                if (len <= 0)
+                {
+                    return null;
+                }
+
+                unprocessed = unprocessed[(index + 1)..];
+                ReadOnlySpan<char> payload = unprocessed[..len]; // should be all
+
+                Type @type = _types.Single(x => x.Name.Equals(msgType));
+
+                //var bytes = Z85Extended.Decode(payload.ToString());
+                //var obj = System.Text.Json.JsonSerializer.Deserialize(bytes, @type);
+                var obj = System.Text.Json.JsonSerializer.Deserialize(payload, @type);
+                return obj as EventArgsBaseDto;
             }
-
-            ReadOnlySpan<char> unprocessed = line[(PREFIX.Length+1)..];
-
-            int index = unprocessed.IndexOf(':');
-            ReadOnlySpan<char> lenString = unprocessed[..index];
-            if (!int.TryParse(lenString, NumberStyles.None, CultureInfo.CurrentCulture, out int len))
+            catch (Exception e)
             {
-                return null;
+                var lll = line.ToString();
+                Console.WriteLine(lll + e);
+                throw;
             }
-
-            if (len <= 0)
-            {
-                return null;
-            }
-
-            unprocessed = unprocessed[(index + 1)..];
-            var msgType = unprocessed[..len].ToString();
-            unprocessed = unprocessed[(len + 1)..];
-
-            index = unprocessed.IndexOf(':');
-            lenString = unprocessed[..index];
-            if (!int.TryParse(lenString, NumberStyles.None, CultureInfo.CurrentCulture, out len))
-            {
-                return null;
-            }
-
-            if (len <= 0)
-            {
-                return null;
-            }
-
-            unprocessed = unprocessed[(index + 1)..];
-            ReadOnlySpan<char> payload = unprocessed[..len]; // should be all
-
-            Type @type = _types.Single(x => x.Name.Equals(msgType));
-
-            var bytes = Z85Extended.Decode(payload.ToString());
-            var obj = System.Text.Json.JsonSerializer.Deserialize(bytes, @type);
-            return obj as EventArgsBaseDto;
         }
 
         public bool IsTestRunnerLine(ReadOnlySpan<char> line)

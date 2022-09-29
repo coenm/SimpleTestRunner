@@ -12,7 +12,9 @@ using Interface.Data;
 using Interface.Data.Collector;
 using Interface.Data.Collector.Inner;
 using Interface.Data.Logger;
+using Interface.Server;
 using NetMq.Server;
+using Pipe.Server;
 using TestRunner.Core;
 using TestRunViewer.Misc;
 using TestRunViewer.Model;
@@ -22,36 +24,39 @@ public class MainViewModel : ViewModelBase, IInitializable, IDisposable
 {
     private Task _runningTask;
     private CancellationTokenSource _runningCancellationTokenSource;
-    private readonly EvtMonitor _testMonitor;
+    private readonly PipeTestMonitor _testMonitor;
     private Task _monitoringTask;
     private object _lock = new();
     private ConsoleOutputProcessor _outputProcessor;
 
-    private void TestsAdd(Guid id, string sessionId, string name, EventArgsBaseDto evt)
+    private void TestsAdd(Guid id, string name, EventArgsBaseDto evt)
     {
-        if (Tests.Any(x => x.Id == id && x.SessionId == sessionId))
+        if (Tests.Any(x => x.Id == id))
         {
             return;
         }
 
         lock (_lock)
         {
-            if (Tests.Any(x => x.Id == id && x.SessionId == sessionId))
+            if (Tests.Any(x => x.Id == id))
             {
                 return;
             }
 
-            Tests.Add(new SingleTestViewModel(new SingleTestModel(sessionId, id, name, _testMonitor, evt)));
+            Tests.Add(new SingleTestViewModel(new SingleTestModel(id, name, _testMonitor, evt)));
         }
     }
 
     public MainViewModel()
     {
+        Output = new OutputViewModel(SynchronizationContext.Current);
         Port = FreePortLocator.GetAvailablePort();
         _outputProcessor = new ConsoleOutputProcessor();
         Tests = new ObservableCollection<SingleTestViewModel>();
-        _testMonitor = new EvtMonitor(_outputProcessor);
+        // _testMonitor = new EvtMonitor(_outputProcessor);
         // _testMonitor = new TestMonitor();
+        _testMonitor = new PipeTestMonitor("named_pipe_test_server");
+
 
         _testMonitor.Events
                     .Where(x => x is DiscoveredTestsEventArgsDto or TestRunStartEventArgsDto or TestCaseStartEventArgsDto)
@@ -63,7 +68,7 @@ public class MainViewModel : ViewModelBase, IInitializable, IDisposable
                                 {
                                     foreach (TestCaseDto testCase in discoveredTestsEventArgsDto.DiscoveredTestCases)
                                     {
-                                        TestsAdd(testCase.Id, data.SessionId, testCase.DisplayName, discoveredTestsEventArgsDto);
+                                        TestsAdd(testCase.Id, testCase.DisplayName, discoveredTestsEventArgsDto);
                                     }
                                 }
 
@@ -71,14 +76,14 @@ public class MainViewModel : ViewModelBase, IInitializable, IDisposable
                                 {
                                     foreach (TestCaseDto testCase in testRunStartEventArgsDto.TestRunCriteria.Tests)
                                     {
-                                        TestsAdd(testCase.Id, data.SessionId, testCase.DisplayName, testRunStartEventArgsDto);
+                                        TestsAdd(testCase.Id, testCase.DisplayName, testRunStartEventArgsDto);
                                     }
                                 }
 
                                 if (data is TestCaseStartEventArgsDto testCaseStartEventArgsDto)
                                 {
                                     TestCaseDto testCase = testCaseStartEventArgsDto.TestElement;
-                                    TestsAdd(testCase.Id, data.SessionId, testCase.DisplayName, testCaseStartEventArgsDto);
+                                    TestsAdd(testCase.Id, testCase.DisplayName, testCaseStartEventArgsDto);
                                 }
 
                                 //LogInfo(data.GetType().Name);
@@ -101,12 +106,14 @@ public class MainViewModel : ViewModelBase, IInitializable, IDisposable
                 e.Handled = true;
             };
 
-        OnStart(null);
+        Task.Run(async () => await OnStart(null));
     }
 
     public int Port { get; set; }
 
     public ObservableCollection<SingleTestViewModel> Tests { get; }
+
+    public OutputViewModel Output { get; }
 
     public IAsyncCommand StartListening { get; }
 

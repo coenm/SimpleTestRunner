@@ -35,14 +35,14 @@ public class DotNetTestExecutorTests
             {
                 _sb.AppendLine("Out: " + value);
                 ReadOnlySpan<char> line = value;
-        
+
                 EventArgsBaseDto? obj = _serialization.Deserialize(line);
                 if (obj != null)
                 {
                     _events.Add(obj);
                 }
             };
-        
+
         _eventCollection2 = new EventCollection();
         _eventCollection2.LineAdded += (sender, value) =>
             {
@@ -102,7 +102,6 @@ public class DotNetTestExecutorTests
         var inputEvent = new TestCaseStartEventArgsDto
             {
                 IsChildTestCase = true,
-                SessionId = "ss",
                 TestCaseId = Guid.Empty,
                 TestCaseName = "aaa",
                 TestElement = new TestCaseDto
@@ -125,5 +124,19 @@ public class DotNetTestExecutorTests
                 String = line,
                 IsTestRunnerLine = isTestRunnerLine,
             });
+    }
+
+    [Fact]
+    public void Case1()
+    {
+        // arrange
+        var line =
+            "#@testrunner:22:TestResultEventArgsDto:1255:DM(v0B9hqvb075{raQb)lT+4Eb075{nN%2aa#?Oug+ZQqwI2[%v}vkIg?wP$iB(XXeNZzAhEXA$h8]h4wG&VHmS&J-C#nY)y?WG}wN[LAzdK[Lb0[W[e<%b&vrcpdz/f8%e<<L$wIct^x>qg7e(Vz6BAo6azGGDgzEEulluNu-zE))gmq=TPz!T9hoMaMTv]N2XBs{daqfuC<C#!u&x>" +
+            "";//"#@testrunner:23:TestCaseEndEventArgsDto:1038:DM(B2B97i2ByPlawG<e&efX58B96=TB7E{Nb03]7gc4uLfFLsmh.!(NeJCZyhz3*yh-99}v>](Lgg+6cfKXGoefX58B96=TB7F9PzdK[Lb1V&MB.bPsr://UwjyGTluNu-zE))gpJgz&ze1rcwm5nGz/](bqE%@)A=ar<AaJK3wN[?Iy&%qqtY?.Ogbpa@wO+{/BuJxwzdm6%tY?.OgbpyRAcb/hx)Ku3diZq!nPNmjx(4rVwPI@Xvrl07i+z/pB7D)DraQb)mqMKLwO#Pli^S5xwfK5UgCQ%Jh83:ueJky}v>xY0fG7HvgDdcxvQ?eIwIN?ev>.t4a$K{cB.>(tqfuq-x>z6<wklMIwG<eVlpsQ4l$7gCA=l5rzE^rhlVm0Re<<C?wO#PxraQb)B1Q44By/GgvqEL.B-RnmwPI]YzE^Z8x(n2^z!A=]raQb)e>HaYB.bPsr://UwjyGTluNu-zE))gpJgz&ze1rcwm5nGz/](bqE%@)A=ar<AaJK3wN[?Iy&%qqtY?.Ogbpa@wO+{/BuJxwzdm6%tY?.OgbpyRAcb/hx)Ku3diZq!l${ZYy*?P:vqPN1iWddpqfuC<C#!u&x>fXKAZB[&x(mH6B5c:%x(dNgwN]dDxM53fwkV#XB-Iv*CYmk7By!#-vqH6$c%Q)GfFUyeB7Gf0v@%>eB.$P0A:i-vfFUympJgz&ze1rcwgnYNb1l-/v%8)iA-Ec]b03]VCX7xcBz(gXfe372zFshGraQb)mr&xNB-.Lxa$K{9z!9AGx(4uSvrufbi=o7Ry+c=ez/{8gwG<eVlPOESp&ZF?wN/?6tWfQaz^lKWx()P+l@DxStTS1xvrcpdz/f8%avy6/wGTuRx>qg7tWhwZB98FdtTy?Oe<%b&vrcpdz/f8%e<<L$wIct^x>qg7e(Vz6BApX(vRGZ+tTSdjB.s@:zE)]FtWfP-pCb4zByxidBz(5cwIct*A+c<<y?WD#Bs{K7B98EQwnD6aefW=4zE(N=zdm6%b04AaefX27B8#5lzB[v.i=o7R3?-";
+
+        // act
+        var result = _serialization.Deserialize(line);
+
+        // assert
     }
 }

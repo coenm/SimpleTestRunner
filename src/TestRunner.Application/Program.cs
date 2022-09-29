@@ -1,10 +1,12 @@
 namespace TestRunner.Application;
 
 using System;
+using Serialization;
 using SimpleInjector;
 using SimpleInjector.Lifestyles;
 using TestRunner.Application.View;
 using TestRunner.Application.ViewModel;
+using TestRunner.Core;
 
 public class Program
 {
@@ -22,6 +24,11 @@ public class Program
 
         container.Register<MainWindow>(Lifestyle.Singleton);
         container.Register<MainViewModel>(Lifestyle.Singleton);
+        container.Register<LogViewModel>(Lifestyle.Singleton);
+
+        container.Register<DotNetTestExecutor>(Lifestyle.Singleton);
+        container.Register<Serialization>(Lifestyle.Singleton);
+        container.Register<ConsoleOutputProcessor>(Lifestyle.Singleton);
         // container.Verify();
 
         return container;
