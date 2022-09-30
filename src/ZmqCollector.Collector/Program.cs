@@ -10,11 +10,10 @@ namespace ZmqCollector.Collector;
 using System;
 using System.Collections.Generic;
 using System.Xml;
-using Interface;
 using Interface.Naming;
 using Microsoft.VisualStudio.TestPlatform.ObjectModel.DataCollection;
 using Microsoft.VisualStudio.TestPlatform.Utilities;
-using NetMq.Publisher;
+using Pipe.Publisher;
 
 [DataCollectorFriendlyName(SampleDataCollectorNaming.DATA_COLLECTOR_FRIENDLY_NAME)]
 [DataCollectorTypeUri(SampleDataCollectorNaming.DATA_COLLECTOR_TYPE_URI)]
@@ -29,11 +28,11 @@ public class SampleDataCollector : DataCollector, ITestExecutionEnvironmentSpeci
     }
 
     public override void Initialize(
-        XmlElement configurationElement,
+        XmlElement? configurationElement,
         DataCollectionEvents events,
         DataCollectionSink dataSink,
         DataCollectionLogger logger,
-        DataCollectionEnvironmentContext environmentContext)
+        DataCollectionEnvironmentContext? environmentContext)
     {
         //var port = GetPort(configurationElement);
         //_publisher.Start(port);

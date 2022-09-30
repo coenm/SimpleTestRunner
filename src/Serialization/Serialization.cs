@@ -1,9 +1,11 @@
 namespace Serialization
 {
+    using System;
+    using System.Collections.Generic;
     using System.Globalization;
+    using System.Linq;
     using System.Text.Json;
     using AutoMapper;
-    using CoenM.Encoding;
     using Interface;
     using Interface.Data.Logger;
     using JsonSerializer = System.Text.Json.JsonSerializer;
@@ -11,7 +13,6 @@ namespace Serialization
     public class Serialization
     {
         private const string PREFIX = "#@testrunner";
-        private readonly IMapper _mapper;
         private readonly JsonSerializerOptions _jsonSerializerOptions;
 
         private static readonly List<Type> _types = typeof(EventArgsBaseDto).Assembly
@@ -22,7 +23,6 @@ namespace Serialization
         public Serialization()
         {
             var config = new MapperConfiguration(cfg => cfg.AddMaps(typeof(InterfaceProject).Assembly));
-            _mapper = config.CreateMapper();
             _jsonSerializerOptions = new JsonSerializerOptions
                 {
                     WriteIndented = false,
@@ -52,8 +52,6 @@ namespace Serialization
                 {
                     return null;
                 }
-
-               // return null;
 
                 ReadOnlySpan<char> unprocessed = line[(PREFIX.Length + 1)..];
 

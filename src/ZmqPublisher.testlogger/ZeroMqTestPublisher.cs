@@ -7,13 +7,12 @@ namespace ZmqPublisher.TestLogger;
 
 using System;
 using System.Collections.Generic;
-using Interface;
 using Interface.Naming;
 using Microsoft.VisualStudio.TestPlatform.ObjectModel;
 using Microsoft.VisualStudio.TestPlatform.ObjectModel.Client;
 using Microsoft.VisualStudio.TestPlatform.ObjectModel.Logging;
 using Microsoft.VisualStudio.TestPlatform.Utilities;
-using NetMq.Publisher;
+using Pipe.Publisher;
 using TestResultEventArgs = Microsoft.VisualStudio.TestPlatform.ObjectModel.Logging.TestResultEventArgs;
 
 [FriendlyName(TestLoggerNaming.FRIENDLY_NAME)]

@@ -12,8 +12,6 @@ using Interface.Data;
 using Interface.Data.Collector;
 using Interface.Data.Collector.Inner;
 using Interface.Data.Logger;
-using Interface.Server;
-using NetMq.Server;
 using Pipe.Server;
 using TestRunner.Core;
 using TestRunViewer.Misc;

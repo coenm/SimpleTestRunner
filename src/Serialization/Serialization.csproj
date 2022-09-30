@@ -2,14 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
-
-  <ItemGroup>
-    <PackageReference Include="AutoMapper" Version="11.0.1" />
-    <PackageReference Include="CoenM.Encoding.Z85e" Version="1.2.1" />
-  </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Interface\Interface.csproj" />

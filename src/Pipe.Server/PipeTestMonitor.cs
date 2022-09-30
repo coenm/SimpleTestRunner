@@ -14,8 +14,7 @@ namespace Pipe.Server
         private readonly ReplaySubject<EventArgsBaseDto> _subject;
         private readonly Serialization _serializer;
         private readonly ConcurrentQueue<EventArgsBaseDto> _messages;
-
-
+        
         public IObservable<EventArgsBaseDto> Events => _subject;
         public PipeTestMonitor(string pipeName)
         {
@@ -59,7 +58,6 @@ namespace Pipe.Server
                             _subject.OnNext(x);
                         }
                     }
-
                 }, TaskCreationOptions.LongRunning);
             // _server.ExceptionOccurred += (o, args) => OnExceptionOccurred(args.Exception);
         }
@@ -67,7 +65,7 @@ namespace Pipe.Server
         private void ServerOnMessageReceived(object? sender, ConnectionMessageEventArgs<string?> e)
         {
             // AddLine($"{args.Connection.PipeName}: {args.Message}");
-            var result = _serializer.Deserialize(e.Message);
+            EventArgsBaseDto? result = _serializer.Deserialize(e.Message);
             if (result != null)
             {
                 _messages.Enqueue(result);
