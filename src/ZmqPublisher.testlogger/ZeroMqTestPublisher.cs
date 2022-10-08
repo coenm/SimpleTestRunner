@@ -34,9 +34,6 @@ public class ZeroMqTestPublisher : ITestLoggerWithParameters, IDisposable
 
     public void Initialize(TestLoggerEvents events, Dictionary<string, string> parameters)
     {
-        //var port = GetPort(parameters);
-        //_publisher.Start(port);
-
         _events = events;
         _events.DiscoveryStart += Events_DiscoveryStart;
         _events.DiscoveredTests += EventsOnDiscoveredTests;
