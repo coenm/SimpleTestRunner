@@ -4,14 +4,19 @@ using System;
 using System.IO;
 using System.Threading.Tasks;
 using Interface.Data.Logger;
+using Interface.Server;
+using Pipe.Server;
 using TestRunner.Application.Model;
 using TestRunner.Application.ViewModel.Common;
 using TestRunner.Core;
+using TestRunner.Core.Model;
 
 public class LogViewModel : ViewModelBase, IConsoleOutput
 {
     private readonly ConsoleOutputProcessor _processor;
     private readonly DotNetTestExecutor _executor;
+    private readonly PipeTestMonitor _testMonitor;
+    private readonly SingleTestCollection _xx;
     public event EventHandler<string> StdOut = delegate { };
     public event EventHandler<string> StdErr = delegate { };
 
@@ -19,6 +24,8 @@ public class LogViewModel : ViewModelBase, IConsoleOutput
     {
         _processor = processor ?? throw new ArgumentNullException(nameof(processor));
         _executor = executor ?? throw new ArgumentNullException(nameof(executor));
+        _testMonitor = new PipeTestMonitor(_executor.PipeName);
+        _xx = new SingleTestCollection(_testMonitor);
     }
 
     public IDisposable Initialize()

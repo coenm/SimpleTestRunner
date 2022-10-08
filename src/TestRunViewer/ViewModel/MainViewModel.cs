@@ -17,6 +17,7 @@ using Interface.Data.Logger;
 using Pipe.Server;
 using TestRunner.Application.ViewModel;
 using TestRunner.Core;
+using TestRunner.Core.Model;
 using TestRunViewer.Misc;
 using TestRunViewer.Model;
 using TestRunViewer.ViewModel.Common;
@@ -76,6 +77,7 @@ public class MainViewModel : ViewModelBase, IInitializable, IDisposable
         // _testMonitor = new EvtMonitor(_outputProcessor);
         // _testMonitor = new TestMonitor();
         _testMonitor = new PipeTestMonitor(_dotNetTestExecutor.PipeName);
+        var xx = new SingleTestCollection(_testMonitor);
 
         var uiContext = SynchronizationContext.Current;
         _testMonitor.Events

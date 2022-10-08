@@ -1,65 +1,67 @@
-namespace Pipe.Server
+namespace Pipe.Server;
+
+using System.Collections.Concurrent;
+using System.Reactive.Subjects;
+using H.Pipes;
+using H.Pipes.Args;
+using Interface.Data.Logger;
+using Interface.Server;
+using Serialization;
+
+public class PipeTestMonitor : ITestMonitor, IAsyncDisposable
 {
-    using System.Collections.Concurrent;
-    using System.Reactive.Subjects;
-    using H.Pipes;
-    using H.Pipes.Args;
-    using Interface.Data.Logger;
-    using Interface.Server;
-    using Serialization;
-
-    public class PipeTestMonitor : ITestMonitor, IAsyncDisposable
-    {
-        private readonly PipeServer<string> _server;
-        private readonly ReplaySubject<EventArgsBaseDto> _subject;
-        private readonly Serialization _serializer;
-        private readonly ConcurrentQueue<EventArgsBaseDto> _messages;
+    private readonly PipeServer<string> _server;
+    private readonly ReplaySubject<EventArgsBaseDto> _subject;
+    private readonly Serialization _serializer;
+    private readonly ConcurrentQueue<EventArgsBaseDto> _messages;
         
-        public IObservable<EventArgsBaseDto> Events => _subject;
-        public PipeTestMonitor(string pipeName)
-        {
-            _messages = new ConcurrentQueue<EventArgsBaseDto>();
-            _serializer = new Serialization();
-            var window = TimeSpan.FromSeconds(5);
-            _subject = new ReplaySubject<EventArgsBaseDto>(window);
+    public IObservable<EventArgsBaseDto> Events => _subject;
 
-            _server = new PipeServer<string>(pipeName);
-            _server.ClientConnected += (o, args) =>
-                {
-                    Console.WriteLine("connected");
-                };
-            _server.ClientDisconnected += (o, args) =>
-                {
-                    Console.WriteLine("disconnected");
-                };
-            _server.MessageReceived += ServerOnMessageReceived;
-            _server.StartAsync();
-            Task.Factory.StartNew((state) =>
-                {
-                    while (true)
-                    {
-                        if (_messages.TryDequeue(out EventArgsBaseDto? x))
-                        {
-                            _subject.OnNext(x);
-                        }
-                    }
-                }, TaskCreationOptions.LongRunning);
-            // _server.ExceptionOccurred += (o, args) => OnExceptionOccurred(args.Exception);
-        }
+    public PipeTestMonitor(string pipeName)
+    {
+        _messages = new ConcurrentQueue<EventArgsBaseDto>();
+        _serializer = new Serialization();
+        var window = TimeSpan.FromSeconds(5);
+        _subject = new ReplaySubject<EventArgsBaseDto>(window);
 
-        private void ServerOnMessageReceived(object? sender, ConnectionMessageEventArgs<string?> e)
-        {
-            // AddLine($"{args.Connection.PipeName}: {args.Message}");
-            EventArgsBaseDto? result = _serializer.Deserialize(e.Message);
-            if (result != null)
+        _server = new PipeServer<string>(pipeName);
+        _server.ClientConnected += (o, args) =>
             {
-                _messages.Enqueue(result);
-            }
-        }
+                Console.WriteLine("connected");
+            };
+        _server.ClientDisconnected += (o, args) =>
+            {
+                Console.WriteLine("disconnected");
+            };
 
-        public async ValueTask DisposeAsync()
+        _server.MessageReceived += ServerOnMessageReceived;
+        _server.StartAsync();
+
+        Task.Factory.StartNew((state) =>
+            {
+                while (true)
+                {
+                    if (_messages.TryDequeue(out EventArgsBaseDto? x))
+                    {
+                        _subject.OnNext(x);
+                    }
+                }
+            }, TaskCreationOptions.LongRunning);
+        // _server.ExceptionOccurred += (o, args) => OnExceptionOccurred(args.Exception);
+    }
+
+    private void ServerOnMessageReceived(object? sender, ConnectionMessageEventArgs<string?> e)
+    {
+        // AddLine($"{args.Connection.PipeName}: {args.Message}");
+        EventArgsBaseDto? result = _serializer.Deserialize(e.Message);
+        if (result != null)
         {
-            await _server.DisposeAsync().ConfigureAwait(false);
+            _messages.Enqueue(result);
         }
+    }
+
+    public async ValueTask DisposeAsync()
+    {
+        await _server.DisposeAsync().ConfigureAwait(false);
     }
 }
