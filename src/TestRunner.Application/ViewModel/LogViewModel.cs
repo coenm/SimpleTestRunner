@@ -23,7 +23,6 @@ public class LogViewModel : ViewModelBase, IConsoleOutput
 
     public IDisposable Initialize()
     {
-        _processor.OnEvent += ProcessorOnOnEvent;
         _processor.OnLine += ProcessorOnOnLine;
         Task.Run(async () =>
             {
@@ -53,11 +52,6 @@ public class LogViewModel : ViewModelBase, IConsoleOutput
     private void ProcessorOnOnLine(object sender, string e)
     {
         StdOut.Invoke(this, e);
-    }
-
-    private void ProcessorOnOnEvent(object sender, EventArgsBaseDto e)
-    {
-        // StdOut.Invoke(this, $"++++ evt {e.GetType()}");
     }
 
     private class Unregister : IDisposable

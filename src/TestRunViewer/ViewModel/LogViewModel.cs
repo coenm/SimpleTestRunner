@@ -19,7 +19,6 @@ public class LogViewModel : ViewModelBase, IConsoleOutput2
     {
         _processor = processor ?? throw new ArgumentNullException(nameof(processor));
         _executor = executor ?? throw new ArgumentNullException(nameof(executor));
-        _processor.OnEvent += ProcessorOnOnEvent;
         _processor.OnLine += ProcessorOnOnLine;
     }
 
@@ -53,11 +52,6 @@ public class LogViewModel : ViewModelBase, IConsoleOutput2
     private void ProcessorOnOnLine(object sender, string e)
     {
         StdOut.Invoke(this, e);
-    }
-
-    private void ProcessorOnOnEvent(object sender, EventArgsBaseDto e)
-    {
-        // StdOut.Invoke(this, $"++++ evt {e.GetType()}");
     }
 
     private class Unregister : IDisposable

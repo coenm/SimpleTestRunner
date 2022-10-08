@@ -2,22 +2,17 @@ namespace TestRunner.Core;
 
 using System;
 using System.Collections.ObjectModel;
-using Interface.Data.Logger;
-using Serialization;
 
 public class ConsoleOutputProcessor : IDisposable
 {
     private readonly EventCollection _out;
     private readonly EventCollection _err;
-    private readonly Serialization _serializer;
     
     public event EventHandler<string> OnLine = delegate { };
-
-    public event EventHandler<EventArgsBaseDto> OnEvent = delegate { };
+    public event EventHandler<string> OnErr = delegate { };
 
     public ConsoleOutputProcessor()
     {
-        _serializer = new Serialization();
         _out = new EventCollection();
         _err = new EventCollection();
 
@@ -28,51 +23,11 @@ public class ConsoleOutputProcessor : IDisposable
     private void OutOnLineAdded(object? sender, string e)
     {
         OnLine.Invoke(this, e);
-        return;
-        // EventArgsBaseDto? result;
-        // try
-        // {
-        //     result = _serializer.Deserialize(e);
-        // }
-        // catch (Exception exception)
-        // {
-        //     OnLine.Invoke(this, "++++++++++++++++++++++++++++++++++++++++>> " + exception.Message);
-        //     // throw exception;
-        //     return;
-        // }
-        //
-        // if (result == null)
-        // {
-        //     OnLine.Invoke(this, e);
-        // }
-        // else
-        // {
-        //     OnEvent.Invoke(this, result);
-        // }
     }
 
     private void ErrOnLineAdded(object? sender, string e)
     {
-        EventArgsBaseDto? result;
-        try
-        {
-            result = _serializer.Deserialize(e);
-        }
-        catch (Exception exception)
-        {
-            OnLine.Invoke(this, "++++++++++++++++++++++>> " + exception.Message);
-            // throw exception;
-            return;
-        }
-
-        if (result == null)
-        {
-            OnLine.Invoke(this, e);
-        }
-        else
-        {
-            OnEvent.Invoke(this, result);
-        }
+        OnErr.Invoke(this, e);
     }
 
     public Collection<string> Out => _out;

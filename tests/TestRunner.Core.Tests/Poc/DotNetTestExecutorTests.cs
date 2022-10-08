@@ -54,10 +54,7 @@ public class DotNetTestExecutorTests
             {
                 _sb.AppendLine("Out: " + value);
             };
-        _consoleOutputProcessor.OnEvent += (sender, value) =>
-            {
-                _events.Add(value);
-            };
+
     }
 
     [Fact]
