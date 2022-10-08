@@ -13,7 +13,6 @@ public class LogViewModel : ViewModelBase, IConsoleOutput
     private readonly ConsoleOutputProcessor _processor;
     private readonly DotNetTestExecutor _executor;
     public event EventHandler<string> StdOut = delegate { };
-    public event EventHandler<string> StdErr = delegate { };
 
     public LogViewModel(ConsoleOutputProcessor processor, DotNetTestExecutor executor)
     {
