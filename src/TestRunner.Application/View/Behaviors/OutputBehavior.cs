@@ -7,7 +7,7 @@ namespace TestRunner.Application.View.Behaviors
     {
         #region BehaviorContext Property
 
-        public static DependencyProperty BehaviorContextProperty = DependencyProperty.RegisterAttached("BehaviorContext", typeof(IConsoleOutput), typeof(OutputBehavior), new PropertyMetadata(default(IConsoleOutput), OnBehaviorContextChanged));
+        public static readonly DependencyProperty BehaviorContextProperty = DependencyProperty.RegisterAttached("BehaviorContext", typeof(IConsoleOutput), typeof(OutputBehavior), new PropertyMetadata(default(IConsoleOutput), OnBehaviorContextChanged));
 
         public static IConsoleOutput GetBehaviorContext(DependencyObject target)
         {
@@ -21,8 +21,8 @@ namespace TestRunner.Application.View.Behaviors
 
         public override IConsoleOutput BehaviorContext
         {
-            get { return GetBehaviorContext(this); }
-            set { SetBehaviorContext(this, value); }
+            get => GetBehaviorContext(this);
+            set => SetBehaviorContext(this, value);
         }
 
         #endregion // BehaviorContext Property
@@ -30,7 +30,9 @@ namespace TestRunner.Application.View.Behaviors
         protected override void SubscribeEvents(IConsoleOutput behaviorContext)
         {
             if (behaviorContext == null)
+            {
                 return;
+            }
 
             behaviorContext.StdOut += OnStdOut;
             behaviorContext.StdErr += OnStdErr;
@@ -39,7 +41,9 @@ namespace TestRunner.Application.View.Behaviors
         protected override void UnsubscribeEvents(IConsoleOutput behaviorContext)
         {
             if (behaviorContext == null)
+            {
                 return;
+            }
 
             behaviorContext.StdOut -= OnStdOut;
             behaviorContext.StdErr -= OnStdErr;
