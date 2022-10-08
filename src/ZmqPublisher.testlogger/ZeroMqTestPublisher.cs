@@ -19,14 +19,12 @@ using TestResultEventArgs = Microsoft.VisualStudio.TestPlatform.ObjectModel.Logg
 [ExtensionUri(TestLoggerNaming.EXTENSION_URI)]
 public class ZeroMqTestPublisher : ITestLoggerWithParameters, IDisposable
 {
-    private readonly IOutput _output;
     private readonly Publisher _publisher;
     private TestLoggerEvents _events;
 
     public ZeroMqTestPublisher()
     {
-        // _output = output;
-        _publisher = new Publisher(ConsoleOutput.Instance);
+        _publisher = new Publisher(ConsoleOutput.Instance, GetPipeName());
     }
 
     public void Initialize(TestLoggerEvents events, string testRunDirectory)
@@ -51,42 +49,14 @@ public class ZeroMqTestPublisher : ITestLoggerWithParameters, IDisposable
         _events.TestRunMessage += EventsOnTestRunMessage;
     }
 
-    private static int GetPort(IReadOnlyDictionary<string, string> configurationElement)
+    private static string GetPipeName()
     {
         try
         {
-            if (configurationElement.ContainsKey("port"))
+            var value = Environment.GetEnvironmentVariable(EnvironmentVariables.PIPE_NAME);
+            if (!string.IsNullOrWhiteSpace(value))
             {
-                var portValue = configurationElement["port"];
-                if (!string.IsNullOrWhiteSpace(portValue))
-                {
-                    if (int.TryParse(portValue, out var portInt))
-                    {
-                        if (portInt is > 0 and < int.MaxValue)
-                        {
-                            return portInt;
-                        }
-                    }
-                }
-            }
-        }
-        catch
-        {
-            // ignore.
-        }
-
-        try
-        {
-            var portValue = Environment.GetEnvironmentVariable("ZmqLoggerPort");
-            if (!string.IsNullOrWhiteSpace(portValue))
-            {
-                if (int.TryParse(portValue, out var portInt))
-                {
-                    if (portInt is > 0 and < int.MaxValue)
-                    {
-                        return portInt;
-                    }
-                }
+                return value.Trim();
             }
         }
         catch (Exception)

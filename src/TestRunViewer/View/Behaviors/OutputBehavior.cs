@@ -1,110 +1,74 @@
 namespace TestRunViewer.View.Behaviors
 {
-    using System;
     using System.Windows;
     using TestRunViewer.Model;
     using TestRunViewer.View;
 
-    public class OutputBehavior : ViewModelBehavior<OutputControl, IOutput, OutputBehavior>
+    public class OutputBehavior : ViewModelBehavior<OutputControl, IConsoleOutput2, OutputBehavior>
     {
         #region BehaviorContext Property
 
-        public static DependencyProperty BehaviorContextProperty = DependencyProperty.RegisterAttached("BehaviorContext", typeof(IOutput), typeof(OutputBehavior), new PropertyMetadata(default(IOutput), OnBehaviorContextChanged));
+        public static DependencyProperty BehaviorContextProperty = DependencyProperty.RegisterAttached("BehaviorContext", typeof(IConsoleOutput2), typeof(OutputBehavior), new PropertyMetadata(default(IConsoleOutput2), OnBehaviorContextChanged));
 
-        public static IOutput GetBehaviorContext(DependencyObject target)
+        public static IConsoleOutput2 GetBehaviorContext(DependencyObject target)
         {
-            return (IOutput)target.GetValue(BehaviorContextProperty);
+            return (IConsoleOutput2)target.GetValue(BehaviorContextProperty);
         }
 
-        public static void SetBehaviorContext(DependencyObject target, IOutput value)
+        public static void SetBehaviorContext(DependencyObject target, IConsoleOutput2 value)
         {
             target.SetValue(BehaviorContextProperty, value);
         }
 
-        public override IOutput BehaviorContext
+        public override IConsoleOutput2 BehaviorContext
         {
             get { return GetBehaviorContext(this); }
-            set { SetBehaviorContext(this, value); }
+            set
+            {
+                SetBehaviorContext(this, value);
+            }
         }
 
         #endregion // BehaviorContext Property
 
-        protected override void SubscribeEvents(IOutput behaviorContext)
+        protected override void SubscribeEvents(IConsoleOutput2 behaviorContext)
         {
             if (behaviorContext == null)
                 return;
 
-            // behaviorContext.Info += OnInfo;
-            // behaviorContext.Success += OnSuccess;
-            // behaviorContext.Warning += OnWarning;
-            // behaviorContext.Error += OnError;
-            // behaviorContext.Clear += OnClear;
+            behaviorContext.StdOut += OnStdOut;
+            behaviorContext.StdErr += OnStdErr;
         }
 
-        protected override void UnsubscribeEvents(IOutput behaviorContext)
+        protected override void UnsubscribeEvents(IConsoleOutput2 behaviorContext)
         {
             if (behaviorContext == null)
                 return;
 
-            // behaviorContext.Info -= OnInfo;
-            // behaviorContext.Warning -= OnWarning;
-            // behaviorContext.Error -= OnError;
-            // behaviorContext.Clear -= OnClear;
+            behaviorContext.StdOut -= OnStdOut;
+            behaviorContext.StdErr -= OnStdErr;
         }
 
-        private void OnInfo(object sender, OutputEventArgs e)
+        private void OnStdOut(object sender, string e)
         {
             if (!Dispatcher.CheckAccess())
             {
-                Dispatcher.Invoke(new Action(() => OnInfo(sender, e)));
+                Dispatcher.Invoke(() => OnStdOut(sender, e));
                 return;
             }
 
-            AssociatedObject.WriteLine(e.Message);
+            AssociatedObject.WriteLine(e);
         }
 
-        private void OnSuccess(object sender, OutputEventArgs e)
+        private void OnStdErr(object sender, string e)
         {
             if (!Dispatcher.CheckAccess())
             {
-                Dispatcher.Invoke(new Action(() => OnSuccess(sender, e)));
+                Dispatcher.Invoke(() => OnStdErr(sender, e));
                 return;
             }
 
-            AssociatedObject.WriteSuccessLine(e.Message);
-        }
-
-        private void OnWarning(object sender, OutputEventArgs e)
-        {
-            if (!Dispatcher.CheckAccess())
-            {
-                Dispatcher.Invoke(new Action(() => OnWarning(sender, e)));
-                return;
-            }
-
-            AssociatedObject.WriteWarningLine(e.Message);
-        }
-
-        private void OnError(object sender, OutputEventArgs e)
-        {
-            if (!Dispatcher.CheckAccess())
-            {
-                Dispatcher.Invoke(new Action(() => OnError(sender, e)));
-                return;
-            }
-
-            AssociatedObject.WriteErrorLine(e.Message);
-        }
-
-        private void OnClear(object sender, EventArgs e)
-        {
-            if (!Dispatcher.CheckAccess())
-            {
-                Dispatcher.Invoke(new Action(() => OnClear(sender, e)));
-                return;
-            }
-
-            AssociatedObject.Clear();
+            AssociatedObject.WriteLine(e);
         }
     }
 }

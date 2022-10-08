@@ -26,7 +26,7 @@ public class Program
         container.Register<MainViewModel>(Lifestyle.Singleton);
         container.Register<LogViewModel>(Lifestyle.Singleton);
 
-        container.Register<DotNetTestExecutor>(Lifestyle.Singleton);
+        container.Register<DotNetTestExecutor>(() => new DotNetTestExecutor(), Lifestyle.Singleton);
         container.Register<Serialization>(Lifestyle.Singleton);
         container.Register<ConsoleOutputProcessor>(Lifestyle.Singleton);
         // container.Verify();

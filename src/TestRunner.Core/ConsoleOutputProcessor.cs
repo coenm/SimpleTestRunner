@@ -27,26 +27,28 @@ public class ConsoleOutputProcessor : IDisposable
 
     private void OutOnLineAdded(object? sender, string e)
     {
-        EventArgsBaseDto? result;
-        try
-        {
-            result = _serializer.Deserialize(e);
-        }
-        catch (Exception exception)
-        {
-            OnLine.Invoke(this, "++++++++++++++++++++++++++++++++++++++++>> " + exception.Message);
-            // throw exception;
-            return;
-        }
-        
-        if (result == null)
-        {
-            OnLine.Invoke(this, e);
-        }
-        else
-        {
-            OnEvent.Invoke(this, result);
-        }
+        OnLine.Invoke(this, e);
+        return;
+        // EventArgsBaseDto? result;
+        // try
+        // {
+        //     result = _serializer.Deserialize(e);
+        // }
+        // catch (Exception exception)
+        // {
+        //     OnLine.Invoke(this, "++++++++++++++++++++++++++++++++++++++++>> " + exception.Message);
+        //     // throw exception;
+        //     return;
+        // }
+        //
+        // if (result == null)
+        // {
+        //     OnLine.Invoke(this, e);
+        // }
+        // else
+        // {
+        //     OnEvent.Invoke(this, result);
+        // }
     }
 
     private void ErrOnLineAdded(object? sender, string e)

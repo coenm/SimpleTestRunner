@@ -7,9 +7,12 @@ using System.Windows.Media;
 
 namespace TestRunViewer.View
 {
+    using System;
+
     public partial class OutputControl : UserControl
     {
         private RichTextBox _richTextBox;
+        private TextBox _textBox;
 
         public OutputControl()
         {
@@ -20,7 +23,7 @@ namespace TestRunViewer.View
 
         public void WriteLine(string line)
         {
-            WriteLine(line, Brushes.Black);
+            WriteLine(line, null);
         }
 
         public void WriteSuccessLine(string line)
@@ -44,8 +47,11 @@ namespace TestRunViewer.View
             _richTextBox.Document.Blocks.Clear();
         }
 
-        private void WriteLine(string line, Brush color)
+        private void WriteLine(string line, Brush? color)
         {
+            _textBox.AppendText(line + Environment.NewLine);
+            _textBox.ScrollToEnd();
+            return;
             Paragraph paragraph = _richTextBox.CaretPosition.Paragraph;
             if (paragraph == null)
             {
@@ -54,7 +60,10 @@ namespace TestRunViewer.View
                 _richTextBox.CaretPosition = paragraph.ContentEnd;
             }
 
-            var run = new Run(line) { Foreground = color };
+            var run = new Run(line);
+            if (color != null)
+                run.Foreground = color;
+
             paragraph.Inlines.Add(run);
             run.ElementEnd.InsertLineBreak();
 
@@ -63,8 +72,8 @@ namespace TestRunViewer.View
 
         private void OnLoaded(object sender, RoutedEventArgs e)
         {
-            IEnumerable<RichTextBox> richTextBoxes = FindVisualChildren<RichTextBox>(this);
-            _richTextBox = richTextBoxes.Single();
+            IEnumerable<TextBox> richTextBoxes = FindVisualChildren<TextBox>(this);
+            _textBox = richTextBoxes.Single();
         }
 
         private static IEnumerable<T> FindVisualChildren<T>(DependencyObject reference) where T : DependencyObject

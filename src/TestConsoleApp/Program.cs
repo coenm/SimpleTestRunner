@@ -26,18 +26,32 @@ namespace TestConsoleApp
                 throw new Exception("Thrown by app");
             }
 
-            Console.Write("Normal Text");
-            ConsoleColor foregroundColor1 = Console.ForegroundColor;
-            try
+            if (arg.Equals("color", StringComparison.CurrentCultureIgnoreCase))
             {
-                Console.ForegroundColor = ConsoleColor.Red;
+                Console.Write("Normal Text");
+                ConsoleColor foregroundColor1 = Console.ForegroundColor;
+                try
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.Write("Red text");
+                }
+                finally
+                {
+                    Console.ForegroundColor = foregroundColor1;
+                }
+                Console.Write("Normal Text");
+                return 0;
+            }
+
+
+            if (arg.Equals("black", StringComparison.CurrentCultureIgnoreCase))
+            {
+                Console.Write("Normal Text");
                 Console.Write("Red text");
+                Console.Write("Normal Text");
+                return 1;
             }
-            finally
-            {
-                Console.ForegroundColor = foregroundColor1;
-            }
-            Console.Write("Normal Text");
+
 
             var config = new MapperConfiguration(cfg => cfg.AddMaps(typeof(InterfaceProject).Assembly));
             _mapper = config.CreateMapper();

@@ -23,17 +23,17 @@
             <TabItem Header="Output">
                 <Grid>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto" />
+                        <!-- <RowDefinition Height="Auto" /> -->
                         <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
-                    <ToolBarPanel Grid.Row="0">
-                        <ToolBar>
-                            <Button Command="{Binding Path=ClearCommand}">Clear</Button>
-                        </ToolBar>
-                    </ToolBarPanel>
-                    <!-- <RichTextBox Grid.Row="1" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" FontFamily="Consolas" -->
+                    <!-- <ToolBarPanel Grid.Row="0"> -->
+                    <!--     <ToolBar> -->
+                    <!--         <Button Command="{Binding Path=ClearCommand}">Clear</Button> -->
+                    <!--     </ToolBar> -->
+                    <!-- </ToolBarPanel> -->
+                    <!-- <RichTextBox Grid.Row="0" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" FontFamily="Consolas" -->
                     <!--              IsUndoEnabled="False" IsReadOnly="True" /> -->
-                    <TextBox Grid.Row="1" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" FontFamily="Consolas"
+                    <TextBox Grid.Row="0" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" FontFamily="Consolas"
                                  IsUndoEnabled="False" IsReadOnly="True" />
                 </Grid>
             </TabItem>

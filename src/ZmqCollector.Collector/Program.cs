@@ -24,7 +24,7 @@ public class SampleDataCollector : DataCollector, ITestExecutionEnvironmentSpeci
 
     public SampleDataCollector()
     {
-        _publisher = new Publisher(ConsoleOutput.Instance);
+        _publisher = new Publisher(ConsoleOutput.Instance, GetPipeName());
     }
 
     public override void Initialize(
@@ -34,9 +34,6 @@ public class SampleDataCollector : DataCollector, ITestExecutionEnvironmentSpeci
         DataCollectionLogger logger,
         DataCollectionEnvironmentContext? environmentContext)
     {
-        //var port = GetPort(configurationElement);
-        //_publisher.Start(port);
-      
         _events = events;
         _events.TestHostLaunched += TestHostLaunched_Handler;
         _events.SessionStart += SessionStarted_Handler;
@@ -48,43 +45,14 @@ public class SampleDataCollector : DataCollector, ITestExecutionEnvironmentSpeci
         //environmentContext.SessionDataCollectionContext.xxx
     }
 
-    private static int GetPort(XmlElement configurationElement)
+    private static string GetPipeName()
     {
         try
         {
-            XmlElement? port = configurationElement["ZmqPort"];
-            if (port != null)
+            var value = Environment.GetEnvironmentVariable(EnvironmentVariables.PIPE_NAME);
+            if (!string.IsNullOrWhiteSpace(value))
             {
-                var portValue = port.InnerText;
-                if (!string.IsNullOrWhiteSpace(portValue))
-                {
-                    if (int.TryParse(portValue, out var portInt))
-                    {
-                        if (portInt is > 0 and < int.MaxValue)
-                        {
-                            return portInt;
-                        }
-                    }
-                }
-            }
-        }
-        catch
-        {
-            // ignore.
-        }
-
-        try
-        {
-            var portValue = Environment.GetEnvironmentVariable("ZmqCollectorPort");
-            if (!string.IsNullOrWhiteSpace(portValue))
-            {
-                if (int.TryParse(portValue, out var portInt))
-                {
-                    if (portInt is > 0 and < int.MaxValue)
-                    {
-                        return portInt;
-                    }
-                }
+                return value.Trim();
             }
         }
         catch (Exception)

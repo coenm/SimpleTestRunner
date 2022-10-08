@@ -30,8 +30,10 @@
                             <Button Command="{Binding Path=ClearCommand}">Clear</Button>
                         </ToolBar>
                     </ToolBarPanel>
-                    <RichTextBox Grid.Row="1" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" FontFamily="Consolas"
-                                 IsUndoEnabled="False" IsReadOnly="True" />
+                    <!-- <RichTextBox Grid.Row="1" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" FontFamily="Consolas" -->
+                    <!--              IsUndoEnabled="False" IsReadOnly="True" /> -->
+                    <TextBox Grid.Row="0" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" FontFamily="Consolas"
+                             IsUndoEnabled="False" IsReadOnly="True" />
                 </Grid>
             </TabItem>
         </TabControl>

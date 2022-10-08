@@ -47,6 +47,24 @@ public class PocTests
     }
 
     [Fact]
+    public async Task Color()
+    {
+        // arrange
+        using var stream1 = new MemoryStream();
+        using var stream2 = new MemoryStream();
+
+        // act
+        var colorResult = await PocShellExecutor.Execute(stream1, "color");
+        var blackResult = await PocShellExecutor.Execute(stream2, "black");
+
+        // assert
+        var bytes1 = stream1.ToArray();
+        var bytes2 = stream2.ToArray();
+        bytes1.Should().BeEquivalentTo(bytes2);
+
+    }
+
+    [Fact]
     public async Task Normal()
     {
         // arrange

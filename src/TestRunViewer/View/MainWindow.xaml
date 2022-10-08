@@ -140,7 +140,7 @@
     </ScrollViewer>
 
     <GridSplitter Grid.Row="3" Grid.Column="0" Height="5" HorizontalAlignment="Stretch" VerticalAlignment="Center" ShowsPreview="True" ResizeBehavior="PreviousAndNext" ResizeDirection="Rows" />
-    <view:OutputControl Grid.Row="4" Grid.Column="0" DataContext="{Binding Path=Output, Mode=OneWay}" />
+    <view:OutputControl Grid.Row="4" Grid.Column="0" DataContext="{Binding Path=Logs, Mode=OneWay}" />
 
         <!-- <StackPanel Grid.Row="3" Orientation="Horizontal"> -->
     <!--   <Button Content="Clear messages" Command="{Binding Path=ClearLogCommand}" Width="100" Margin="4" /> -->

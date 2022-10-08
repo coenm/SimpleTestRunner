@@ -24,31 +24,16 @@ namespace Pipe.Server
             _subject = new ReplaySubject<EventArgsBaseDto>(window);
 
             _server = new PipeServer<string>(pipeName);
-            // _server.ClientConnected += async (o, args) =>
-            //     {
-            //         // Clients.Add(args.Connection.PipeName);
-            //         // UpdateClientList();
-            //
-            //         // AddLine($"{args.Connection.PipeName} connected!");
-            //
-            //         // try
-            //         // {
-            //         //     await args.Connection.WriteAsync("Welcome! You are now connected to the server.").ConfigureAwait(false);
-            //         // }
-            //         // catch (Exception exception)
-            //         // {
-            //         //     OnExceptionOccurred(exception);
-            //         // }
-            //     };
-            // _server.ClientDisconnected += (o, args) =>
-            //     {
-            //         Clients.Remove(args.Connection.PipeName);
-            //         UpdateClientList();
-            //
-            //         AddLine($"{args.Connection.PipeName} disconnected!");
-            //     };
+            _server.ClientConnected += (o, args) =>
+                {
+                    Console.WriteLine("connected");
+                };
+            _server.ClientDisconnected += (o, args) =>
+                {
+                    Console.WriteLine("disconnected");
+                };
             _server.MessageReceived += ServerOnMessageReceived;
-            _ = _server.StartAsync();
+            _server.StartAsync();
             Task.Factory.StartNew((state) =>
                 {
                     while (true)

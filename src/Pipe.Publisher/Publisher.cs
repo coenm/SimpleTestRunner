@@ -19,13 +19,13 @@ public class Publisher : IDisposable
     private readonly PipeClient<string> _publisher;
     private readonly List<Task> _tasks = new List<Task>();
 
-    public Publisher(IOutput output)
+    public Publisher(IOutput output, string pipeName)
     {
         _output = output ?? throw new ArgumentNullException(nameof(output));
         var config = new MapperConfiguration(cfg => cfg.AddMaps(typeof(InterfaceProject).Assembly));
         _mapper = config.CreateMapper();
         _s = new Serialization();
-        _publisher = new PipeClient<string>("named_pipe_test_server");
+        _publisher = new PipeClient<string>(pipeName);
         _publisher.AutoReconnect = true;
         _ = _publisher.ConnectAsync();
     }

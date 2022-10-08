@@ -5,8 +5,6 @@ VisualStudioVersion = 17.0.32112.339
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Interface", "src\Interface\Interface.csproj", "{D5769576-5EAB-46A3-897D-7D6B1B5CE64F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Listener.Console", "src\Listener.Console\Listener.Console.csproj", "{1EA632EA-475E-4880-A5D2-BACD3152B50C}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestProject", "src\TestProject\TestProject.csproj", "{13A64195-D7D1-4CD1-A646-5D82F8C72A9A}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestRunViewer", "src\TestRunViewer\TestRunViewer.csproj", "{CADC9B6F-79C5-481A-8A15-11A2ABCE1ACE}"
@@ -43,10 +41,6 @@ Global
 		{D5769576-5EAB-46A3-897D-7D6B1B5CE64F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D5769576-5EAB-46A3-897D-7D6B1B5CE64F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D5769576-5EAB-46A3-897D-7D6B1B5CE64F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1EA632EA-475E-4880-A5D2-BACD3152B50C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1EA632EA-475E-4880-A5D2-BACD3152B50C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1EA632EA-475E-4880-A5D2-BACD3152B50C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1EA632EA-475E-4880-A5D2-BACD3152B50C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{13A64195-D7D1-4CD1-A646-5D82F8C72A9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{13A64195-D7D1-4CD1-A646-5D82F8C72A9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{13A64195-D7D1-4CD1-A646-5D82F8C72A9A}.Release|Any CPU.ActiveCfg = Release|Any CPU

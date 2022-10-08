@@ -2,12 +2,24 @@ namespace TestRunner.Core;
 
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Threading.Tasks;
+using Interface.Naming;
 using Medallion.Shell;
 
 public class DotNetTestExecutor
 {
+    public DotNetTestExecutor(string pipeName)
+    {
+        PipeName = pipeName;
+    }
+
+    public DotNetTestExecutor()
+    : this ($"test{DateTime.Now.Ticks}")
+    {
+    }
+
+    public string PipeName { get; }
+    
     public async Task<int> Execute(ICollection<string> stdOut, ICollection<string> stdErr, string project, params string[]? args)
     {
         try
@@ -24,13 +36,13 @@ public class DotNetTestExecutor
             }
 
             cmdArgs.AddRange(DotNetExecutorExtras.AdditionalArguments);
-            var dt = DateTime.Now.ToString("yyyyMMddHHmmss");
-            // dt = "coentje";
-            Command cmd = Command.Run("dotnet", cmdArgs)
+
+            Command cmd = Command.Run(
+                                     "dotnet",
+                                     cmdArgs,
+                                     options => options.EnvironmentVariable(EnvironmentVariables.PIPE_NAME, PipeName))
                                  .RedirectTo(stdOut)
-                                 //.RedirectStandardErrorTo(new FileInfo($"C:\\tmp\\dotnetstderr_coen_{dt}.txt"))
-                                 .RedirectStandardErrorTo(stdErr)
-                                 ;
+                                 .RedirectStandardErrorTo(stdErr);
 
             CommandResult result = await cmd.Task.ConfigureAwait(false);
             
