@@ -116,8 +116,6 @@ public class ZeroMqTestPublisher : ITestLoggerWithParameters, IDisposable
         _events.TestResult -= EventsOnTestResult;
         _events.TestRunMessage -= EventsOnTestRunMessage;
 
-        ConsoleOutput.Instance.Write("--- Disposing Logger ----" + Environment.NewLine, OutputLevel.Information);
         _publisher.Dispose();
-        ConsoleOutput.Instance.Write("--- Disposed Logger ----" + Environment.NewLine, OutputLevel.Information);
     }
 }

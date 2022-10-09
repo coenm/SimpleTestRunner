@@ -100,9 +100,6 @@ public class SampleDataCollector : DataCollector, ITestExecutionEnvironmentSpeci
         _events.SessionEnd -= SessionEnded_Handler;
         _events.TestCaseStart -= Events_TestCaseStart;
         _events.TestCaseEnd -= Events_TestCaseEnd;
-
-        ConsoleOutput.Instance.Write("--- Disposing Collector ----" + Environment.NewLine, OutputLevel.Information);
         _publisher.Dispose();
-        ConsoleOutput.Instance.Write("--- Disposed Collector ----" + Environment.NewLine, OutputLevel.Information);
     }
 }
