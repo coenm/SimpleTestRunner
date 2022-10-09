@@ -10,19 +10,20 @@ using Interface.Data.Logger;
 using Interface.Data.Logger.Inner;
 using Interface.Server;
 
-public class SingleTestCollection : IDisposable/* : ICollection<SingleTestModel>*/
+public class TestCollection : IDisposable/* : ICollection<SingleTestModel>*/
 {
     private readonly IDisposable _subscription;
 
     private readonly ConcurrentDictionary<Guid, SingleTestModel2> _tests = new();
 
-    public SingleTestCollection(ITestMonitor monitor)
+    public TestCollection(ITestMonitor monitor)
     {
         _ = monitor ?? throw new ArgumentNullException(nameof(monitor));
         _subscription = monitor.Events
                                .ObserveOn(Scheduler.Default)
                                .Subscribe(data =>
                                    {
+                                       // add
                                        if (data is TestRunStartEventArgsDto testRunStartEventArgsDto)
                                        {
                                            foreach (TestCaseDto testCase in testRunStartEventArgsDto.TestRunCriteria.Tests)
@@ -37,8 +38,7 @@ public class SingleTestCollection : IDisposable/* : ICollection<SingleTestModel>
                                            _tests.TryAdd(testCase.Id, new SingleTestModel2(testCase.Id, testCase.DisplayName /*started*/));
                                        }
 
-                                       //
-
+                                       // update
                                        if (data is TestResultEventArgsDto testResultEventArgsDto)
                                        {
                                            if (_tests.TryGetValue(testResultEventArgsDto.Result.TestCase.Id, out SingleTestModel2? model))

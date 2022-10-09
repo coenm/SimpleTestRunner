@@ -77,7 +77,7 @@ public class MainViewModel : ViewModelBase, IInitializable, IDisposable
         // _testMonitor = new EvtMonitor(_outputProcessor);
         // _testMonitor = new TestMonitor();
         _testMonitor = new PipeTestMonitor(_dotNetTestExecutor.PipeName);
-        var xx = new SingleTestCollection(_testMonitor);
+        var xx = new TestCollection(_testMonitor);
 
         var uiContext = SynchronizationContext.Current;
         _testMonitor.Events
