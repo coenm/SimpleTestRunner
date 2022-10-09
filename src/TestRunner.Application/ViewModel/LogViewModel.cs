@@ -17,6 +17,7 @@ public class LogViewModel : ViewModelBase, IConsoleOutput
     private readonly TestCollection _xx;
     public event EventHandler<string> StdOut = delegate { };
     public event EventHandler<string> StdErr = delegate { };
+    public event EventHandler<SingleTestModel2> TestAdded = delegate { };
 
     public LogViewModel(ConsoleOutputProcessor processor, DotNetTestExecutor executor)
     {
@@ -24,6 +25,10 @@ public class LogViewModel : ViewModelBase, IConsoleOutput
         _executor = executor ?? throw new ArgumentNullException(nameof(executor));
         _testMonitor = new PipeTestMonitor(_executor.PipeName);
         _xx = new TestCollection(_testMonitor);
+        _xx.TestAdded += delegate(object sender, SingleTestModel2 model2)
+            {
+                TestAdded.Invoke(this, model2);
+            };
     }
 
     public IDisposable Initialize()
@@ -37,8 +42,8 @@ public class LogViewModel : ViewModelBase, IConsoleOutput
                     _processor.Out,
                     _processor.Err,
                     // "C:\\Projects\\Private\\git\\SimpleTestRunner\\src\\TestProject",
-                    // "C:\\Projects\\Bdo\\git\\DRC\\Datarotonde Core",
-                    "C:\\Projects\\Bdo\\git\\DRC\\Datarotonde Core Client",
+                    "C:\\Projects\\Bdo\\git\\DRC\\Datarotonde Core",
+                    // "C:\\Projects\\Bdo\\git\\DRC\\Datarotonde Core Client",
                     "--filter",
                     //"Category!=single",
                     "TestCategory!=SystemTests"

@@ -46,7 +46,7 @@ public class MainViewModel : ViewModelBase, IInitializable, IDisposable
                 return;
             }
 
-            Tests.Add(new SingleTestViewModel(new SingleTestModel(id, name, _testMonitor, evt)));
+            //Tests.Add(new SingleTestViewModel(new SingleTestModel(id, name, _testMonitor, evt)));
         }
     }
 
@@ -64,7 +64,7 @@ public class MainViewModel : ViewModelBase, IInitializable, IDisposable
                 return;
             }
 
-            Tests.Add(new SingleTestViewModel(model));
+            //Tests.Add(new SingleTestViewModel(model));
         }
     }
 
@@ -78,86 +78,90 @@ public class MainViewModel : ViewModelBase, IInitializable, IDisposable
         // _testMonitor = new TestMonitor();
         _testMonitor = new PipeTestMonitor(_dotNetTestExecutor.PipeName);
         var xx = new TestCollection(_testMonitor);
+        xx.TestAdded += delegate(object sender, SingleTestModel2 model2)
+            {
+                Post(() => Tests.Add(new SingleTestViewModel(model2)));
+            };
 
         var uiContext = SynchronizationContext.Current;
-        _testMonitor.Events
-                    .Where(x => x is DiscoveredTestsEventArgsDto or TestRunStartEventArgsDto or TestCaseStartEventArgsDto)
-                    .ObserveOn(Scheduler.Default)
-                    //.ObserveOn(SynchronizationContext.Current!)
-                    .Select(data =>
-                    {
-                        if (data is DiscoveredTestsEventArgsDto discoveredTestsEventArgsDto)
-                        {
-                            return discoveredTestsEventArgsDto.DiscoveredTestCases
-                                                              .Where(dtc => Tests.All(t => t.Id != dtc.Id))
-                                                              .Select(x => new SingleTestModel(x.Id, x.DisplayName, _testMonitor, discoveredTestsEventArgsDto))
-                                                              .ToArray();
-                            // foreach (TestCaseDto testCase in discoveredTestsEventArgsDto.DiscoveredTestCases)
-                            // {
-                            //     TestsAdd(testCase.Id, testCase.DisplayName, discoveredTestsEventArgsDto);
-                            // }
-                        }
-
-                        if (data is TestRunStartEventArgsDto testRunStartEventArgsDto)
-                        {
-                            return testRunStartEventArgsDto.TestRunCriteria.Tests
-                                                           .Where(dtc => Tests.All(t => t.Id != dtc.Id))
-                                                           .Select(x => new SingleTestModel(x.Id, x.DisplayName, _testMonitor, testRunStartEventArgsDto))
-                                                           .ToArray();
-                            // foreach (TestCaseDto testCase in testRunStartEventArgsDto.TestRunCriteria.Tests)
-                            // {
-                            //     TestsAdd(testCase.Id, testCase.DisplayName, testRunStartEventArgsDto);
-                            // }
-                        }
-
-                        if (data is TestCaseStartEventArgsDto testCaseStartEventArgsDto)
-                        {
-                            TestCaseDto testCase = testCaseStartEventArgsDto.TestElement;
-                            if (Tests.Any(x => x.Id == testCase.Id))
-                            {
-                                return Array.Empty<SingleTestModel>();
-                            }
-
-                            return new[] { new SingleTestModel(testCase.Id, testCase.DisplayName, _testMonitor, testCaseStartEventArgsDto), };
-                            //TestsAdd(testCase.Id, testCase.DisplayName, testCaseStartEventArgsDto);
-                        }
-
-                        //LogInfo(data.GetType().Name);
-                        return Array.Empty<SingleTestModel>();
-                    })
-                    .ObserveOn(uiContext)
-                    .Subscribe(
-                        data =>
-                            {
-                                foreach (var item in data)
-                                {
-                                    TestsAdd(item);
-                                }
-                                // if (data is DiscoveredTestsEventArgsDto discoveredTestsEventArgsDto)
-                                // {
-                                //     foreach (TestCaseDto testCase in discoveredTestsEventArgsDto.DiscoveredTestCases)
-                                //     {
-                                //         TestsAdd(testCase.Id, testCase.DisplayName, discoveredTestsEventArgsDto);
-                                //     }
-                                // }
-                                //
-                                // if (data is TestRunStartEventArgsDto testRunStartEventArgsDto)
-                                // {
-                                //     foreach (TestCaseDto testCase in testRunStartEventArgsDto.TestRunCriteria.Tests)
-                                //     {
-                                //         TestsAdd(testCase.Id, testCase.DisplayName, testRunStartEventArgsDto);
-                                //     }
-                                // }
-                                //
-                                // if (data is TestCaseStartEventArgsDto testCaseStartEventArgsDto)
-                                // {
-                                //     TestCaseDto testCase = testCaseStartEventArgsDto.TestElement;
-                                //     TestsAdd(testCase.Id, testCase.DisplayName, testCaseStartEventArgsDto);
-                                // }
-
-                                //LogInfo(data.GetType().Name);
-                            });
-
+        // _testMonitor.Events
+        //             .Where(x => x is DiscoveredTestsEventArgsDto or TestRunStartEventArgsDto or TestCaseStartEventArgsDto)
+        //             .ObserveOn(Scheduler.Default)
+        //             //.ObserveOn(SynchronizationContext.Current!)
+        //             .Select(data =>
+        //             {
+        //                 if (data is DiscoveredTestsEventArgsDto discoveredTestsEventArgsDto)
+        //                 {
+        //                     return discoveredTestsEventArgsDto.DiscoveredTestCases
+        //                                                       .Where(dtc => Tests.All(t => t.Id != dtc.Id))
+        //                                                       .Select(x => new SingleTestModel(x.Id, x.DisplayName, _testMonitor, discoveredTestsEventArgsDto))
+        //                                                       .ToArray();
+        //                     // foreach (TestCaseDto testCase in discoveredTestsEventArgsDto.DiscoveredTestCases)
+        //                     // {
+        //                     //     TestsAdd(testCase.Id, testCase.DisplayName, discoveredTestsEventArgsDto);
+        //                     // }
+        //                 }
+        //
+        //                 if (data is TestRunStartEventArgsDto testRunStartEventArgsDto)
+        //                 {
+        //                     return testRunStartEventArgsDto.TestRunCriteria.Tests
+        //                                                    .Where(dtc => Tests.All(t => t.Id != dtc.Id))
+        //                                                    .Select(x => new SingleTestModel(x.Id, x.DisplayName, _testMonitor, testRunStartEventArgsDto))
+        //                                                    .ToArray();
+        //                     // foreach (TestCaseDto testCase in testRunStartEventArgsDto.TestRunCriteria.Tests)
+        //                     // {
+        //                     //     TestsAdd(testCase.Id, testCase.DisplayName, testRunStartEventArgsDto);
+        //                     // }
+        //                 }
+        //
+        //                 if (data is TestCaseStartEventArgsDto testCaseStartEventArgsDto)
+        //                 {
+        //                     TestCaseDto testCase = testCaseStartEventArgsDto.TestElement;
+        //                     if (Tests.Any(x => x.Id == testCase.Id))
+        //                     {
+        //                         return Array.Empty<SingleTestModel>();
+        //                     }
+        //
+        //                     return new[] { new SingleTestModel(testCase.Id, testCase.DisplayName, _testMonitor, testCaseStartEventArgsDto), };
+        //                     //TestsAdd(testCase.Id, testCase.DisplayName, testCaseStartEventArgsDto);
+        //                 }
+        //
+        //                 //LogInfo(data.GetType().Name);
+        //                 return Array.Empty<SingleTestModel>();
+        //             })
+        //             .ObserveOn(uiContext)
+        //             .Subscribe(
+        //                 data =>
+        //                     {
+        //                         foreach (var item in data)
+        //                         {
+        //                             TestsAdd(item);
+        //                         }
+        //                         // if (data is DiscoveredTestsEventArgsDto discoveredTestsEventArgsDto)
+        //                         // {
+        //                         //     foreach (TestCaseDto testCase in discoveredTestsEventArgsDto.DiscoveredTestCases)
+        //                         //     {
+        //                         //         TestsAdd(testCase.Id, testCase.DisplayName, discoveredTestsEventArgsDto);
+        //                         //     }
+        //                         // }
+        //                         //
+        //                         // if (data is TestRunStartEventArgsDto testRunStartEventArgsDto)
+        //                         // {
+        //                         //     foreach (TestCaseDto testCase in testRunStartEventArgsDto.TestRunCriteria.Tests)
+        //                         //     {
+        //                         //         TestsAdd(testCase.Id, testCase.DisplayName, testRunStartEventArgsDto);
+        //                         //     }
+        //                         // }
+        //                         //
+        //                         // if (data is TestCaseStartEventArgsDto testCaseStartEventArgsDto)
+        //                         // {
+        //                         //     TestCaseDto testCase = testCaseStartEventArgsDto.TestElement;
+        //                         //     TestsAdd(testCase.Id, testCase.DisplayName, testCaseStartEventArgsDto);
+        //                         // }
+        //
+        //                         //LogInfo(data.GetType().Name);
+        //                     });
+        //
 
 
         StartListening = new Command(OnStart, _ => _runningTask == null);
@@ -234,7 +238,6 @@ public class MainViewModel : ViewModelBase, IInitializable, IDisposable
         var argss = args.Skip(skip).ToList();
         argss = argss.Skip(1).ToList();
         await _dotNetTestExecutor.Execute(_outputProcessor.Out, _outputProcessor.Err, argss.First(), argss.Skip(1).ToArray());
-
     }
 
     private Task OnResetClients(object arg)

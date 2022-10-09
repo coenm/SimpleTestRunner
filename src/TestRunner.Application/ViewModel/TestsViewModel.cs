@@ -1,24 +1,24 @@
-namespace TestRunViewer.ViewModel;
+namespace TestRunner.Application.ViewModel;
 
 using System;
+using TestRunner.Application.ViewModel.Common;
 using TestRunner.Core.Model;
 using TestRunViewer.Model;
-using TestRunViewer.ViewModel.Common;
 
-public class SingleTestViewModel : ViewModelBase, IDisposable
+public class TestsViewModel : ViewModelBase
 {
     private State _state;
     private string _message;
     private readonly SingleTestModel2 _model;
 
-    public SingleTestViewModel(SingleTestModel2 model)
+    public TestsViewModel(SingleTestModel2 model)
     {
         _model = model ?? throw new ArgumentNullException(nameof(model));
         Message = string.Empty;
         model.Update += OnUpdate;
         ResetState();
     }
-
+    
     public Guid Id => _model.TestCaseId;
 
     public string Name => _model.DisplayName;
@@ -65,13 +65,13 @@ public class SingleTestViewModel : ViewModelBase, IDisposable
     public void ResetState()
     {
         State = _model.State switch
-            {
-                TestState.Empty => State.Unknown,
-                TestState.Started => State.Executing,
-                TestState.Succeeded => State.Succeeded,
-                TestState.Failed => State.Failed,
-                TestState.Skipped => State.Skipped,
-                _ => State.Unknown,
-            };
+        {
+            TestState.Empty => State.Unknown,
+            TestState.Started => State.Executing,
+            TestState.Succeeded => State.Succeeded,
+            TestState.Failed => State.Failed,
+            TestState.Skipped => State.Skipped,
+            _ => State.Unknown,
+        };
     }
 }

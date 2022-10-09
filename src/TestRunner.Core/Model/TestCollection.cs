@@ -16,6 +16,8 @@ public class TestCollection : IDisposable/* : ICollection<SingleTestModel>*/
 
     private readonly ConcurrentDictionary<Guid, SingleTestModel2> _tests = new();
 
+    public event EventHandler<SingleTestModel2> TestAdded = delegate { };
+
     public TestCollection(ITestMonitor monitor)
     {
         _ = monitor ?? throw new ArgumentNullException(nameof(monitor));
@@ -28,14 +30,14 @@ public class TestCollection : IDisposable/* : ICollection<SingleTestModel>*/
                                        {
                                            foreach (TestCaseDto testCase in testRunStartEventArgsDto.TestRunCriteria.Tests)
                                            {
-                                               _tests.TryAdd(testCase.Id, new SingleTestModel2(testCase.Id, testCase.DisplayName));
+                                               TryAdd(new SingleTestModel2(testCase.Id, testCase.DisplayName));
                                            }
                                        }
 
                                        if (data is TestCaseStartEventArgsDto testCaseStartEventArgsDto)
                                        {
                                            TestCaseDto testCase = testCaseStartEventArgsDto.TestElement;
-                                           _tests.TryAdd(testCase.Id, new SingleTestModel2(testCase.Id, testCase.DisplayName /*started*/));
+                                           TryAdd(new SingleTestModel2(testCase.Id, testCase.DisplayName));
                                        }
 
                                        // update
@@ -55,6 +57,14 @@ public class TestCollection : IDisposable/* : ICollection<SingleTestModel>*/
                                            }
                                        }
                                    });
+    }
+
+    private void TryAdd(SingleTestModel2 model)
+    {
+        if (_tests.TryAdd(model.TestCaseId, model))
+        {
+            TestAdded?.Invoke(this, model);
+        }
     }
 
     public void Dispose()

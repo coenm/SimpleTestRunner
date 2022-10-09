@@ -31,7 +31,40 @@
     <!-- <SolidColorBrush x:Key="ExecutingAddItemStateBrush" Color="DeepSkyBlue" /> -->
     <!-- <SolidColorBrush x:Key="ExecutingAddItemDuplexStateBrush" Color="Violet" /> -->
 
-  </Window.Resources>
+        <DataTemplate DataType="{x:Type viewModel:TestsViewModel}">
+            <Border x:Name="ClientBox" Height="20" Width="20" BorderBrush="Black" BorderThickness="1" Background="DimGray" ToolTip="{Binding Path=Name}">
+                <!-- <Border.InputBindings> -->
+                <!--   <MouseBinding Gesture="Control+LeftClick" Command="{Binding Path=GetItemsCommand}" /> -->
+                <!--   <MouseBinding Gesture="Shift+LeftClick" Command="{Binding Path=GetItemsThroughCallbackCommand}" /> -->
+                <!--   <MouseBinding Gesture="LeftClick" Command="{Binding Path=AddItemCommand}" /> -->
+                <!-- </Border.InputBindings> -->
+                <!-- <TextBlock Text="{Binding Path=ItemCount}" HorizontalAlignment="Right" VerticalAlignment="Bottom" FontSize="8" /> -->
+            </Border>
+
+            <DataTemplate.Triggers>
+                <DataTrigger Binding="{Binding Path=State}" Value="{x:Static viewModel:State.NotRun}">
+                    <Setter TargetName="ClientBox" Property="Background" Value="{StaticResource NotRunStateBrush}" />
+                </DataTrigger>
+                <DataTrigger Binding="{Binding Path=State}" Value="{x:Static viewModel:State.Skipped}">
+                    <Setter TargetName="ClientBox" Property="Background" Value="{StaticResource SkippedStateBrush}" />
+                </DataTrigger>
+                <DataTrigger Binding="{Binding Path=State}" Value="{x:Static viewModel:State.Executing}">
+                    <Setter TargetName="ClientBox" Property="Background" Value="{StaticResource ExecutingStateBrush}" />
+                </DataTrigger>
+                <DataTrigger Binding="{Binding Path=State}" Value="{x:Static viewModel:State.Failed}">
+                    <Setter TargetName="ClientBox" Property="Background" Value="{StaticResource FailedStateBrush}" />
+                </DataTrigger>
+                <DataTrigger Binding="{Binding Path=State}" Value="{x:Static viewModel:State.Succeeded}">
+                    <Setter TargetName="ClientBox" Property="Background" Value="{StaticResource SucceededStateBrush}" />
+                </DataTrigger>
+                <DataTrigger Binding="{Binding Path=State}" Value="{x:Static viewModel:State.Error}">
+                    <Setter TargetName="ClientBox" Property="Background" Value="{StaticResource ErrorStateBrush}" />
+                </DataTrigger>
+
+            </DataTemplate.Triggers>
+        </DataTemplate>
+
+    </Window.Resources>
 
   <Grid>
     <Grid.RowDefinitions>
