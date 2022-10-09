@@ -52,10 +52,11 @@ public class LogViewModel : ViewModelBase, IConsoleOutput
 
                 StdOut.Invoke(this, $"Ending ..");
                 var dateTime = DateTime.Now.ToString("yyyyMMddHHmmss");
-                await File.WriteAllLinesAsync($"C:\\tmp\\coen2_{dateTime}_out.txt", _processor.Out);
-                await File.WriteAllLinesAsync($"C:\\tmp\\coen2_{dateTime}_err.txt", _processor.Err);
+                // await File.WriteAllLinesAsync($"C:\\tmp\\coen2_{dateTime}_out.txt", _processor.Out);
+                // await File.WriteAllLinesAsync($"C:\\tmp\\coen2_{dateTime}_err.txt", _processor.Err);
                 StdOut.Invoke(this, $"Ended {result}"); await File.WriteAllLinesAsync($"C:\\tmp\\coen2_{dateTime}_err.txt", _processor.Err);
             });
+
         return new Unregister();
     }
 
