@@ -12,7 +12,7 @@ namespace TestRunner.Application.View
     {
         private RichTextBox _richTextBox;
         private TextBox _textBox;
-        private object _lock = new object();
+        private readonly object _lock = new object();
 
         public OutputControl()
         {
@@ -23,9 +23,7 @@ namespace TestRunner.Application.View
 
         public void WriteLine(string line)
         {
-            // if (line.StartsWith("Ended"))
-                WriteLine(line, Brushes.Black);
-            // WriteLine("Aap", Brushes.Black);
+            WriteLine(line, Brushes.Black);
         }
 
         public void WriteSuccessLine(string line)
@@ -91,7 +89,7 @@ namespace TestRunner.Application.View
                 yield break;
             }
 
-            for (int i = 0; i < VisualTreeHelper.GetChildrenCount(reference); i++)
+            for (var i = 0; i < VisualTreeHelper.GetChildrenCount(reference); i++)
             {
                 DependencyObject child = VisualTreeHelper.GetChild(reference, i);
                 if (child is T dependencyObject)

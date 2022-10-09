@@ -7,8 +7,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Interface", "src\Interface\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestProject", "src\TestProject\TestProject.csproj", "{13A64195-D7D1-4CD1-A646-5D82F8C72A9A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestRunViewer", "src\TestRunViewer\TestRunViewer.csproj", "{CADC9B6F-79C5-481A-8A15-11A2ABCE1ACE}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ZmqCollector.Collector", "src\ZmqCollector.Collector\ZmqCollector.Collector.csproj", "{75991EC3-094A-49CB-AF0A-83C9A1807C5F}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ZmqPublisher.TestLogger", "src\ZmqPublisher.testlogger\ZmqPublisher.TestLogger.csproj", "{9C1EDCFE-B1B0-4623-AEB3-79EF03E010AA}"
@@ -45,10 +43,6 @@ Global
 		{13A64195-D7D1-4CD1-A646-5D82F8C72A9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{13A64195-D7D1-4CD1-A646-5D82F8C72A9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{13A64195-D7D1-4CD1-A646-5D82F8C72A9A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CADC9B6F-79C5-481A-8A15-11A2ABCE1ACE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CADC9B6F-79C5-481A-8A15-11A2ABCE1ACE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CADC9B6F-79C5-481A-8A15-11A2ABCE1ACE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CADC9B6F-79C5-481A-8A15-11A2ABCE1ACE}.Release|Any CPU.Build.0 = Release|Any CPU
 		{75991EC3-094A-49CB-AF0A-83C9A1807C5F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{75991EC3-094A-49CB-AF0A-83C9A1807C5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{75991EC3-094A-49CB-AF0A-83C9A1807C5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
