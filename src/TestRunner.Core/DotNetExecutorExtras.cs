@@ -19,8 +19,8 @@ public class DotNetExecutorExtras
         get
         {
             yield return TestAdapterPath.Value;
-            yield return $"--collect:{SampleDataCollectorNaming.DATA_COLLECTOR_FRIENDLY_NAME}";
-            yield return $"--logger:{TestLoggerNaming.FRIENDLY_NAME}";
+            yield return $"--collect:{PipePublisherDataCollectorNaming.DATA_COLLECTOR_FRIENDLY_NAME}";
+            yield return $"--logger:{PipePublisherLoggerNaming.FRIENDLY_NAME}";
         }
     }
 }

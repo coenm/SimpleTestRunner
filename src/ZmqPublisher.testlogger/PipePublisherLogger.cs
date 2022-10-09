@@ -15,14 +15,14 @@ using Microsoft.VisualStudio.TestPlatform.Utilities;
 using Pipe.Publisher;
 using TestResultEventArgs = Microsoft.VisualStudio.TestPlatform.ObjectModel.Logging.TestResultEventArgs;
 
-[FriendlyName(TestLoggerNaming.FRIENDLY_NAME)]
-[ExtensionUri(TestLoggerNaming.EXTENSION_URI)]
-public class ZeroMqTestPublisher : ITestLoggerWithParameters, IDisposable
+[FriendlyName(PipePublisherLoggerNaming.FRIENDLY_NAME)]
+[ExtensionUri(PipePublisherLoggerNaming.EXTENSION_URI)]
+public class PipePublisherLogger : ITestLoggerWithParameters, IDisposable
 {
     private readonly Publisher _publisher;
     private TestLoggerEvents _events;
 
-    public ZeroMqTestPublisher()
+    public PipePublisherLogger()
     {
         _publisher = new Publisher(ConsoleOutput.Instance, GetPipeName());
     }
@@ -32,7 +32,7 @@ public class ZeroMqTestPublisher : ITestLoggerWithParameters, IDisposable
         throw new NotImplementedException();
     }
 
-    public void Initialize(TestLoggerEvents events, Dictionary<string, string> parameters)
+    public void Initialize(TestLoggerEvents events, Dictionary<string, string>? parameters)
     {
         _events = events;
         _events.DiscoveryStart += Events_DiscoveryStart;
@@ -61,7 +61,7 @@ public class ZeroMqTestPublisher : ITestLoggerWithParameters, IDisposable
             // do nothing
         }
 
-        throw new Exception("Could not find port to connect to.");
+        throw new Exception("Could not find pipe name to connect to.");
     }
 
     private void EventsOnTestRunMessage(object? sender, TestRunMessageEventArgs e)

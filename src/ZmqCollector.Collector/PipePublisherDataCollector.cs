@@ -15,14 +15,14 @@ using Microsoft.VisualStudio.TestPlatform.ObjectModel.DataCollection;
 using Microsoft.VisualStudio.TestPlatform.Utilities;
 using Pipe.Publisher;
 
-[DataCollectorFriendlyName(SampleDataCollectorNaming.DATA_COLLECTOR_FRIENDLY_NAME)]
-[DataCollectorTypeUri(SampleDataCollectorNaming.DATA_COLLECTOR_TYPE_URI)]
-public class SampleDataCollector : DataCollector, ITestExecutionEnvironmentSpecifier
+[DataCollectorFriendlyName(PipePublisherDataCollectorNaming.DATA_COLLECTOR_FRIENDLY_NAME)]
+[DataCollectorTypeUri(PipePublisherDataCollectorNaming.DATA_COLLECTOR_TYPE_URI)]
+public class PipePublisherDataCollector : DataCollector, ITestExecutionEnvironmentSpecifier
 {
     private readonly Publisher _publisher;
     private DataCollectionEvents _events;
 
-    public SampleDataCollector()
+    public PipePublisherDataCollector()
     {
         _publisher = new Publisher(ConsoleOutput.Instance, GetPipeName());
     }
