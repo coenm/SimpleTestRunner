@@ -42,22 +42,22 @@
             </Border>
 
             <DataTemplate.Triggers>
-                <DataTrigger Binding="{Binding Path=State}" Value="{x:Static viewModel:State.NotRun}">
+                <DataTrigger Binding="{Binding Path=TestState}" Value="{x:Static viewModel:TestState.NotRun}">
                     <Setter TargetName="ClientBox" Property="Background" Value="{StaticResource NotRunStateBrush}" />
                 </DataTrigger>
-                <DataTrigger Binding="{Binding Path=State}" Value="{x:Static viewModel:State.Skipped}">
+                <DataTrigger Binding="{Binding Path=TestState}" Value="{x:Static viewModel:TestState.Skipped}">
                     <Setter TargetName="ClientBox" Property="Background" Value="{StaticResource SkippedStateBrush}" />
                 </DataTrigger>
-                <DataTrigger Binding="{Binding Path=State}" Value="{x:Static viewModel:State.Executing}">
+                <DataTrigger Binding="{Binding Path=TestState}" Value="{x:Static viewModel:TestState.Executing}">
                     <Setter TargetName="ClientBox" Property="Background" Value="{StaticResource ExecutingStateBrush}" />
                 </DataTrigger>
-                <DataTrigger Binding="{Binding Path=State}" Value="{x:Static viewModel:State.Failed}">
+                <DataTrigger Binding="{Binding Path=TestState}" Value="{x:Static viewModel:TestState.Failed}">
                     <Setter TargetName="ClientBox" Property="Background" Value="{StaticResource FailedStateBrush}" />
                 </DataTrigger>
-                <DataTrigger Binding="{Binding Path=State}" Value="{x:Static viewModel:State.Succeeded}">
+                <DataTrigger Binding="{Binding Path=TestState}" Value="{x:Static viewModel:TestState.Succeeded}">
                     <Setter TargetName="ClientBox" Property="Background" Value="{StaticResource SucceededStateBrush}" />
                 </DataTrigger>
-                <DataTrigger Binding="{Binding Path=State}" Value="{x:Static viewModel:State.Error}">
+                <DataTrigger Binding="{Binding Path=TestState}" Value="{x:Static viewModel:TestState.Error}">
                     <Setter TargetName="ClientBox" Property="Background" Value="{StaticResource ErrorStateBrush}" />
                 </DataTrigger>
 

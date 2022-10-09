@@ -7,7 +7,7 @@ using TestRunViewer.Model;
 
 public class TestsViewModel : ViewModelBase
 {
-    private State _state;
+    private TestState _testState;
     private string _message;
     private readonly SingleTestModel2 _model;
 
@@ -23,18 +23,18 @@ public class TestsViewModel : ViewModelBase
 
     public string Name => _model.DisplayName;
 
-    public State State
+    public TestState TestState
     {
-        get => _state;
+        get => _testState;
 
         set
         {
-            if (_state == value)
+            if (_testState == value)
             {
                 return;
             }
 
-            _state = value;
+            _testState = value;
             OnPropertyChanged();
         }
     }
@@ -64,14 +64,14 @@ public class TestsViewModel : ViewModelBase
 
     public void ResetState()
     {
-        State = _model.State switch
+        TestState = _model.State switch
         {
-            TestState.Empty => State.Unknown,
-            TestState.Started => State.Executing,
-            TestState.Succeeded => State.Succeeded,
-            TestState.Failed => State.Failed,
-            TestState.Skipped => State.Skipped,
-            _ => State.Unknown,
+            TestRunViewer.Model.TestState.Empty => TestState.Unknown,
+            TestRunViewer.Model.TestState.Started => TestState.Executing,
+            TestRunViewer.Model.TestState.Succeeded => TestState.Succeeded,
+            TestRunViewer.Model.TestState.Failed => TestState.Failed,
+            TestRunViewer.Model.TestState.Skipped => TestState.Skipped,
+            _ => TestState.Unknown,
         };
     }
 }

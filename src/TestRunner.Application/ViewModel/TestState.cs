@@ -1,6 +1,6 @@
 namespace TestRunner.Application.ViewModel;
 
-public enum State
+public enum TestState
 {
     NotRun,
     Skipped,
