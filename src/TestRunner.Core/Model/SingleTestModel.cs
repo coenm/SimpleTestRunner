@@ -6,19 +6,44 @@ using TestRunViewer.Model;
 
 public class SingleTestModel2
 {
-    public Guid TestCaseId { get; }
-
-    public string DisplayName { get; }
+    private TestState _state = TestState.Empty;
+    private readonly object _syncLock = new();
+    public event EventHandler Update = delegate { };
 
     public SingleTestModel2(Guid testCaseId, string displayName)
     {
         TestCaseId = testCaseId;
         DisplayName = displayName;
         State = TestState.Started;
-            // : TestState.Empty;
+        // : TestState.Empty;
     }
 
-    public TestState State { get; private set; }
+    public Guid TestCaseId { get; }
+
+    public string DisplayName { get; }
+
+    public TestState State
+    {
+        get => _state;
+        private set
+        {
+            if (_state == value)
+            {
+                return;
+            }
+
+            lock (_syncLock)
+            {
+                if (_state == value)
+                {
+                    return;
+                }
+
+                _state = value;
+                Update?.Invoke(this, EventArgs.Empty);
+            }
+        }
+    }
 
     public void UpdateResult(TestOutcome resultOutcome)
     {

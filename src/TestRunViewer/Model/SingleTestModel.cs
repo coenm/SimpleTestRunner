@@ -67,8 +67,6 @@ public class SingleTestModel
 
     public event EventHandler Update = delegate { };
 
-    public event EventHandler ItemsChanged = delegate { };
-
     public Guid Id { get; }
 
     public TestState State
