@@ -21,12 +21,14 @@ public class Program
     {
         var container = new Container();
         container.Options.DefaultScopedLifestyle = new AsyncScopedLifestyle();
+        container.Register<DotNetExecutable>(Lifestyle.Singleton);
+        container.RegisterInstance(new Args(Environment.GetCommandLineArgs()));
 
         container.Register<MainWindow>(Lifestyle.Singleton);
         container.Register<MainViewModel>(Lifestyle.Singleton);
         container.Register<LogViewModel>(Lifestyle.Singleton);
 
-        container.Register<DotNetTestExecutor>(() => new DotNetTestExecutor(), Lifestyle.Singleton);
+        container.Register<DotNetTestExecutor>(Lifestyle.Singleton);
         container.Register<Serialization>(Lifestyle.Singleton);
         container.Register<ConsoleOutputProcessor>(Lifestyle.Singleton);
         // container.Verify();

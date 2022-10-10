@@ -1,7 +1,7 @@
 namespace TestRunner.Application.ViewModel;
 
 using System;
-using System.IO;
+using System.Linq;
 using System.Threading.Tasks;
 using Pipe.Server;
 using TestRunner.Application.Model;
@@ -11,6 +11,7 @@ using TestRunner.Core.Model;
 
 public class LogViewModel : ViewModelBase, IConsoleOutput
 {
+    private readonly Args _args;
     private readonly ConsoleOutputProcessor _processor;
     private readonly DotNetTestExecutor _executor;
     private readonly PipeTestMonitor _testMonitor;
@@ -19,8 +20,12 @@ public class LogViewModel : ViewModelBase, IConsoleOutput
     public event EventHandler<string> StdErr = delegate { };
     public event EventHandler<TestModel> TestAdded = delegate { };
 
-    public LogViewModel(ConsoleOutputProcessor processor, DotNetTestExecutor executor)
+    public LogViewModel(
+        Args args, 
+        ConsoleOutputProcessor processor,
+        DotNetTestExecutor executor)
     {
+        _args = args ?? throw new ArgumentNullException(nameof(args));
         _processor = processor ?? throw new ArgumentNullException(nameof(processor));
         _executor = executor ?? throw new ArgumentNullException(nameof(executor));
         _testMonitor = new PipeTestMonitor(_executor.PipeName);
@@ -34,27 +39,28 @@ public class LogViewModel : ViewModelBase, IConsoleOutput
     public IDisposable Initialize()
     {
         _processor.OnLine += ProcessorOnOnLine;
+
+        if (_args.DotNetArgs.Length == 0)
+        {
+            return new Unregister();
+        }
+
         Task.Run(async () =>
             {
-                // "C:\\Projects\\Private\\git\\SimpleTestRunner\\src\\TestProject",
+                var args = _args.DotNetArgs;
                 StdOut.Invoke(this, "Starting..");
                 var result = await _executor.Execute(
                     _processor.Out,
                     _processor.Err,
+                    args.First(),
+                    args.Skip(1).Concat(DotNetExecutorExtras.AdditionalArguments).ToArray());
+                /*
                     "C:\\Projects\\Private\\git\\SimpleTestRunner\\src\\TestProject",
                     // "C:\\Projects\\Bdo\\git\\DRC\\Datarotonde Core",
                     // "C:\\Projects\\Bdo\\git\\DRC\\Datarotonde Core Client",
-                    "--filter",
-                    //"Category!=single",
-                    "TestCategory!=SystemTests"
-                    // "FullyQualifiedName!=TestAutomation&TestCategory!=SystemTests"
-                    );
+                */
 
-                StdOut.Invoke(this, $"Ending ..");
-                var dateTime = DateTime.Now.ToString("yyyyMMddHHmmss");
-                // await File.WriteAllLinesAsync($"C:\\tmp\\coen2_{dateTime}_out.txt", _processor.Out);
-                // await File.WriteAllLinesAsync($"C:\\tmp\\coen2_{dateTime}_err.txt", _processor.Err);
-                StdOut.Invoke(this, $"Ended {result}");
+                StdOut.Invoke(this, $"Ended with exitcode: {result}");
             });
 
         return new Unregister();

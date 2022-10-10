@@ -26,7 +26,7 @@ public class DotNetTestExecutorTests
 
     public DotNetTestExecutorTests()
     {
-        _sut = new DotNetTestExecutor();
+        _sut = new DotNetTestExecutor(new DotNetExecutable());
 
         _serialization = new Serialization();
         _sb = new StringBuilder();

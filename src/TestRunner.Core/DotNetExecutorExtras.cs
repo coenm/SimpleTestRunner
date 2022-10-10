@@ -4,9 +4,9 @@ using System;
 using System.Collections.Generic;
 using Interface.Naming;
 
-public class DotNetExecutorExtras
+public static class DotNetExecutorExtras
 {
-    public static readonly Lazy<string> TestAdapterPath = new(() =>
+    private static readonly Lazy<string> TestAdapterPath = new(() =>
         {
             var baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
             baseDirectory = baseDirectory.Replace('/', '\\');

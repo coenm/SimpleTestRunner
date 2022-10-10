@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "TestRunner.Application - TestProject": {
+      "commandName": "Project",
+      "commandLineArgs": "dotnet test \"C:\\\\Projects\\\\Private\\\\git\\\\SimpleTestRunner\\\\src\\\\TestProject\" --filter \"FullyQualifiedName!=TestAutomation&TestCategory!=SystemTests\" ---- a b c"
+    }
+  }
+}
