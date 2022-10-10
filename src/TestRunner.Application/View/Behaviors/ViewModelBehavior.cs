@@ -50,20 +50,24 @@ public abstract class ViewModelBehavior<TAssociatedObject, TBehaviorContext, TBe
 
     private static void AttachBehavior(DependencyObject target, TBehaviorContext behaviorContext)
     {
-        var behaviors = Interaction.GetBehaviors(target);
+        BehaviorCollection behaviors = Interaction.GetBehaviors(target);
 
         if (behaviors.OfType<TBehavior>().Any())
+        {
             return;
+        }
 
         behaviors.Add(new TBehavior { BehaviorContext = behaviorContext });
     }
 
     private static void DetachBehavior(DependencyObject target)
     {
-        var behaviors = Interaction.GetBehaviors(target);
+        BehaviorCollection behaviors = Interaction.GetBehaviors(target);
 
-        foreach (var behavior in behaviors.OfType<TBehavior>())
+        foreach (TBehavior behavior in behaviors.OfType<TBehavior>())
+        {
             behaviors.Remove(behavior);
+        }
     }
 
     #endregion

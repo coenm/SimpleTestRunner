@@ -9,9 +9,9 @@ public class TestsViewModel : ViewModelBase
 {
     private TestState _testState;
     private string _message;
-    private readonly SingleTestModel2 _model;
+    private readonly TestModel _model;
 
-    public TestsViewModel(SingleTestModel2 model)
+    public TestsViewModel(TestModel model)
     {
         _model = model ?? throw new ArgumentNullException(nameof(model));
         Message = string.Empty;

@@ -37,22 +37,26 @@ public class PipeTestMonitor : ITestMonitor, IAsyncDisposable
         _server.MessageReceived += ServerOnMessageReceived;
         _server.StartAsync();
 
-        Task.Factory.StartNew((state) =>
+        Task.Factory.StartNew(state =>
             {
                 while (true)
                 {
-                    if (_messages.TryDequeue(out EventArgsBaseDto? x))
+                    if (_messages.TryDequeue(out EventArgsBaseDto? item))
                     {
-                        _subject.OnNext(x);
+                        _subject.OnNext(item);
                     }
                 }
-            }, TaskCreationOptions.LongRunning);
-        // _server.ExceptionOccurred += (o, args) => OnExceptionOccurred(args.Exception);
+            },
+            TaskCreationOptions.LongRunning);
+
+        _server.ExceptionOccurred += (o, args) =>
+            {
+                Console.WriteLine(args.Exception.Message);
+            };
     }
 
     private void ServerOnMessageReceived(object? sender, ConnectionMessageEventArgs<string?> e)
     {
-        // AddLine($"{args.Connection.PipeName}: {args.Message}");
         EventArgsBaseDto? result = _serializer.Deserialize(e.Message);
         if (result != null)
         {

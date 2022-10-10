@@ -13,6 +13,7 @@ public class MainViewModel : ViewModelBase, IInitializable, IDisposable
         Tests = new ObservableCollection<TestsViewModel>();
         Logs.TestAdded += (sender, model) =>
             {
+                //todo
                 Post(() => Tests.Add(new TestsViewModel(model)));
             };
     }

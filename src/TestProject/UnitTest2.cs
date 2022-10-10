@@ -23,7 +23,7 @@ public class UnitTest2
     [InlineData(6)]
     public async Task TestE(int methodArgument1)
     {
-        await Task.Delay(TimeSpan.FromMilliseconds(methodArgument1*100));
+        await Task.Delay(TimeSpan.FromMilliseconds(methodArgument1*1000));
 
         Assert.NotEqual(2, methodArgument1);
     }

@@ -14,20 +14,20 @@ public class LogViewModel : ViewModelBase, IConsoleOutput
     private readonly ConsoleOutputProcessor _processor;
     private readonly DotNetTestExecutor _executor;
     private readonly PipeTestMonitor _testMonitor;
-    private readonly TestCollection _xx;
+    private readonly TestCollection _testCollection;
     public event EventHandler<string> StdOut = delegate { };
     public event EventHandler<string> StdErr = delegate { };
-    public event EventHandler<SingleTestModel2> TestAdded = delegate { };
+    public event EventHandler<TestModel> TestAdded = delegate { };
 
     public LogViewModel(ConsoleOutputProcessor processor, DotNetTestExecutor executor)
     {
         _processor = processor ?? throw new ArgumentNullException(nameof(processor));
         _executor = executor ?? throw new ArgumentNullException(nameof(executor));
         _testMonitor = new PipeTestMonitor(_executor.PipeName);
-        _xx = new TestCollection(_testMonitor);
-        _xx.TestAdded += delegate(object sender, SingleTestModel2 model2)
+        _testCollection = new TestCollection(_testMonitor);
+        _testCollection.TestAdded += delegate(object sender, TestModel model)
             {
-                TestAdded.Invoke(this, model2);
+                TestAdded.Invoke(this, model);
             };
     }
 
@@ -41,8 +41,8 @@ public class LogViewModel : ViewModelBase, IConsoleOutput
                 var result = await _executor.Execute(
                     _processor.Out,
                     _processor.Err,
-                    // "C:\\Projects\\Private\\git\\SimpleTestRunner\\src\\TestProject",
-                    "C:\\Projects\\Bdo\\git\\DRC\\Datarotonde Core",
+                    "C:\\Projects\\Private\\git\\SimpleTestRunner\\src\\TestProject",
+                    // "C:\\Projects\\Bdo\\git\\DRC\\Datarotonde Core",
                     // "C:\\Projects\\Bdo\\git\\DRC\\Datarotonde Core Client",
                     "--filter",
                     //"Category!=single",
@@ -54,7 +54,7 @@ public class LogViewModel : ViewModelBase, IConsoleOutput
                 var dateTime = DateTime.Now.ToString("yyyyMMddHHmmss");
                 // await File.WriteAllLinesAsync($"C:\\tmp\\coen2_{dateTime}_out.txt", _processor.Out);
                 // await File.WriteAllLinesAsync($"C:\\tmp\\coen2_{dateTime}_err.txt", _processor.Err);
-                StdOut.Invoke(this, $"Ended {result}"); await File.WriteAllLinesAsync($"C:\\tmp\\coen2_{dateTime}_err.txt", _processor.Err);
+                StdOut.Invoke(this, $"Ended {result}");
             });
 
         return new Unregister();

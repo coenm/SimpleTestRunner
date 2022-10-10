@@ -41,7 +41,6 @@ public class Publisher : IDisposable
         try
         {
             _tasks.Add(_publisher.WriteAsync(s, CancellationToken.None));
-            // _publisher.WriteAsync(s, CancellationToken.None).GetAwaiter().GetResult();
         }
         catch (Exception e)
         {

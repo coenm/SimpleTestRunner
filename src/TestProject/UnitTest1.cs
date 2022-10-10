@@ -41,7 +41,7 @@ public class UnitTest1
     [InlineData(6)]
     public void TestC(int i)
     {
-        Thread.Sleep(TimeSpan.FromMilliseconds(i * 100));
+        Thread.Sleep(TimeSpan.FromMilliseconds(i * 1000));
 
         Assert.NotEqual(6, i);
     }

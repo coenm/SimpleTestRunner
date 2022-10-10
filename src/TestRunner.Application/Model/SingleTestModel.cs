@@ -4,13 +4,13 @@ using System;
 using Interface.Data;
 using TestRunViewer.Model;
 
-public class SingleTestModel2
+public class TestModel
 {
     private TestState _state = TestState.Empty;
     private readonly object _syncLock = new();
     public event EventHandler Update = delegate { };
 
-    public SingleTestModel2(Guid testCaseId, string displayName)
+    public TestModel(Guid testCaseId, string displayName)
     {
         TestCaseId = testCaseId;
         DisplayName = displayName;

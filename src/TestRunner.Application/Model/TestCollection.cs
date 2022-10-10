@@ -14,9 +14,9 @@ public class TestCollection : IDisposable/* : ICollection<SingleTestModel>*/
 {
     private readonly IDisposable _subscription;
 
-    private readonly ConcurrentDictionary<Guid, SingleTestModel2> _tests = new();
+    private readonly ConcurrentDictionary<Guid, TestModel> _tests = new();
 
-    public event EventHandler<SingleTestModel2> TestAdded = delegate { };
+    public event EventHandler<TestModel> TestAdded = delegate { };
 
     public TestCollection(ITestMonitor monitor)
     {
@@ -30,20 +30,20 @@ public class TestCollection : IDisposable/* : ICollection<SingleTestModel>*/
                                        {
                                            foreach (TestCaseDto testCase in testRunStartEventArgsDto.TestRunCriteria.Tests)
                                            {
-                                               TryAdd(new SingleTestModel2(testCase.Id, testCase.DisplayName));
+                                               TryAdd(new TestModel(testCase.Id, testCase.DisplayName));
                                            }
                                        }
 
                                        if (data is TestCaseStartEventArgsDto testCaseStartEventArgsDto)
                                        {
                                            TestCaseDto testCase = testCaseStartEventArgsDto.TestElement;
-                                           TryAdd(new SingleTestModel2(testCase.Id, testCase.DisplayName));
+                                           TryAdd(new TestModel(testCase.Id, testCase.DisplayName));
                                        }
 
                                        // update
                                        if (data is TestResultEventArgsDto testResultEventArgsDto)
                                        {
-                                           if (_tests.TryGetValue(testResultEventArgsDto.Result.TestCase.Id, out SingleTestModel2? model))
+                                           if (_tests.TryGetValue(testResultEventArgsDto.Result.TestCase.Id, out TestModel? model))
                                            {
                                                model.UpdateResult(testResultEventArgsDto.Result.Outcome);
                                            }
@@ -51,7 +51,7 @@ public class TestCollection : IDisposable/* : ICollection<SingleTestModel>*/
 
                                        if (data is TestCaseEndEventArgsDto testCaseEndEventArgsDto)
                                        {
-                                           if (_tests.TryGetValue(testCaseEndEventArgsDto.TestCaseId, out SingleTestModel2? model))
+                                           if (_tests.TryGetValue(testCaseEndEventArgsDto.TestCaseId, out TestModel? model))
                                            {
                                                model.UpdateResult(testCaseEndEventArgsDto.TestOutcome);
                                            }
@@ -59,7 +59,7 @@ public class TestCollection : IDisposable/* : ICollection<SingleTestModel>*/
                                    });
     }
 
-    private void TryAdd(SingleTestModel2 model)
+    private void TryAdd(TestModel model)
     {
         if (_tests.TryAdd(model.TestCaseId, model))
         {
