@@ -37,9 +37,9 @@
     <ProjectReference Include="..\Interface.Server\Interface.Server.csproj" />
     <ProjectReference Include="..\Interface\Interface.csproj" />
     <ProjectReference Include="..\Pipe.Server\Pipe.Server.csproj" />
+    <ProjectReference Include="..\PipePublisher.TestLogger\PipePublisher.TestLogger.csproj" />
+    <ProjectReference Include="..\PipePublisherData.Collector\PipePublisherData.Collector.csproj" />
     <ProjectReference Include="..\TestRunner.Core\TestRunner.Core.csproj" />
-    <ProjectReference Include="..\ZmqCollector.Collector\ZmqCollector.Collector.csproj" />
-    <ProjectReference Include="..\ZmqPublisher.testlogger\ZmqPublisher.TestLogger.csproj" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Update="Nerdbank.GitVersioning" Version="3.5.113" />
