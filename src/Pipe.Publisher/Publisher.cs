@@ -8,18 +8,17 @@ using AutoMapper;
 using H.Pipes;
 using Interface;
 using Interface.Data.Logger;
-using Microsoft.VisualStudio.TestPlatform.Utilities;
 using Serialization;
 
 public class Publisher : IDisposable
 {
-    private readonly IOutput _output;
+    private readonly IPublisherOutput _output;
     private readonly IMapper _mapper;
     private readonly Serialization _s;
     private readonly PipeClient<string> _publisher;
-    private readonly List<Task> _tasks = new List<Task>();
+    private readonly List<Task> _tasks = new();
 
-    public Publisher(IOutput output, string pipeName)
+    public Publisher(IPublisherOutput output, string pipeName)
     {
         _output = output ?? throw new ArgumentNullException(nameof(output));
         var config = new MapperConfiguration(cfg => cfg.AddMaps(typeof(InterfaceProject).Assembly));
@@ -44,8 +43,8 @@ public class Publisher : IDisposable
         }
         catch (Exception e)
         {
-            _output.Write($"Could not write dto to pipe. {e.Message}{Environment.NewLine}", OutputLevel.Information, ConsoleColor.Red);
-            _output.Write(s + Environment.NewLine, OutputLevel.Information, ConsoleColor.Red);
+            _output.Write($"Could not write dto to pipe. {e.Message}{Environment.NewLine}");
+            _output.Write(s + Environment.NewLine);
         }
     }
 
@@ -57,7 +56,7 @@ public class Publisher : IDisposable
         }
         catch (Exception)
         {
-            _output.Write("Not all test events are published." + Environment.NewLine, OutputLevel.Information, ConsoleColor.Red);
+            _output.Write("Not all test events are published." + Environment.NewLine);
         }
     }
     

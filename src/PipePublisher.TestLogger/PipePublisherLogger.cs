@@ -3,7 +3,7 @@
 // https://github.com/microsoft/vstest/blob/main/samples/Microsoft.TestPlatform.Protocol/Program.cs
 // https://github.com/Microsoft/vstest-docs/blob/main/RFCs/0007-Editors-API-Specification.md
 
-namespace ZmqPublisher.TestLogger;
+namespace PipePublisher.TestLogger;
 
 using System;
 using System.Collections.Generic;
@@ -24,7 +24,7 @@ public class PipePublisherLogger : ITestLoggerWithParameters, IDisposable
 
     public PipePublisherLogger()
     {
-        _publisher = new Publisher(ConsoleOutput.Instance, GetPipeName());
+        _publisher = new Publisher(new ConsoleAdapter(ConsoleOutput.Instance), GetPipeName());
     }
 
     public void Initialize(TestLoggerEvents events, string testRunDirectory)

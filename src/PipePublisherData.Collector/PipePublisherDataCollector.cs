@@ -5,7 +5,7 @@
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
-namespace ZmqCollector.Collector;
+namespace PipePublisherData.Collector;
 
 using System;
 using System.Collections.Generic;
@@ -24,7 +24,7 @@ public class PipePublisherDataCollector : DataCollector, ITestExecutionEnvironme
 
     public PipePublisherDataCollector()
     {
-        _publisher = new Publisher(ConsoleOutput.Instance, GetPipeName());
+        _publisher = new Publisher(new ConsoleAdapter(ConsoleOutput.Instance), GetPipeName());
     }
 
     public override void Initialize(
