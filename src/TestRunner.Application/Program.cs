@@ -1,6 +1,8 @@
 namespace TestRunner.Application;
 
 using System;
+using Microsoft.Extensions.Configuration;
+using System.IO;
 using Serialization;
 using SimpleInjector;
 using SimpleInjector.Lifestyles;
@@ -43,6 +45,7 @@ public class Program
             var app = new App();
             app.InitializeComponent();
             MainWindow mainWindow = container.GetInstance<MainWindow>();
+            mainWindow.Title = "Tjoeps";
             app.Run(mainWindow);
         }
         catch (Exception ex)
@@ -50,5 +53,17 @@ public class Program
             //Log the exception and exit
             throw;
         }
+    }
+
+    private static IConfiguration SetupConfiguration(string[] args)
+    {
+        IConfigurationBuilder builder = new ConfigurationBuilder()
+                                        .AddCommandLine(args)
+                                        .SetBasePath(Directory.GetCurrentDirectory())
+                                        .AddJsonFile("appsettings.json", optional: true, reloadOnChange: false)
+                                        .AddJsonFile("logging.json", optional: true, reloadOnChange: false)
+                                        .AddEnvironmentVariables();
+
+        return builder.Build();
     }
 }
