@@ -1,7 +1,7 @@
-﻿using AutoMapper;
-using Interface.Data.Collector.Inner;
+namespace Interface.MappingProfiles;
 
-namespace Interface.Poc2.Collector;
+using AutoMapper;
+using Interface.Data.Collector.Inner;
 
 public class CollectorInnerProfile : Profile
 {

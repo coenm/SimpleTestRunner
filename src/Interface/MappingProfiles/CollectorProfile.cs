@@ -1,13 +1,13 @@
-﻿using System;
+using System;
 using AutoMapper;
 using Interface.Data.Collector;
 using Interface.Data.Logger;
 using Microsoft.VisualStudio.TestPlatform.ObjectModel.DataCollection;
 
-namespace Interface.Poc2.Collector;
+namespace Interface.MappingProfiles;
 
 public class CollectorProfile : Profile
-{   
+{
     public CollectorProfile()
     {
         CreateMap<EventArgs, EventArgsBaseDto>()

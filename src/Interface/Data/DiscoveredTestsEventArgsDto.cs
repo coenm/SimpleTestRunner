@@ -4,7 +4,6 @@ using Interface.Data.Logger;
 
 namespace Interface.Data;
 
-// automapper
 public class DiscoveredTestsEventArgsDto : EventArgsBaseDto
 {
     public List<TestCaseDto> DiscoveredTestCases { get; set; }

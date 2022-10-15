@@ -33,8 +33,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PipePublisherData.Collector
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Testing", "Testing", "{76A2AD0F-C654-4F1B-B655-1337C7A683D3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PipePublisher.BuildLogger", "src\PipePublisher.BuildLogger\PipePublisher.BuildLogger.csproj", "{6D20DFDD-FDD3-4ADD-9001-0AD2E3C5C237}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -89,10 +87,6 @@ Global
 		{85708A43-8ACA-4B2B-A491-B188226CD1F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{85708A43-8ACA-4B2B-A491-B188226CD1F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{85708A43-8ACA-4B2B-A491-B188226CD1F8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6D20DFDD-FDD3-4ADD-9001-0AD2E3C5C237}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6D20DFDD-FDD3-4ADD-9001-0AD2E3C5C237}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6D20DFDD-FDD3-4ADD-9001-0AD2E3C5C237}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6D20DFDD-FDD3-4ADD-9001-0AD2E3C5C237}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -104,7 +98,6 @@ Global
 		{A9762A14-4C0D-4873-B0E6-3A74FA47D457} = {06717B26-6182-4731-ABA7-8CB31FE3C0E5}
 		{6C860DC3-D7BC-40C8-A4DD-BB7AADB0D6FF} = {2C8B6075-F2B8-497F-ACD4-11D9FBD41B7C}
 		{85708A43-8ACA-4B2B-A491-B188226CD1F8} = {2C8B6075-F2B8-497F-ACD4-11D9FBD41B7C}
-		{6D20DFDD-FDD3-4ADD-9001-0AD2E3C5C237} = {2C8B6075-F2B8-497F-ACD4-11D9FBD41B7C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {68C8C944-4F12-4E44-B2AC-4181E4763CDC}

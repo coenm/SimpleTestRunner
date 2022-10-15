@@ -2,7 +2,6 @@ using System.Collections.Generic;
 
 namespace Interface.Data.Logger.Inner;
 
-// auto mapper
 public class TestRunStatisticsDto
 {
     // private long this[TestOutcome testOutcome] { get; set; }

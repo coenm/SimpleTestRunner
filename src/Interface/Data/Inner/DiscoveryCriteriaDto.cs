@@ -3,7 +3,6 @@ using System.Collections.Generic;
 
 namespace Interface.Data.Inner;
 
-// automapper
 public class DiscoveryCriteriaDto
 {
     public TimeSpan DiscoveredTestEventTimeout { get; set; }

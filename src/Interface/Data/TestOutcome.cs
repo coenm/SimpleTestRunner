@@ -1,6 +1,5 @@
 namespace Interface.Data;
 
-// AutoMapper
 public enum TestOutcome
 {
     None,

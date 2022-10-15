@@ -3,7 +3,6 @@ using Interface.Data.Logger.Inner;
 
 namespace Interface.Data.Collector.Inner;
 
-// AutoMapper
 public class TestCaseDto : TestObjectDto
 {
     public Guid Id { get; set; }

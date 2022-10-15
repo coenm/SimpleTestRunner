@@ -4,7 +4,6 @@ using Interface.Data.Logger.Base;
 
 namespace Interface.Data.Logger.Inner;
 
-// AutoMapper
 public class TestRunCriteriaDto : BaseTestRunCriteriaBaseDto
 {
     //public Dictionary<string, IEnumerable<string>> AdapterSourceMap { get; set; }

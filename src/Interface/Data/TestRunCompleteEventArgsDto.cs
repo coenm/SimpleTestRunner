@@ -5,7 +5,6 @@ using Interface.Data.Logger.Inner;
 
 namespace Interface.Data;
 
-// Automapper
 public class TestRunCompleteEventArgsDto : EventArgsBaseDto
 {
     public TestRunStatisticsDto TestRunStatistics { get; set; }

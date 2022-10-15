@@ -1,3 +1,6 @@
+namespace Interface.MappingProfiles;
+
+using System;
 using AutoMapper;
 using Interface.Data;
 using Interface.Data.Inner;
@@ -6,9 +9,6 @@ using Interface.Data.Logger.Inner;
 using Microsoft.VisualStudio.TestPlatform.ObjectModel;
 using Microsoft.VisualStudio.TestPlatform.ObjectModel.Client;
 using Microsoft.VisualStudio.TestPlatform.ObjectModel.Logging;
-using System;
-
-namespace Interface.Poc2;
 
 public class LoggerProfile : Profile
 {   
