@@ -21,6 +21,10 @@ public static class DotNetExecutorExtras
             yield return $"--test-adapter-path:{_testAdapterPath.Value}";
             yield return $"--collect:{PipePublisherDataCollectorNaming.DATA_COLLECTOR_FRIENDLY_NAME}";
             yield return $"--logger:{PipePublisherLoggerNaming.FRIENDLY_NAME}";
+            yield return $"--logger:PipePublisher.BuildLogger.dll";
+            yield return $"--distributedlogger:PipePublisher.BuildLogger.dll";
+            // yield return $"/l:{_testAdapterPath.Value}\\PipePublisher.BuildLogger.dll";
+            // yield return $"/l:{_testAdapterPath.Value}\\PipePublisher.BuildLogger.dll";
         }
     }
 }

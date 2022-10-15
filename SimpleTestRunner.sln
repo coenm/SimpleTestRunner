@@ -33,7 +33,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PipePublisherData.Collector
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Testing", "Testing", "{76A2AD0F-C654-4F1B-B655-1337C7A683D3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PipePublisher.BuildLogger", "src\PipePublisher.BuildLogger\PipePublisher.BuildLogger.csproj", "{6D20DFDD-FDD3-4ADD-9001-0AD2E3C5C237}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PipePublisherBuildLogger", "src\PipePublisher.BuildLogger\PipePublisherBuildLogger.csproj", "{6D20DFDD-FDD3-4ADD-9001-0AD2E3C5C237}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

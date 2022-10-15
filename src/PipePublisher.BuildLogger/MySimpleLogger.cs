@@ -1,50 +1,75 @@
-namespace PipePublisher.BuildLogger
+namespace PipePublisherBuildLogger
 {
-    using System.Diagnostics.Tracing;
-    using System.Security.Policy;
+    using System;
+    using Interface.Data.Logger;
     using Interface.Naming;
     using Microsoft.Build.Framework;
     using Microsoft.Build.Utilities;
-    using Microsoft.VisualStudio.TestPlatform.Utilities;
     using Pipe.Publisher;
 
-    //https://learn.microsoft.com/en-us/visualstudio/msbuild/build-loggers?view=vs-2022 
-    public class MySimpleLogger : Logger
+    public class ProjectStartedEventArgsDto : EventArgsBaseDto
     {
-        private readonly Pipe.Publisher.Publisher _publisher;
+        public string Message { get; set; }
+    }
+
+    public class PipePublisherBuildLogger : Logger, INodeLogger
+    {
+        private Pipe.Publisher.Publisher? _publisher;
         private IEventSource? _eventSource;
 
-        public MySimpleLogger()
+        public void Initialize(IEventSource eventSource, int nodeCount)
         {
-            _publisher = new Pipe.Publisher.Publisher(new ConsolePublisherOutput(), GetPipeName());
+            Initialize(eventSource);
         }
 
         public override void Initialize(IEventSource eventSource)
         {
-            _eventSource = eventSource;
+            if (_publisher == null)
+            {
+                _publisher = new Publisher(new ConsolePublisherOutput(), GetPipeName());
 
-            //Register for the ProjectStarted, TargetStarted, and ProjectFinished events
-            _eventSource.ProjectStarted += EventSourceOnProjectStarted;
-            // _eventSource.ProjectStarted += new ProjectStartedEventHandler(eventSource_ProjectStarted);
-            _eventSource.TargetStarted += new TargetStartedEventHandler(eventSource_TargetStarted);
-            _eventSource.ProjectFinished += new ProjectFinishedEventHandler(eventSource_ProjectFinished);
+                _eventSource = eventSource;
+
+                _eventSource.BuildStarted += EventSourceOnBuildStarted;
+                _eventSource.ProjectStarted += EventSourceOnProjectStarted;
+                // _eventSource.ProjectFinished += EventSourceOnProjectFinished;
+            }
+        }
+
+        private void EventSourceOnProjectFinished(object sender, ProjectFinishedEventArgs e)
+        {
+            _publisher?.Send(e, e.GetType().Name);
+        }
+
+        private void EventSourceOnBuildStarted(object sender, BuildStartedEventArgs e)
+        {
+            _publisher?.Send(e, e.GetType().Name);
         }
 
         private void EventSourceOnProjectStarted(object sender, ProjectStartedEventArgs e)
         {
-            // e.ProjectFile
-            _publisher.Send(null, "");
+            var evt = new ProjectStartedEventArgsDto
+                {
+                    Message = e.Message,
+                };
+            _publisher?.Send(evt);
         }
 
         public override void Shutdown()
         {
-            // _eventSource.ProjectStarted -= new ProjectStartedEventHandler(eventSource_ProjectStarted);
-            // _eventSource.TargetStarted -= new TargetStartedEventHandler(eventSource_TargetStarted);
-            // _eventSource.ProjectFinished -= new ProjectFinishedEventHandler(eventSource_ProjectFinished);
+            IEventSource? es = _eventSource;
+            if (es != null)
+            {
+                // es.BuildStarted -= EventSourceOnBuildStarted;
+                // es.ProjectStarted -= EventSourceOnProjectStarted;
+                // es.ProjectFinished -= EventSourceOnProjectFinished;
+            }
 
-            _publisher.Dispose();
+            _publisher?.Dispose();
             base.Shutdown();
         }
+
+
 
         private static string GetPipeName()
         {
@@ -61,19 +86,8 @@ namespace PipePublisher.BuildLogger
                 // do nothing
             }
 
+            return "coen";
             throw new Exception("Could not find port to connect to.");
-        }
-
-        void eventSource_ProjectFinished(object sender, ProjectFinishedEventArgs e)
-        {
-            Console.WriteLine("Project Finished: " + e.ProjectFile);
-        }
-        void eventSource_TargetStarted(object sender, TargetStartedEventArgs e)
-        {
-            if (Verbosity == LoggerVerbosity.Detailed)
-            {
-                Console.WriteLine("Target Started: " + e.TargetName);
-            }
         }
     }
 }
