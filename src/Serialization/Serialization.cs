@@ -32,14 +32,7 @@ namespace Serialization
 
         public string Serialize(EventArgsBaseDto dto)
         {
-            // var dto = _mapper.Map(evt, evt.GetType(), typeof(EventArgsBaseDto)) as EventArgsBaseDto;
-            // dto!.SessionId = _session;
             var @type = dto.GetType().Name;
-
-            // var bytes = JsonSerializer.SerializeToUtf8Bytes(dto, dto.GetType(), _jsonSerializerOptions);
-            // var z85Encoded = Z85Extended.Encode(bytes);
-            // return $"{PREFIX}:{@type.Length}:{@type}:{z85Encoded.Length}:{z85Encoded}";
-
             var s = JsonSerializer.Serialize(dto, dto.GetType(), _jsonSerializerOptions);
             return $"{PREFIX}:{@type.Length}:{@type}:{s.Length}:{s}";
         }
@@ -87,9 +80,6 @@ namespace Serialization
                 ReadOnlySpan<char> payload = unprocessed[..len]; // should be all
 
                 Type @type = _types.Single(x => x.Name.Equals(msgType));
-
-                //var bytes = Z85Extended.Decode(payload.ToString());
-                //var obj = System.Text.Json.JsonSerializer.Deserialize(bytes, @type);
                 var obj = System.Text.Json.JsonSerializer.Deserialize(payload, @type);
                 return obj as EventArgsBaseDto;
             }
