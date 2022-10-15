@@ -6,19 +6,19 @@ using Interface.Naming;
 
 public static class DotNetExecutorExtras
 {
-    private static readonly Lazy<string> TestAdapterPath = new(() =>
+    private static readonly Lazy<string> _testAdapterPath = new(() =>
         {
             var baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
             baseDirectory = baseDirectory.Replace('/', '\\');
             baseDirectory.TrimEnd('\\');
-            return $"--test-adapter-path:{baseDirectory}";
+            return $"{baseDirectory}";
         });
 
     public static IEnumerable<string> AdditionalArguments
     {
         get
         {
-            yield return TestAdapterPath.Value;
+            yield return $"--test-adapter-path:{_testAdapterPath.Value}";
             yield return $"--collect:{PipePublisherDataCollectorNaming.DATA_COLLECTOR_FRIENDLY_NAME}";
             yield return $"--logger:{PipePublisherLoggerNaming.FRIENDLY_NAME}";
         }
