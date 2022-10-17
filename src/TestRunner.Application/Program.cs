@@ -1,8 +1,10 @@
 namespace TestRunner.Application;
 
 using System;
+using System.Diagnostics.CodeAnalysis;
 using Microsoft.Extensions.Configuration;
 using System.IO;
+using System.Linq;
 using Serialization;
 using SimpleInjector;
 using SimpleInjector.Lifestyles;
@@ -21,10 +23,13 @@ public class Program
 
     private static Container Bootstrap()
     {
+        var args = new Args(Environment.GetCommandLineArgs());
+        _ = SetupConfiguration(args.ApplicationArgs); //todo
+
         var container = new Container();
         container.Options.DefaultScopedLifestyle = new AsyncScopedLifestyle();
         container.Register<DotNetExecutable>(Lifestyle.Singleton);
-        container.RegisterInstance(new Args(Environment.GetCommandLineArgs()));
+        container.RegisterInstance(args);
 
         container.Register<MainWindow>(Lifestyle.Singleton);
         container.Register<MainViewModel>(Lifestyle.Singleton);
@@ -45,7 +50,14 @@ public class Program
             var app = new App();
             app.InitializeComponent();
             MainWindow mainWindow = container.GetInstance<MainWindow>();
-            mainWindow.Title = "Tjoeps";
+
+            Args args = container.GetInstance<Args>();
+
+            if (TryGetTitle(args, out var title))
+            {
+                mainWindow.Title = title;
+            }
+
             app.Run(mainWindow);
         }
         catch (Exception ex)
@@ -53,6 +65,26 @@ public class Program
             //Log the exception and exit
             throw;
         }
+    }
+
+    private static bool TryGetTitle(Args args, [NotNullWhen(true)] out string? title)
+    {
+        title = null;
+
+        var item = args.ApplicationArgs.FirstOrDefault(x => x.StartsWith("--title="));
+        if (item == null)
+        {
+            return false;
+        }
+
+        var titleString = item["--title=".Length..];
+        if (string.IsNullOrWhiteSpace(titleString))
+        {
+            return false;
+        }
+
+        title = titleString.Trim();
+        return true;
     }
 
     private static IConfiguration SetupConfiguration(string[] args)

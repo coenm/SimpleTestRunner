@@ -1,6 +1,6 @@
 namespace TestRunner.Application.Config;
 
-public class Configuration
+public class AppConfiguration
 {
     public string Title { get; set; }
 }
