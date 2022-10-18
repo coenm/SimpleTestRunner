@@ -1,4 +1,4 @@
-namespace PipePublisher.TestLogger;
+namespace PipePublisher.TestLogger.Inner;
 
 using System;
 using Microsoft.VisualStudio.TestPlatform.Utilities;

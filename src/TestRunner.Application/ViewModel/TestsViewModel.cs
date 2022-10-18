@@ -3,7 +3,6 @@ namespace TestRunner.Application.ViewModel;
 using System;
 using TestRunner.Application.ViewModel.Common;
 using TestRunner.Core.Model;
-using TestRunViewer.Model;
 
 public class TestsViewModel : ViewModelBase
 {

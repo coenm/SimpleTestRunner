@@ -2,50 +2,46 @@ namespace PipePublisher.TestLogger;
 
 using System;
 using System.Collections.Generic;
-using Interface.Naming;
+using System.Linq;
+using System.Reflection;
 using Microsoft.VisualStudio.TestPlatform.ObjectModel;
 using Microsoft.VisualStudio.TestPlatform.ObjectModel.Client;
-using Microsoft.VisualStudio.TestPlatform.ObjectModel.Logging;
-using Microsoft.VisualStudio.TestPlatform.Utilities;
-using Pipe.Publisher;
-using TestResultEventArgs = Microsoft.VisualStudio.TestPlatform.ObjectModel.Logging.TestResultEventArgs;
 
-[FriendlyName(PipePublisherLoggerNaming.FRIENDLY_NAME)]
-[ExtensionUri(PipePublisherLoggerNaming.EXTENSION_URI)]
+[FriendlyName("pipe-publisher-logger")] //PipePublisherLoggerNaming.FRIENDLY_NAME)]
+[ExtensionUri("https://github.com/coenm/pipe-publisher-logger")] //PipePublisherLoggerNaming.EXTENSION_URI)]
 public class PipePublisherLogger : ITestLoggerWithParameters, IDisposable
 {
-    private readonly Publisher _publisher;
-    private TestLoggerEvents _events;
+    private readonly PluginLoadContext _loadContext;
+    private readonly Assembly _assembly;
+    private readonly ITestLoggerWithParameters? _testLogger;
 
     public PipePublisherLogger()
     {
-        _publisher = new Publisher(new ConsoleAdapter(ConsoleOutput.Instance), GetPipeName());
+        var dllFileName = GetDllFileName();
+        _loadContext = new PluginLoadContext(dllFileName);
+        _assembly = _loadContext.LoadFromAssemblyName(AssemblyName.GetAssemblyName(dllFileName));
+        Type? t = _assembly?.GetTypes().SingleOrDefault(type => typeof(ITestLoggerWithParameters).IsAssignableFrom(type));
+        if (t != null)
+        {
+            _testLogger = Activator.CreateInstance(t) as ITestLoggerWithParameters;
+        }
     }
 
     public void Initialize(TestLoggerEvents events, string testRunDirectory)
     {
-        throw new NotImplementedException();
+        _testLogger?.Initialize(events, testRunDirectory);
     }
 
-    public void Initialize(TestLoggerEvents events, Dictionary<string, string>? parameters)
+    public void Initialize(TestLoggerEvents events, Dictionary<string, string?> parameters)
     {
-        _events = events;
-        _events.DiscoveryStart += Events_DiscoveryStart;
-        _events.DiscoveredTests += EventsOnDiscoveredTests;
-        _events.DiscoveryComplete += EventsOnDiscoveryComplete;
-        _events.DiscoveryMessage += EventsOnDiscoveryMessage;
-
-        _events.TestRunStart += EventsOnTestRunStart;
-        _events.TestRunComplete += EventsOnTestRunComplete;
-        _events.TestResult += EventsOnTestResult;
-        _events.TestRunMessage += EventsOnTestRunMessage;
+        _testLogger?.Initialize(events, parameters);
     }
 
-    private static string GetPipeName()
+    private static string GetDllFileName()
     {
         try
         {
-            var value = Environment.GetEnvironmentVariable(EnvironmentVariables.PIPE_NAME);
+            var value = Environment.GetEnvironmentVariable("TEST_PLUGIN_LOGGER_DLL");
             if (!string.IsNullOrWhiteSpace(value))
             {
                 return value.Trim();
@@ -59,58 +55,9 @@ public class PipePublisherLogger : ITestLoggerWithParameters, IDisposable
         throw new Exception("Could not find pipe name to connect to.");
     }
 
-    private void EventsOnTestRunMessage(object? sender, TestRunMessageEventArgs e)
-    {
-        _publisher.Send(e, "TestRunMessage");
-    }
-
-    private void EventsOnTestResult(object? sender, TestResultEventArgs e)
-    {
-        _publisher.Send(e, "TestResult");
-    }
-
-    private void EventsOnTestRunComplete(object? sender, TestRunCompleteEventArgs e)
-    {
-        _publisher.Send(e, "TestRunComplete");
-    }
-
-    private void EventsOnTestRunStart(object? sender, TestRunStartEventArgs e)
-    {
-        _publisher.Send(e, "TestRunStart");
-    }
-
-    private void EventsOnDiscoveryMessage(object? sender, TestRunMessageEventArgs e)
-    {
-        _publisher.Send(e, "DiscoveryMessage");
-    }
-
-    private void EventsOnDiscoveryComplete(object? sender, DiscoveryCompleteEventArgs e)
-    {
-        _publisher.Send(e, "DiscoveryComplete");
-    }
-
-    private void EventsOnDiscoveredTests(object? sender, DiscoveredTestsEventArgs e)
-    {
-        _publisher.Send(e, "DiscoveredTests");
-    }
-
-    private void Events_DiscoveryStart(object? sender, DiscoveryStartEventArgs e)
-    {
-        _publisher.Send(e, "DiscoveryStart");
-    }
-
     public void Dispose()
     {
-        _events.DiscoveryStart -= Events_DiscoveryStart;
-        _events.DiscoveredTests -= EventsOnDiscoveredTests;
-        _events.DiscoveryComplete -= EventsOnDiscoveryComplete;
-        _events.DiscoveryMessage -= EventsOnDiscoveryMessage;
-
-        _events.TestRunStart -= EventsOnTestRunStart;
-        _events.TestRunComplete -= EventsOnTestRunComplete;
-        _events.TestResult -= EventsOnTestResult;
-        _events.TestRunMessage -= EventsOnTestRunMessage;
-
-        _publisher.Dispose();
+        (_testLogger as IDisposable)?.Dispose();
+        _loadContext.Unload();
     }
 }

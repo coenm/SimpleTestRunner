@@ -39,7 +39,12 @@ public class DotNetTestExecutor
             Command cmd = Command.Run(
                                      executable,
                                      cmdArgs,
-                                     options => options.EnvironmentVariable(EnvironmentVariables.PIPE_NAME, PipeName))
+                                     options =>
+                                         {
+                                             options.EnvironmentVariable(EnvironmentVariables.PIPE_NAME, PipeName);
+                                             options.EnvironmentVariable("TEST_PLUGIN_LOGGER_DLL", "C:\\Projects\\Private\\git\\SimpleTestRunner\\src\\PipePublisher.TestLogger.Inner\\bin\\Release\\net6.0\\PipePublisher.TestLogger.Inner.dll");
+                                             options.EnvironmentVariable("TEST_PLUGIN_COLLECTOR_DLL", "C:\\Projects\\Private\\git\\SimpleTestRunner\\src\\PipePublisherData.Collector.Inner\\bin\\Release\\net6.0\\PipePublisherData.Collector.Inner.dll");
+                                         })
                                  .RedirectTo(stdOut)
                                  .RedirectStandardErrorTo(stdErr);
 

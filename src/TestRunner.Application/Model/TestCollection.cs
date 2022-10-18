@@ -1,4 +1,4 @@
-namespace TestRunner.Core.Model;
+namespace TestRunner.Application.Model;
 
 using System;
 using System.Collections.Concurrent;
@@ -9,6 +9,7 @@ using Interface.Data.Collector.Inner;
 using Interface.Data.Logger;
 using Interface.Data.Logger.Inner;
 using Interface.Server;
+using TestRunner.Core.Model;
 
 public class TestCollection : IDisposable/* : ICollection<SingleTestModel>*/
 {

@@ -1,4 +1,4 @@
-namespace PipePublisherData.Collector;
+namespace PipePublisherData.Collector.Inner;
 
 using System;
 using Microsoft.VisualStudio.TestPlatform.Utilities;

@@ -6,12 +6,6 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.TestPlatform.ObjectModel" Version="17.3.2" />
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\Interface\Interface.csproj" />
-    <ProjectReference Include="..\Pipe.Publisher\Pipe.Publisher.csproj" />
   </ItemGroup>
 
   <ItemGroup>

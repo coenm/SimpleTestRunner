@@ -29,7 +29,7 @@ public class Publisher : IDisposable
         _ = _publisher.ConnectAsync();
     }
     
-    public void Send(EventArgs evt, string caller)
+    public void Send(EventArgs evt)
     {
         if (_mapper.Map(evt, evt.GetType(), typeof(EventArgsBaseDto)) is not EventArgsBaseDto dto)
         {

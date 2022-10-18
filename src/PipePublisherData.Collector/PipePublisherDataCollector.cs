@@ -8,23 +8,29 @@
 namespace PipePublisherData.Collector;
 
 using System;
-using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
 using System.Xml;
-using Interface.Naming;
 using Microsoft.VisualStudio.TestPlatform.ObjectModel.DataCollection;
-using Microsoft.VisualStudio.TestPlatform.Utilities;
-using Pipe.Publisher;
 
-[DataCollectorFriendlyName(PipePublisherDataCollectorNaming.DATA_COLLECTOR_FRIENDLY_NAME)]
-[DataCollectorTypeUri(PipePublisherDataCollectorNaming.DATA_COLLECTOR_TYPE_URI)]
-public class PipePublisherDataCollector : DataCollector, ITestExecutionEnvironmentSpecifier
+[DataCollectorFriendlyName("pipe-publisher-collector")] //PipePublisherDataCollectorNaming.DATA_COLLECTOR_FRIENDLY_NAME)]
+[DataCollectorTypeUri("https://github.com/coenm/pipepublishercollector")] //PipePublisherDataCollectorNaming.DATA_COLLECTOR_TYPE_URI)]
+public class PipePublisherDataCollector : DataCollector
 {
-    private readonly Publisher _publisher;
-    private DataCollectionEvents _events;
+    private readonly PluginLoadContext _loadContext;
+    private readonly Assembly _assembly;
+    private readonly DataCollector? _collector;
 
     public PipePublisherDataCollector()
     {
-        _publisher = new Publisher(new ConsoleAdapter(ConsoleOutput.Instance), GetPipeName());
+        var dllFileName = GetDllFileName();
+        _loadContext = new PluginLoadContext(dllFileName);
+        _assembly = _loadContext.LoadFromAssemblyName(AssemblyName.GetAssemblyName(dllFileName));
+        Type? t = _assembly?.GetTypes().SingleOrDefault(type => typeof(DataCollector).IsAssignableFrom(type));
+        if (t != null)
+        {
+            _collector = Activator.CreateInstance(t) as DataCollector;
+        }
     }
 
     public override void Initialize(
@@ -34,22 +40,19 @@ public class PipePublisherDataCollector : DataCollector, ITestExecutionEnvironme
         DataCollectionLogger logger,
         DataCollectionEnvironmentContext? environmentContext)
     {
-        _events = events;
-        _events.TestHostLaunched += TestHostLaunched_Handler;
-        _events.SessionStart += SessionStarted_Handler;
-        _events.SessionEnd += SessionEnded_Handler;
-        _events.TestCaseStart += Events_TestCaseStart;
-        _events.TestCaseEnd += Events_TestCaseEnd;
-
-        // contains interesting properties?!
-        //environmentContext.SessionDataCollectionContext.xxx
+        _collector?.Initialize(
+            configurationElement,
+            events,
+            dataSink,
+            logger,
+            environmentContext);
     }
 
-    private static string GetPipeName()
+    private static string GetDllFileName()
     {
         try
         {
-            var value = Environment.GetEnvironmentVariable(EnvironmentVariables.PIPE_NAME);
+            var value = Environment.GetEnvironmentVariable("TEST_PLUGIN_COLLECTOR_DLL");
             if (!string.IsNullOrWhiteSpace(value))
             {
                 return value.Trim();
@@ -60,46 +63,12 @@ public class PipePublisherDataCollector : DataCollector, ITestExecutionEnvironme
             // do nothing
         }
 
-        throw new Exception("Could not find port to connect to.");
-    }
-    
-    private void Events_TestCaseEnd(object? sender, TestCaseEndEventArgs e)
-    {
-        _publisher.Send(e, "TestCaseEnd");
-    }
-
-    private void Events_TestCaseStart(object? sender, TestCaseStartEventArgs e)
-    {
-        _publisher.Send(e, "TestCaseStart");
-    }
-
-    private void SessionStarted_Handler(object? sender, SessionStartEventArgs e)
-    {
-        _publisher.Send(e, "SessionStart");
-    }
-
-    private void SessionEnded_Handler(object? sender, SessionEndEventArgs e)
-    {
-        _publisher.Send(e, "SessionEnded");
-    }
-
-    private void TestHostLaunched_Handler(object? sender, TestHostLaunchedEventArgs e)
-    {
-        _publisher.Send(e, "TestHostLaunched");
-    }
-
-    public IEnumerable<KeyValuePair<string, string>> GetTestExecutionEnvironmentVariables()
-    {
-        return new List<KeyValuePair<string, string>> { new KeyValuePair<string, string>("key", "value"), };
+        throw new Exception("Could not find pipe name to connect to.");
     }
 
     protected override void Dispose(bool disposing)
     {
-        _events.TestHostLaunched -= TestHostLaunched_Handler;
-        _events.SessionStart -= SessionStarted_Handler;
-        _events.SessionEnd -= SessionEnded_Handler;
-        _events.TestCaseStart -= Events_TestCaseStart;
-        _events.TestCaseEnd -= Events_TestCaseEnd;
-        _publisher.Dispose();
+        (_collector as IDisposable)?.Dispose();
+        _loadContext.Unload();
     }
 }
