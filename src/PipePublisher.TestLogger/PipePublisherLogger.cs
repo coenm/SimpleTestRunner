@@ -4,23 +4,23 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using Interface.Naming;
 using Microsoft.VisualStudio.TestPlatform.ObjectModel;
 using Microsoft.VisualStudio.TestPlatform.ObjectModel.Client;
 
-[FriendlyName("pipe-publisher-logger")] //PipePublisherLoggerNaming.FRIENDLY_NAME)]
-[ExtensionUri("https://github.com/coenm/pipe-publisher-logger")] //PipePublisherLoggerNaming.EXTENSION_URI)]
+[FriendlyName(PipePublisherLoggerNaming.FRIENDLY_NAME)]
+[ExtensionUri(PipePublisherLoggerNaming.EXTENSION_URI)]
 public class PipePublisherLogger : ITestLoggerWithParameters, IDisposable
 {
     private readonly PluginLoadContext _loadContext;
-    private readonly Assembly _assembly;
     private readonly ITestLoggerWithParameters? _testLogger;
 
     public PipePublisherLogger()
     {
         var dllFileName = GetDllFileName();
         _loadContext = new PluginLoadContext(dllFileName);
-        _assembly = _loadContext.LoadFromAssemblyName(AssemblyName.GetAssemblyName(dllFileName));
-        Type? t = _assembly?.GetTypes().SingleOrDefault(type => typeof(ITestLoggerWithParameters).IsAssignableFrom(type));
+        Assembly assembly = _loadContext.LoadFromAssemblyName(AssemblyName.GetAssemblyName(dllFileName));
+        Type? t = assembly.GetTypes().SingleOrDefault(type => typeof(ITestLoggerWithParameters).IsAssignableFrom(type));
         if (t != null)
         {
             _testLogger = Activator.CreateInstance(t) as ITestLoggerWithParameters;
@@ -41,7 +41,7 @@ public class PipePublisherLogger : ITestLoggerWithParameters, IDisposable
     {
         try
         {
-            var value = Environment.GetEnvironmentVariable("TEST_PLUGIN_LOGGER_DLL");
+            var value = Environment.GetEnvironmentVariable(EnvironmentVariables.TEST_PLUGIN_LOGGER_DLL);
             if (!string.IsNullOrWhiteSpace(value))
             {
                 return value.Trim();

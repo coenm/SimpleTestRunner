@@ -10,6 +10,7 @@
     <PackageReference Include="System.Reactive.Linq" Version="5.0.0" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Interface.Naming\Interface.Naming.csproj" />
     <ProjectReference Include="..\Interface.Server\Interface.Server.csproj" />
     <ProjectReference Include="..\Interface\Interface.csproj" />
     <ProjectReference Include="..\Serialization\Serialization.csproj" />

@@ -11,22 +11,22 @@ using System;
 using System.Linq;
 using System.Reflection;
 using System.Xml;
+using Interface.Naming;
 using Microsoft.VisualStudio.TestPlatform.ObjectModel.DataCollection;
 
-[DataCollectorFriendlyName("pipe-publisher-collector")] //PipePublisherDataCollectorNaming.DATA_COLLECTOR_FRIENDLY_NAME)]
-[DataCollectorTypeUri("https://github.com/coenm/pipepublishercollector")] //PipePublisherDataCollectorNaming.DATA_COLLECTOR_TYPE_URI)]
+[DataCollectorFriendlyName(PipePublisherDataCollectorNaming.DATA_COLLECTOR_FRIENDLY_NAME)]
+[DataCollectorTypeUri(PipePublisherDataCollectorNaming.DATA_COLLECTOR_TYPE_URI)]
 public class PipePublisherDataCollector : DataCollector
 {
     private readonly PluginLoadContext _loadContext;
-    private readonly Assembly _assembly;
     private readonly DataCollector? _collector;
 
     public PipePublisherDataCollector()
     {
         var dllFileName = GetDllFileName();
         _loadContext = new PluginLoadContext(dllFileName);
-        _assembly = _loadContext.LoadFromAssemblyName(AssemblyName.GetAssemblyName(dllFileName));
-        Type? t = _assembly?.GetTypes().SingleOrDefault(type => typeof(DataCollector).IsAssignableFrom(type));
+        Assembly assembly = _loadContext.LoadFromAssemblyName(AssemblyName.GetAssemblyName(dllFileName));
+        Type? t = assembly.GetTypes().SingleOrDefault(type => typeof(DataCollector).IsAssignableFrom(type));
         if (t != null)
         {
             _collector = Activator.CreateInstance(t) as DataCollector;
@@ -52,7 +52,7 @@ public class PipePublisherDataCollector : DataCollector
     {
         try
         {
-            var value = Environment.GetEnvironmentVariable("TEST_PLUGIN_COLLECTOR_DLL");
+            var value = Environment.GetEnvironmentVariable(EnvironmentVariables.TEST_PLUGIN_COLLECTOR_DLL);
             if (!string.IsNullOrWhiteSpace(value))
             {
                 return value.Trim();

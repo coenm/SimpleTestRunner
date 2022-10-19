@@ -15,7 +15,7 @@ using Microsoft.VisualStudio.TestPlatform.ObjectModel.DataCollection;
 using Microsoft.VisualStudio.TestPlatform.Utilities;
 using Pipe.Publisher;
 
-public class PipePublisherDataCollector : DataCollector, ITestExecutionEnvironmentSpecifier
+public class PipePublisherDataCollector : DataCollector
 {
     private readonly Publisher _publisher;
     private DataCollectionEvents _events;
@@ -84,11 +84,6 @@ public class PipePublisherDataCollector : DataCollector, ITestExecutionEnvironme
     private void TestHostLaunched_Handler(object? sender, TestHostLaunchedEventArgs e)
     {
         _publisher.Send(e);
-    }
-
-    public IEnumerable<KeyValuePair<string, string>> GetTestExecutionEnvironmentVariables()
-    {
-        return new List<KeyValuePair<string, string>> { new KeyValuePair<string, string>("key", "value"), };
     }
 
     protected override void Dispose(bool disposing)
